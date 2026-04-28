@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EaseStay.Features.Auth.Presentation;
+using System;
 using System.Windows.Forms;
 
 namespace EaseStay
@@ -22,7 +23,7 @@ namespace EaseStay
         private MainForm()
         {
             InitializeComponent();
-            SetControl(new UserControl());
+            SetControl(new LoginControl());
         }
 
         public void SetControl(UserControl control)
