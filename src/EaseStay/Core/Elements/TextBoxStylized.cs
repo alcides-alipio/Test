@@ -1,13 +1,39 @@
-﻿using System.Drawing;
+﻿using System;
+using System.ComponentModel;
+using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
 namespace EaseStay.Core.Elements
 {
-    internal class TextBoxStylized : UserControl
+    public class TextBoxStylized : UserControl
     {
+        private BorderAttributes _border;
+
+        [Browsable(true)]
+        [Category("Appearance")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        public BorderAttributes Border
+        {
+            get => _border;
+            set
+            {
+                if (_border != null)
+                    _border.Changed -= BorderChanged;
+
+                _border = value;
+
+                if (_border != null)
+                    _border.Changed += BorderChanged;
+
+                Invalidate();
+            }
+        }
+
         public TextBoxStylized()
         {
+            Border = new BorderAttributes();
+
             DoubleBuffered = true;
         }
 
@@ -17,16 +43,12 @@ namespace EaseStay.Core.Elements
 
             Graphics g = e.Graphics;
 
-            g.SmoothingMode = SmoothingMode.HighQuality;
-            g.PixelOffsetMode = PixelOffsetMode.HighQuality;
-            g.CompositingQuality = CompositingQuality.HighQuality;
-            g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+            g.SmoothingMode = SmoothingMode.AntiAlias;
+            g.PixelOffsetMode = PixelOffsetMode.None;
+            g.CompositingQuality = CompositingQuality.HighSpeed;
 
-            g.TranslateTransform(0.5f, 0.5f);
-
-            int diameter = 8 * 2;
-
-            Rectangle rect = new Rectangle(0, 0, Width - 1, Height - 1);
+            int diameter = _border.Radius * 2;
+            Rectangle rect = new Rectangle(3, 3, Width - 6, Height - 6);
 
             using (GraphicsPath path = new GraphicsPath())
             {
@@ -36,12 +58,16 @@ namespace EaseStay.Core.Elements
                 path.AddArc(rect.X, rect.Bottom - diameter, diameter, diameter, 90, 90);
                 path.CloseFigure();
 
-                using (Pen pen = new Pen(Color.Black, 1f))
+                using (Pen pen = new Pen(_border.Color, _border.Stroke))
                 {
-                    pen.Alignment = PenAlignment.Inset;
                     g.DrawPath(pen, path);
                 }
             }
+        }
+
+        private void BorderChanged(object sender, EventArgs e)
+        {
+            Invalidate();
         }
     }
 }
