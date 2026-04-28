@@ -38,6 +38,7 @@
             this.TblLoginLayout = new System.Windows.Forms.TableLayoutPanel();
             this.LbTitleDescription = new System.Windows.Forms.Label();
             this.LbTextDescription = new System.Windows.Forms.Label();
+            this.textBoxStylized1 = new EaseStay.Core.Elements.TextBoxStylized();
             this.TblImageLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBoxLogin)).BeginInit();
             this.TblRowLayout.SuspendLayout();
@@ -155,14 +156,15 @@
             this.TblLoginLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.TblLoginLayout.Controls.Add(this.LbTitleDescription, 1, 0);
             this.TblLoginLayout.Controls.Add(this.LbTextDescription, 1, 1);
+            this.TblLoginLayout.Controls.Add(this.textBoxStylized1, 1, 2);
             this.TblLoginLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TblLoginLayout.Location = new System.Drawing.Point(3, 166);
             this.TblLoginLayout.Name = "TblLoginLayout";
             this.TblLoginLayout.RowCount = 4;
             this.TblLoginLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.TblLoginLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.TblLoginLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.TblLoginLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.TblLoginLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            this.TblLoginLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.TblLoginLayout.Size = new System.Drawing.Size(389, 200);
             this.TblLoginLayout.TabIndex = 1;
             // 
@@ -186,6 +188,13 @@
             this.LbTextDescription.Size = new System.Drawing.Size(240, 51);
             this.LbTextDescription.TabIndex = 3;
             this.LbTextDescription.Text = "Faça login ou registre-se no nosso aplicativo para encontrar sua proxima parada!";
+            // 
+            // textBoxStylized1
+            // 
+            this.textBoxStylized1.Location = new System.Drawing.Point(58, 88);
+            this.textBoxStylized1.Name = "textBoxStylized1";
+            this.textBoxStylized1.Size = new System.Drawing.Size(150, 32);
+            this.textBoxStylized1.TabIndex = 4;
             // 
             // LoginControl
             // 
@@ -219,5 +228,6 @@
         private System.Windows.Forms.Label LbSubtitleLogo;
         private System.Windows.Forms.Label LbTitleDescription;
         private System.Windows.Forms.Label LbTextDescription;
+        private Core.Elements.TextBoxStylized textBoxStylized1;
     }
 }

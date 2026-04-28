@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Elements\TextBoxStylized.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Features\Auth\Presentation\LoginControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
