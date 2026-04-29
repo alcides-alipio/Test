@@ -108,7 +108,7 @@
             this.TblLogoLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.TblLogoLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.TblLogoLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.TblLogoLayout.Size = new System.Drawing.Size(389, 157);
+            this.TblLogoLayout.Size = new System.Drawing.Size(389, 159);
             this.TblLogoLayout.TabIndex = 0;
             // 
             // PBoxImageLogo
@@ -126,7 +126,7 @@
             // 
             this.LbTitleLogo.AutoSize = true;
             this.LbTitleLogo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LbTitleLogo.Font = new System.Drawing.Font("SansSerif", 24F);
+            this.LbTitleLogo.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
             this.LbTitleLogo.Location = new System.Drawing.Point(100, 73);
             this.LbTitleLogo.Margin = new System.Windows.Forms.Padding(3);
             this.LbTitleLogo.Name = "LbTitleLogo";
@@ -139,11 +139,11 @@
             // 
             this.LbSubtitleLogo.AutoSize = true;
             this.LbSubtitleLogo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LbSubtitleLogo.Font = new System.Drawing.Font("SansSerif", 12F);
+            this.LbSubtitleLogo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.LbSubtitleLogo.Location = new System.Drawing.Point(100, 116);
             this.LbSubtitleLogo.Margin = new System.Windows.Forms.Padding(3);
             this.LbSubtitleLogo.Name = "LbSubtitleLogo";
-            this.LbSubtitleLogo.Size = new System.Drawing.Size(188, 38);
+            this.LbSubtitleLogo.Size = new System.Drawing.Size(188, 40);
             this.LbSubtitleLogo.TabIndex = 2;
             this.LbSubtitleLogo.Text = "Encontre um lugar para ficar!";
             this.LbSubtitleLogo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -158,31 +158,31 @@
             this.TblLoginLayout.Controls.Add(this.LbTextDescription, 1, 1);
             this.TblLoginLayout.Controls.Add(this.textBoxStylized1, 1, 2);
             this.TblLoginLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TblLoginLayout.Location = new System.Drawing.Point(3, 166);
+            this.TblLoginLayout.Location = new System.Drawing.Point(3, 168);
             this.TblLoginLayout.Name = "TblLoginLayout";
             this.TblLoginLayout.RowCount = 4;
             this.TblLoginLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.TblLoginLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.TblLoginLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
-            this.TblLoginLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
+            this.TblLoginLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
+            this.TblLoginLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
             this.TblLoginLayout.Size = new System.Drawing.Size(389, 200);
             this.TblLoginLayout.TabIndex = 1;
             // 
             // LbTitleDescription
             // 
             this.LbTitleDescription.AutoSize = true;
-            this.LbTitleDescription.Font = new System.Drawing.Font("SansSerif", 14.25F);
+            this.LbTitleDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.LbTitleDescription.Location = new System.Drawing.Point(58, 3);
             this.LbTitleDescription.Margin = new System.Windows.Forms.Padding(3);
             this.LbTitleDescription.Name = "LbTitleDescription";
-            this.LbTitleDescription.Size = new System.Drawing.Size(181, 22);
+            this.LbTitleDescription.Size = new System.Drawing.Size(176, 24);
             this.LbTitleDescription.TabIndex = 2;
             this.LbTitleDescription.Text = "Bem-vindo de volta!";
             // 
             // LbTextDescription
             // 
             this.LbTextDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.LbTextDescription.Location = new System.Drawing.Point(58, 31);
+            this.LbTextDescription.Location = new System.Drawing.Point(58, 33);
             this.LbTextDescription.Margin = new System.Windows.Forms.Padding(3);
             this.LbTextDescription.Name = "LbTextDescription";
             this.LbTextDescription.Size = new System.Drawing.Size(240, 51);
@@ -191,9 +191,14 @@
             // 
             // textBoxStylized1
             // 
-            this.textBoxStylized1.Location = new System.Drawing.Point(58, 88);
+            this.textBoxStylized1.BackColor = System.Drawing.SystemColors.Window;
+            this.textBoxStylized1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.textBoxStylized1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxStylized1.Location = new System.Drawing.Point(58, 90);
             this.textBoxStylized1.Name = "textBoxStylized1";
-            this.textBoxStylized1.Size = new System.Drawing.Size(150, 32);
+            this.textBoxStylized1.Placeholder = "Placeholder ...";
+            this.textBoxStylized1.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.textBoxStylized1.Size = new System.Drawing.Size(271, 35);
             this.textBoxStylized1.TabIndex = 4;
             // 
             // LoginControl

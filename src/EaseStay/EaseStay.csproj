@@ -46,7 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\Elements\BorderAttributes.cs" />
     <Compile Include="Core\Elements\TextBoxStylized.cs">
       <SubType>UserControl</SubType>
     </Compile>

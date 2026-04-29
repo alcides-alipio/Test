@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EaseStay.Core.Elements;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,16 @@ namespace EaseStay.Features.Auth.Presentation
         public LoginControl()
         {
             InitializeComponent();
+
+            PBoxLogin.Click += (s, e) =>
+            {
+                ActiveControl = TblImageLayout;
+            };
+
+            Load += (s, e) =>
+            {
+                ActiveControl = TblImageLayout;
+            };
         }
     }
 }
