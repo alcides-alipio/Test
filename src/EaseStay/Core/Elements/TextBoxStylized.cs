@@ -1,26 +1,35 @@
 ﻿using System;
 using System.ComponentModel;
+using System.ComponentModel.Design;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using System.Windows.Forms.Design;
 
 namespace EaseStay.Core.Elements
 {
+    [Designer(typeof(TextBoxStylizedDesigner))]
     public class TextBoxStylized : UserControl
     {
         private TextBox _textBox;
+        private Panel _clientArea;
         private bool _isPlaceholderActive = false;
 
-        private Color _borderColor = Color.Gray;
-        private int _borderRadius = 8;
+        #region Private variables for atributes
+
+        private Color _borderColor = Color.FromArgb(213, 218, 223);
+        private int _borderRadius = 0;
         private float _borderWidth = 2f;
         private string _placeholder = string.Empty;
-        private Color _placeholderColor = Color.DarkGray;
+        private Color _placeholderColor = Color.FromArgb(193, 200, 207);
 
+        #endregion
+
+        #region Border Attributes
 
         [Category("Appearance")]
         [Description("Cor da borda")]
-        [DefaultValue(typeof(Color), "Gray")]
+        [DefaultValue(typeof(Color), "213; 218; 223")]
         public Color BorderColor
         {
             get => _borderColor;
@@ -29,15 +38,14 @@ namespace EaseStay.Core.Elements
                 if (value != _borderColor)
                 {
                     _borderColor = value;
-                    UpdateLayout();
-                    Invalidate();
+                    UpdateColors();
                 }
             }
         }
 
         [Category("Appearance")]
         [Description("Raio dos cantos")]
-        [DefaultValue(8)]
+        [DefaultValue(0)]
         public int BorderRadius
         {
             get => _borderRadius;
@@ -46,7 +54,7 @@ namespace EaseStay.Core.Elements
                 if (value != _borderRadius)
                 {
                     _borderRadius = value;
-                    UpdateLayout();
+                    UpdateBorder();
                     Invalidate();
                 }
             }
@@ -54,7 +62,7 @@ namespace EaseStay.Core.Elements
 
         [Category("Appearance")]
         [Description("Espessura da borda")]
-        [DefaultValue(2f)]
+        [DefaultValue(1f)]
         public float BorderWidth
         {
             get => _borderWidth;
@@ -63,15 +71,19 @@ namespace EaseStay.Core.Elements
                 if (value != _borderWidth)
                 {
                     _borderWidth = value;
-                    UpdateLayout();
+                    UpdateBorder();
                     Invalidate();
                 }
             }
         }
 
+        #endregion
+        #region Text Attributes
+
         [Browsable(true)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         [Category("Appearance")]
+        [DefaultValue("")]
         public override string Text
         {
             get => _isPlaceholderActive ? string.Empty : _textBox.Text;
@@ -106,7 +118,7 @@ namespace EaseStay.Core.Elements
 
         [Category("Appearance")]
         [Description("")]
-        [DefaultValue("")]
+        [DefaultValue(typeof(Color), "193; 200; 207")]
         public Color PlaceholderColor
         {
             get => _placeholderColor;
@@ -115,39 +127,43 @@ namespace EaseStay.Core.Elements
                 if (value != _placeholderColor)
                 {
                     _placeholderColor = value;
-                    SetPlaceholder();
-                    Invalidate();
+                    UpdateColors();
                 }
             }
         }
+
+        #endregion
 
         public TextBoxStylized()
         {
             DoubleBuffered = true;
 
             base.BackColor = SystemColors.Window;
+            Cursor = Cursors.IBeam;
 
+            _clientArea = new Panel
+            {
+                Margin = Padding.Empty
+            };
             _textBox = new TextBox
             {
                 BorderStyle = BorderStyle.None,
-                Multiline = true,
+                Margin = Padding.Empty,
                 Text = string.Empty
             };
-            Controls.Add(_textBox);
+            Controls.Add(_clientArea);
+            _clientArea.Controls.Add(_textBox);
 
-            Cursor = Cursors.IBeam;
-            Text = string.Empty;
-
-            Resize += (s, e) => UpdateLayout();
-            BackColorChanged += (s, e) => UpdateLayout();
-            ForeColorChanged += (s, e) => UpdateLayout();
+            Resize += (s, e) => UpdateAll();
+            BackColorChanged += (s, e) => UpdateColors();
+            ForeColorChanged += (s, e) => UpdateColors();
             Click += (s, e) => _textBox.Focus();
             Load += (s, e) => SetPlaceholder();
 
+            _clientArea.Click += (s, e) => _textBox.Focus();
+
             _textBox.Enter += (s, e) => UnsetPlaceholder();
             _textBox.Leave += (s, e) => SetPlaceholder();
-
-            UpdateLayout();
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -164,10 +180,16 @@ namespace EaseStay.Core.Elements
 
             using (GraphicsPath path = new GraphicsPath())
             {
-                path.AddArc(rect.X, rect.Y, diameter, diameter, 180, 90);
-                path.AddArc(rect.Right - diameter, rect.Y, diameter, diameter, 270, 90);
-                path.AddArc(rect.Right - diameter, rect.Bottom - diameter, diameter, diameter, 0, 90);
-                path.AddArc(rect.X, rect.Bottom - diameter, diameter, diameter, 90, 90);
+                if (diameter <= 0)
+                    path.AddRectangle(rect);
+                else
+                {
+                    path.AddArc(rect.X, rect.Y, diameter, diameter, 180, 90);
+                    path.AddArc(rect.Right - diameter, rect.Y, diameter, diameter, 270, 90);
+                    path.AddArc(rect.Right - diameter, rect.Bottom - diameter, diameter, diameter, 0, 90);
+                    path.AddArc(rect.X, rect.Bottom - diameter, diameter, diameter, 90, 90);
+                }
+
                 path.CloseFigure();
 
                 using (SolidBrush brush = new SolidBrush(BackColor))
@@ -198,7 +220,27 @@ namespace EaseStay.Core.Elements
             }
         }
 
-        private void UpdateLayout()
+        private void UpdateAll()
+        {
+            UpdateBorder();
+            UpdateTextBox();
+        }
+
+        private void UpdateColors()
+        {
+            _textBox.BackColor = BackColor;
+            _textBox.ForeColor = ForeColor;
+
+            Invalidate();
+        }
+
+        private void UpdateBorder()
+        {
+            UpdateTextBox();
+            Invalidate();
+        }
+
+        private void UpdateTextBox()
         {
             int border = (int)Math.Ceiling(_borderWidth);
             int cornerInset = (int)Math.Ceiling(_borderRadius / 2f);
@@ -209,9 +251,13 @@ namespace EaseStay.Core.Elements
             int w = Math.Max(0, ClientSize.Width - (inset * 2));
             int h = Math.Max(0, ClientSize.Height - (inset * 2));
 
-            _textBox.Bounds = new Rectangle(x, y, w, h);
-            _textBox.BackColor = BackColor;
-            _textBox.ForeColor = _isPlaceholderActive ? _placeholderColor : ForeColor;
+            _clientArea.Bounds = new Rectangle(x, y, w, h);
+            _textBox.Location = new Point(
+                _textBox.Location.X,
+                (_textBox.Parent.ClientSize.Height - _textBox.ClientSize.Height) / 2
+            );
+
+
         }
 
         private void SetPlaceholder()
@@ -234,5 +280,115 @@ namespace EaseStay.Core.Elements
                 _textBox.ForeColor = ForeColor;
             }
         }
+    }
+
+    public class TextBoxStylizedDesigner : ControlDesigner
+    {
+        public override DesignerActionListCollection ActionLists
+        {
+            get
+            {
+                return new DesignerActionListCollection
+                {
+                    new TextBoxStylizedActionList(Component)
+                };
+            }
+        }
+    }
+
+    public class TextBoxStylizedActionList : DesignerActionList
+    {
+        private TextBoxStylized _control;
+        private DesignerActionUIService _service;
+
+        public TextBoxStylizedActionList(IComponent component)
+            : base(component)
+        {
+            _control = (TextBoxStylized)component;
+            _service = GetService(typeof(DesignerActionUIService)) as DesignerActionUIService;
+        }
+
+        public override DesignerActionItemCollection GetSortedActionItems()
+        {
+            var items = new DesignerActionItemCollection
+            {
+                new DesignerActionPropertyItem("Font", "Font", "TextStyle"),
+                new DesignerActionPropertyItem("Text", "Text", "TextStyle"),
+                new DesignerActionPropertyItem("PlaceholderText", "PlaceholderText", "TextStyle"),
+
+                new DesignerActionPropertyItem("BorderRadius", "BorderRadius", "Details"),
+                new DesignerActionPropertyItem("BorderWidth", "BorderWidth", "Details"),
+                new DesignerActionPropertyItem("BorderColor", "BorderColor", "Details"),
+                new DesignerActionPropertyItem("ForeColor", "ForeColor", "Details"),
+                new DesignerActionPropertyItem("PlaceholderColor", "PlaceholderColor", "Details"),
+            };
+
+            return items;
+        }
+
+        #region TextStyle Attributes
+
+        private void SetProperty(string name, object value)
+        {
+            TypeDescriptor.GetProperties(_control)[name]
+                .SetValue(_control, value);
+
+            _service?.Refresh(_control);
+        }
+
+        public Font Font
+        {
+            get => _control.Font;
+            set => SetProperty(nameof(_control.Font), value);
+        }
+
+        public string Text
+        {
+            get => _control.Text;
+            set => SetProperty(nameof(_control.Text), value);
+        }
+
+        public string PlaceholderText
+        {
+            get => _control.Placeholder;
+            set => SetProperty(nameof(_control.Placeholder), value);
+        }
+
+        #endregion
+
+        #region Details Attributes
+
+        public Color BorderColor
+        {
+            get => _control.BorderColor;
+            set => SetProperty(nameof(_control.BorderColor), value);
+        }
+
+        public Color ForeColor
+        {
+            get => _control.ForeColor;
+            set => SetProperty(nameof(_control.ForeColor), value);
+        }
+
+        public int BorderRadius
+        {
+            get => _control.BorderRadius;
+            set => SetProperty(nameof(_control.BorderRadius), value);
+        }
+
+        public float BorderWidth
+        {
+            get => _control.BorderWidth;
+            set => SetProperty(nameof(_control.BorderWidth), value);
+        }
+
+        public Color PlaceholderColor
+        {
+            get => _control.PlaceholderColor;
+            set => SetProperty(nameof(_control.PlaceholderColor), value);
+        }
+
+        #endregion
+
     }
 }
