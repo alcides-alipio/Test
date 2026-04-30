@@ -229,7 +229,11 @@ namespace EaseStay.Core.Elements
         private void UpdateColors()
         {
             _textBox.BackColor = BackColor;
-            _textBox.ForeColor = ForeColor;
+
+            if (_isPlaceholderActive)
+                _textBox.ForeColor = PlaceholderColor;
+            else
+                _textBox.ForeColor = ForeColor;
 
             Invalidate();
         }
