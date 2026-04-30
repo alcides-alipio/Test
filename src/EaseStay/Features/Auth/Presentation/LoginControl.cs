@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,15 +19,56 @@ namespace EaseStay.Features.Auth.Presentation
         {
             InitializeComponent();
 
-            PBoxLogin.Click += (s, e) =>
-            {
-                ActiveControl = TblImageLayout;
-            };
+            PBoxLogin.Click += ClearFocus;
+            Load += ClearFocus;
 
-            Load += (s, e) =>
+            WireUpControlEvents(this);
+        }
+
+        private void WireUpControlEvents(Control parent)
+        {
+            foreach (Control control in parent.Controls)
             {
-                ActiveControl = TblImageLayout;
-            };
+                if (control is Label label && label.Name.StartsWith("LbBtn"))
+                {
+                    var normalFont = label.Font;
+                    var underlineFont = new Font(normalFont, normalFont.Style | FontStyle.Underline);
+
+                    label.MouseEnter += (s, e) =>
+                    {
+                        label.Font = underlineFont;
+                    };
+
+                    label.MouseLeave += (s, e) =>
+                    {
+                        label.Font = normalFont;
+                    };
+                }
+                else if (control is TableLayoutPanel panel)
+                {
+                    panel.Click += ClearFocus;
+                }
+
+                if (control.HasChildren)
+                {
+                    WireUpControlEvents(control);
+                }
+            }
+        }
+
+        private void ClearFocus(object s, EventArgs e)
+        {
+            ActiveControl = TblImageLayout;
+        }
+
+        private void BtnLogin_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LbBtnRegister_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
