@@ -14,38 +14,40 @@ namespace EaseStay.Features.Auth.Presentation
             InitializeComponent();
 
             PBoxLogin.Click += ClearFocus;
-            Load += ClearFocus;
 
-            WireUpControlEvents(this);
+            SetControlEvents(this, true);
         }
 
-        private void WireUpControlEvents(Control parent)
+        protected override void OnLoad(EventArgs e)
+        {
+            ClearFocus(null, null);
+            base.OnLoad(e);
+        }
+
+        private void Cleanup(bool disposing)
+        {
+            if (disposing)
+            {
+                PBoxLogin.Click -= ClearFocus;
+                SetControlEvents(this, false);
+            }
+        }
+
+        private void SetControlEvents(Control parent, bool enabled)
         {
             foreach (Control control in parent.Controls)
             {
-                if (control is Label label && label.Name.StartsWith("LbBtn"))
+                if (control is TableLayoutPanel panel)
                 {
-                    var normalFont = label.Font;
-                    var underlineFont = new Font(normalFont, normalFont.Style | FontStyle.Underline);
-
-                    label.MouseEnter += (s, e) =>
-                    {
-                        label.Font = underlineFont;
-                    };
-
-                    label.MouseLeave += (s, e) =>
-                    {
-                        label.Font = normalFont;
-                    };
-                }
-                else if (control is TableLayoutPanel panel)
-                {
-                    panel.Click += ClearFocus;
+                    if (enabled)
+                        panel.Click += ClearFocus;
+                    else
+                        panel.Click += ClearFocus;
                 }
 
                 if (control.HasChildren)
                 {
-                    WireUpControlEvents(control);
+                    SetControlEvents(control, enabled);
                 }
             }
         }
@@ -58,7 +60,7 @@ namespace EaseStay.Features.Auth.Presentation
         private void BtnLogin_Click(object s, EventArgs e)
         {
             List<dynamic> invalidControls = new List<dynamic>();
-            
+
             if (string.IsNullOrWhiteSpace(TBoxEmail.Text))
                 invalidControls.Add(TBoxEmail);
 
@@ -74,7 +76,12 @@ namespace EaseStay.Features.Auth.Presentation
 
         private void LbBtnRegister_Click(object sender, EventArgs e)
         {
+            MainForm.Instance.SetControl(new UserControl());
+        }
 
+        private void LbBtnRecoverAccount_Click(object sender, EventArgs e)
+        {
+            MainForm.Instance.SetControl(new UserControl());
         }
     }
 }

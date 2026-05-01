@@ -66,6 +66,9 @@
     <Compile Include="Core\Database\Database.cs" />
     <Compile Include="Core\Database\SqlInsertBuilder.cs" />
     <Compile Include="Core\Database\SqlSelectBuilder.cs" />
+    <Compile Include="Core\Elements\LabelButtonStylized.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Core\Elements\TextBoxStylized.cs">
       <SubType>UserControl</SubType>
     </Compile>

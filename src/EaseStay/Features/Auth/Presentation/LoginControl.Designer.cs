@@ -13,6 +13,7 @@
         /// <param name="disposing">true se for necessário descartar os recursos gerenciados; caso contrário, false.</param>
         protected override void Dispose(bool disposing)
         {
+            Cleanup(disposing);
             if (disposing && (components != null))
             {
                 components.Dispose();
@@ -42,11 +43,11 @@
             this.TBoxPassword = new EaseStay.Core.Elements.TextBoxStylized();
             this.BtnLogin = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.LbBtnRecoverAccount = new System.Windows.Forms.Label();
             this.CBoxRememberMe = new System.Windows.Forms.CheckBox();
             this.TblRegisterLayout = new System.Windows.Forms.TableLayoutPanel();
             this.LbRegisterText = new System.Windows.Forms.Label();
-            this.LbBtnRegister = new System.Windows.Forms.Label();
+            this.LbBtnRegister = new EaseStay.Core.Elements.LabelButtonStylized();
+            this.LbBtnRecoverAccount = new EaseStay.Core.Elements.LabelButtonStylized();
             this.TblImageLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBoxLogin)).BeginInit();
             this.TblRowLayout.SuspendLayout();
@@ -261,8 +262,8 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.Controls.Add(this.LbBtnRecoverAccount, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.CBoxRememberMe, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.LbBtnRecoverAccount, 2, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(53, 169);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
@@ -271,17 +272,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(265, 23);
             this.tableLayoutPanel1.TabIndex = 7;
-            // 
-            // LbBtnRecoverAccount
-            // 
-            this.LbBtnRecoverAccount.AutoSize = true;
-            this.LbBtnRecoverAccount.ForeColor = System.Drawing.Color.Blue;
-            this.LbBtnRecoverAccount.Location = new System.Drawing.Point(154, 3);
-            this.LbBtnRecoverAccount.Margin = new System.Windows.Forms.Padding(3);
-            this.LbBtnRecoverAccount.Name = "LbBtnRecoverAccount";
-            this.LbBtnRecoverAccount.Size = new System.Drawing.Size(108, 13);
-            this.LbBtnRecoverAccount.TabIndex = 2;
-            this.LbBtnRecoverAccount.Text = "Esqueci minha senha";
             // 
             // CBoxRememberMe
             // 
@@ -324,14 +314,24 @@
             // LbBtnRegister
             // 
             this.LbBtnRegister.AutoSize = true;
-            this.LbBtnRegister.ForeColor = System.Drawing.Color.Blue;
             this.LbBtnRegister.Location = new System.Drawing.Point(202, 3);
             this.LbBtnRegister.Margin = new System.Windows.Forms.Padding(3);
             this.LbBtnRegister.Name = "LbBtnRegister";
             this.LbBtnRegister.Size = new System.Drawing.Size(80, 13);
-            this.LbBtnRegister.TabIndex = 1;
+            this.LbBtnRegister.TabIndex = 3;
             this.LbBtnRegister.Text = "Registrar Agora";
             this.LbBtnRegister.Click += new System.EventHandler(this.LbBtnRegister_Click);
+            // 
+            // LbBtnRecoverAccount
+            // 
+            this.LbBtnRecoverAccount.AutoSize = true;
+            this.LbBtnRecoverAccount.Location = new System.Drawing.Point(154, 3);
+            this.LbBtnRecoverAccount.Margin = new System.Windows.Forms.Padding(3);
+            this.LbBtnRecoverAccount.Name = "LbBtnRecoverAccount";
+            this.LbBtnRecoverAccount.Size = new System.Drawing.Size(108, 13);
+            this.LbBtnRecoverAccount.TabIndex = 3;
+            this.LbBtnRecoverAccount.Text = "Esqueci minha senha";
+            this.LbBtnRecoverAccount.Click += new System.EventHandler(this.LbBtnRecoverAccount_Click);
             // 
             // LoginControl
             // 
@@ -363,20 +363,20 @@
         private System.Windows.Forms.PictureBox PBoxLogin;
         private System.Windows.Forms.TableLayoutPanel TblRowLayout;
         private System.Windows.Forms.TableLayoutPanel TblLogoLayout;
-        private System.Windows.Forms.TableLayoutPanel TblLoginLayout;
         private System.Windows.Forms.PictureBox PBoxImageLogo;
         private System.Windows.Forms.Label LbTitleLogo;
         private System.Windows.Forms.Label LbSubtitleLogo;
+        private System.Windows.Forms.TableLayoutPanel TblLoginLayout;
         private System.Windows.Forms.Label LbTitleDescription;
         private System.Windows.Forms.Label LbTextDescription;
         private Core.Elements.TextBoxStylized TBoxEmail;
         private Core.Elements.TextBoxStylized TBoxPassword;
-        private System.Windows.Forms.TableLayoutPanel TblRegisterLayout;
-        private System.Windows.Forms.Label LbRegisterText;
-        private System.Windows.Forms.Label LbBtnRegister;
         private System.Windows.Forms.Button BtnLogin;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label LbBtnRecoverAccount;
         private System.Windows.Forms.CheckBox CBoxRememberMe;
+        private System.Windows.Forms.TableLayoutPanel TblRegisterLayout;
+        private System.Windows.Forms.Label LbRegisterText;
+        private Core.Elements.LabelButtonStylized LbBtnRegister;
+        private Core.Elements.LabelButtonStylized LbBtnRecoverAccount;
     }
 }
