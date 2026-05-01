@@ -1,15 +1,9 @@
-﻿using EaseStay.Core.Elements;
+﻿using EaseStay.Core;
+using EaseStay.Core.Database;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace EaseStay.Features.Auth.Presentation
 {
@@ -61,9 +55,21 @@ namespace EaseStay.Features.Auth.Presentation
             ActiveControl = TblImageLayout;
         }
 
-        private void BtnLogin_Click(object sender, EventArgs e)
+        private void BtnLogin_Click(object s, EventArgs e)
         {
+            List<dynamic> invalidControls = new List<dynamic>();
+            
+            if (string.IsNullOrWhiteSpace(TBoxEmail.Text))
+                invalidControls.Add(TBoxEmail);
 
+            if (string.IsNullOrWhiteSpace(TBoxPassword.Text))
+                invalidControls.Add(TBoxPassword);
+
+            if (invalidControls.Count > 0)
+            {
+                Utils.FlashBorders(invalidControls.ToArray());
+                return;
+            }
         }
 
         private void LbBtnRegister_Click(object sender, EventArgs e)

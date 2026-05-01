@@ -69,6 +69,7 @@
     <Compile Include="Core\Elements\TextBoxStylized.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Core\Utils.cs" />
     <Compile Include="Features\Auth\Presentation\LoginControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
