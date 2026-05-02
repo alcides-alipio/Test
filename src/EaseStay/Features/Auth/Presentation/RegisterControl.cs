@@ -1,4 +1,10 @@
 ﻿using EaseStay.Core;
+using EaseStay.Core.Database;
+using EaseStay.Core.Elements;
+using EaseStay.Features.Auth.Data.Repositories;
+using EaseStay.Features.Auth.Domain.Entities;
+using EaseStay.Features.Auth.Domain.Repositories;
+using EaseStay.Features.Auth.Domain.UseCases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -64,8 +70,57 @@ namespace EaseStay.Features.Auth.Presentation
             MainForm.Instance.SetControl(new LoginControl());
         }
 
-        private void BtnRegister_Click(object sender, EventArgs e)
+        private void ValidateControls(Control parent, List<dynamic> invalidControls)
         {
+            foreach (Control control in parent.Controls)
+            {
+                if (control is TextBoxStylized tbox)
+                {
+                    if (string.IsNullOrWhiteSpace(tbox.Text))
+                        invalidControls.Add(tbox);
+                }
+
+                if (control.HasChildren)
+                    ValidateControls(control, invalidControls);
+            }
+        }
+
+        private async void BtnRegister_Click(object sender, EventArgs e)
+        {
+            List<dynamic> invalidControls = new List<dynamic>();
+
+            ValidateControls(this, invalidControls);
+
+            if (invalidControls.Count > 0)
+            {
+                Utils.FlashBorders(invalidControls.ToArray());
+                return;
+            }
+
+            if (TBoxPassword.Text != TBoxConfirmPassword.Text)
+            {
+                Utils.FlashBorders(TBoxPassword, TBoxConfirmPassword);
+                MessageBox.Show("As passwords não coincidem", "Erro de Registro");
+                return;
+            }
+
+            IUserRepository repo = new UserRepository();
+            RegisterUseCase register = new RegisterUseCase(repo);
+
+            User user = await register.Execute(
+                TBoxEmail.Text,
+                TBoxFirstName.Text,
+                TBoxLastName.Text,
+                TBoxPassword.Text
+            );
+
+            if (user == null)
+            {
+                MessageBox.Show("O utilizador já existe!", "Erro de Registro");
+                return;
+            }
+
+            MainForm.Instance.SetControl(new LoginControl());
         }
     }
 }

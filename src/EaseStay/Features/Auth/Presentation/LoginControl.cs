@@ -1,5 +1,9 @@
 ﻿using EaseStay.Core;
 using EaseStay.Core.Database;
+using EaseStay.Features.Auth.Data.Repositories;
+using EaseStay.Features.Auth.Domain.Entities;
+using EaseStay.Features.Auth.Domain.Repositories;
+using EaseStay.Features.Auth.Domain.UseCases;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -55,7 +59,7 @@ namespace EaseStay.Features.Auth.Presentation
             ActiveControl = TblImageLayout;
         }
 
-        private void BtnLogin_Click(object s, EventArgs e)
+        private async void BtnLogin_Click(object s, EventArgs e)
         {
             List<dynamic> invalidControls = new List<dynamic>();
 
@@ -70,6 +74,22 @@ namespace EaseStay.Features.Auth.Presentation
                 Utils.FlashBorders(invalidControls.ToArray());
                 return;
             }
+
+            IUserRepository repo = new UserRepository();
+            LoginUseCase login = new LoginUseCase(repo);
+
+            User user = await login.Execute(
+                TBoxEmail.Text,
+                TBoxPassword.Text
+            );
+
+            if (user == null)
+            {
+                MessageBox.Show("Credenciais Invalidas", "Erro de Login");
+                return;
+            }
+
+            MessageBox.Show("Hello " + user.FirstName + "!");
         }
 
         private void LbBtnRegister_Click(object sender, EventArgs e)

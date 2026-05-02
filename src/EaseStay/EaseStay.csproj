@@ -72,7 +72,14 @@
     <Compile Include="Core\Elements\TextBoxStylized.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Core\Settings.cs" />
     <Compile Include="Core\Utils.cs" />
+    <Compile Include="Features\Auth\Data\Models\UserModel.cs" />
+    <Compile Include="Features\Auth\Data\Repositories\UserRepository.cs" />
+    <Compile Include="Features\Auth\Domain\Entities\User.cs" />
+    <Compile Include="Features\Auth\Domain\Repositories\IUserRepository.cs" />
+    <Compile Include="Features\Auth\Domain\UseCases\LoginUseCase.cs" />
+    <Compile Include="Features\Auth\Domain\UseCases\RegisterUseCase.cs" />
     <Compile Include="Features\Auth\Presentation\LoginControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

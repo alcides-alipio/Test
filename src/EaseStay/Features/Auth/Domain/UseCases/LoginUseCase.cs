@@ -1,0 +1,33 @@
+﻿using EaseStay.Features.Auth.Domain.Entities;
+using EaseStay.Features.Auth.Domain.Repositories;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace EaseStay.Features.Auth.Domain.UseCases
+{
+    internal class LoginUseCase
+    {
+        private readonly IUserRepository _repository;
+
+        public LoginUseCase(IUserRepository userRepository)
+        {
+            _repository = userRepository;
+        }
+
+        public async Task<User> Execute(string email, string password)
+        {
+            User user = await _repository.GetByEmailAsync(email);
+
+            if (user == null)
+                return null;
+
+            if (!BCrypt.Net.BCrypt.Verify(password, user.PasswordHash))
+                user = null;
+
+            return user;
+        }
+    }
+}

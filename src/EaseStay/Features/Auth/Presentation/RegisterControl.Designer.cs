@@ -225,7 +225,7 @@
             this.TBoxEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TBoxEmail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.TBoxEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.TBoxEmail.ForeColor = System.Drawing.SystemColors.ControlText;
             this.TBoxEmail.Location = new System.Drawing.Point(56, 90);
             this.TBoxEmail.Name = "TBoxEmail";
             this.TBoxEmail.Placeholder = "E-mail";

@@ -44,10 +44,10 @@
             this.BtnLogin = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.CBoxRememberMe = new System.Windows.Forms.CheckBox();
+            this.LbBtnRecoverAccount = new EaseStay.Core.Elements.LabelButtonStylized();
             this.TblRegisterLayout = new System.Windows.Forms.TableLayoutPanel();
             this.LbRegisterText = new System.Windows.Forms.Label();
             this.LbBtnRegister = new EaseStay.Core.Elements.LabelButtonStylized();
-            this.LbBtnRecoverAccount = new EaseStay.Core.Elements.LabelButtonStylized();
             this.TblImageLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBoxLogin)).BeginInit();
             this.TblRowLayout.SuspendLayout();
@@ -220,7 +220,7 @@
             this.TBoxEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TBoxEmail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.TBoxEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.TBoxEmail.ForeColor = System.Drawing.SystemColors.ControlText;
             this.TBoxEmail.Location = new System.Drawing.Point(56, 90);
             this.TBoxEmail.Name = "TBoxEmail";
             this.TBoxEmail.Placeholder = "E-mail";
@@ -283,6 +283,17 @@
             this.CBoxRememberMe.Text = "Lembrar de mim";
             this.CBoxRememberMe.UseVisualStyleBackColor = true;
             // 
+            // LbBtnRecoverAccount
+            // 
+            this.LbBtnRecoverAccount.AutoSize = true;
+            this.LbBtnRecoverAccount.Location = new System.Drawing.Point(154, 3);
+            this.LbBtnRecoverAccount.Margin = new System.Windows.Forms.Padding(3);
+            this.LbBtnRecoverAccount.Name = "LbBtnRecoverAccount";
+            this.LbBtnRecoverAccount.Size = new System.Drawing.Size(108, 13);
+            this.LbBtnRecoverAccount.TabIndex = 3;
+            this.LbBtnRecoverAccount.Text = "Esqueci minha senha";
+            this.LbBtnRecoverAccount.Click += new System.EventHandler(this.LbBtnRecoverAccount_Click);
+            // 
             // TblRegisterLayout
             // 
             this.TblRegisterLayout.AutoSize = true;
@@ -321,17 +332,6 @@
             this.LbBtnRegister.TabIndex = 3;
             this.LbBtnRegister.Text = "Registrar Agora";
             this.LbBtnRegister.Click += new System.EventHandler(this.LbBtnRegister_Click);
-            // 
-            // LbBtnRecoverAccount
-            // 
-            this.LbBtnRecoverAccount.AutoSize = true;
-            this.LbBtnRecoverAccount.Location = new System.Drawing.Point(154, 3);
-            this.LbBtnRecoverAccount.Margin = new System.Windows.Forms.Padding(3);
-            this.LbBtnRecoverAccount.Name = "LbBtnRecoverAccount";
-            this.LbBtnRecoverAccount.Size = new System.Drawing.Size(108, 13);
-            this.LbBtnRecoverAccount.TabIndex = 3;
-            this.LbBtnRecoverAccount.Text = "Esqueci minha senha";
-            this.LbBtnRecoverAccount.Click += new System.EventHandler(this.LbBtnRecoverAccount_Click);
             // 
             // LoginControl
             // 
