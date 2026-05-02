@@ -260,8 +260,7 @@ namespace EaseStay.Core.Elements
                 _textBox.Location.X,
                 (_textBox.Parent.ClientSize.Height - _textBox.ClientSize.Height) / 2
             );
-
-
+            _textBox.Size = new Size(_clientArea.Width, _textBox.Size.Height);
         }
 
         private void SetPlaceholder()
