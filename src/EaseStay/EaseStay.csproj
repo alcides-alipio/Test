@@ -79,6 +79,12 @@
     <Compile Include="Features\Auth\Presentation\LoginControl.Designer.cs">
       <DependentUpon>LoginControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\Auth\Presentation\RegisterControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\Auth\Presentation\RegisterControl.Designer.cs">
+      <DependentUpon>RegisterControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForms.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +95,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Features\Auth\Presentation\LoginControl.resx">
       <DependentUpon>LoginControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Auth\Presentation\RegisterControl.resx">
+      <DependentUpon>RegisterControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForms.resx">
       <DependentUpon>MainForms.cs</DependentUpon>
