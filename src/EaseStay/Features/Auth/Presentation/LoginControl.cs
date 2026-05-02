@@ -9,13 +9,24 @@ namespace EaseStay.Features.Auth.Presentation
 {
     public partial class LoginControl : UserControl
     {
+        private readonly Action<TableLayoutPanel> _subscribe;
+        private readonly Action<TableLayoutPanel> _unsubscribe;
+
         public LoginControl()
         {
             InitializeComponent();
 
+            _subscribe = b => b.Click += ClearFocus;
+            _unsubscribe = b => b.Click -= ClearFocus;
+
             PBoxLogin.Click += ClearFocus;
 
-            SetControlEvents(this, true);
+            Utils.SetControlEvents<TableLayoutPanel>(
+                this,
+                _subscribe,
+                _unsubscribe,
+                true
+            );
         }
 
         protected override void OnLoad(EventArgs e)
@@ -26,30 +37,17 @@ namespace EaseStay.Features.Auth.Presentation
 
         private void Cleanup(bool disposing)
         {
-            if (disposing)
-            {
-                PBoxLogin.Click -= ClearFocus;
-                SetControlEvents(this, false);
-            }
-        }
+            if (!disposing)
+                return;
 
-        private void SetControlEvents(Control parent, bool enabled)
-        {
-            foreach (Control control in parent.Controls)
-            {
-                if (control is TableLayoutPanel panel)
-                {
-                    if (enabled)
-                        panel.Click += ClearFocus;
-                    else
-                        panel.Click += ClearFocus;
-                }
+            PBoxLogin.Click -= ClearFocus;
 
-                if (control.HasChildren)
-                {
-                    SetControlEvents(control, enabled);
-                }
-            }
+            Utils.SetControlEvents<TableLayoutPanel>(
+                this,
+                _subscribe,
+                _unsubscribe,
+                false
+            );
         }
 
         private void ClearFocus(object s, EventArgs e)
@@ -76,7 +74,7 @@ namespace EaseStay.Features.Auth.Presentation
 
         private void LbBtnRegister_Click(object sender, EventArgs e)
         {
-            MainForm.Instance.SetControl(new UserControl());
+            MainForm.Instance.SetControl(new RegisterControl());
         }
 
         private void LbBtnRecoverAccount_Click(object sender, EventArgs e)
