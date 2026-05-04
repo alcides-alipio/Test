@@ -11,15 +11,19 @@ namespace EaseStay.Core
     {
         public static Guid UserUUID;
 
-        public static string SmtpEmailAddress;
-        public static string SmtpEmailPassword;
+        public static string SMTP_HOST;
+        public static int SMTP_PORT;
+        public static string SMTP_USER;
+        public static string SMTP_PASS;
 
         public static void LoadSettings()
         {
             Env.Load();
 
-            SmtpEmailAddress = Environment.GetEnvironmentVariable("SMTP_EMAIL_ADDRESS");
-            SmtpEmailPassword = Environment.GetEnvironmentVariable("SMTP_EMAIL_PASSWORD");
+            SMTP_HOST = Environment.GetEnvironmentVariable("SMTP_HOST");
+            SMTP_PORT = int.Parse(Environment.GetEnvironmentVariable("SMTP_PORT"));
+            SMTP_USER = Environment.GetEnvironmentVariable("SMTP_USER");
+            SMTP_PASS = Environment.GetEnvironmentVariable("SMTP_PASS");
         }
     }
 }

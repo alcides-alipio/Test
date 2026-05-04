@@ -216,6 +216,7 @@
     <Compile Include="Core\Elements\TextBoxStylized.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Core\Services\EmailService.cs" />
     <Compile Include="Core\Settings.cs" />
     <Compile Include="Core\Utils.cs" />
     <Compile Include="Features\Auth\Data\Models\UserModel.cs" />
