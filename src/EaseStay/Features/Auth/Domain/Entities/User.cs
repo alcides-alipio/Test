@@ -2,7 +2,7 @@
 
 namespace EaseStay.Features.Auth.Domain.Entities
 {
-    internal class User
+    public class User
     {
         public Guid UUID { get; private set; }
         public string Email { get; set; }

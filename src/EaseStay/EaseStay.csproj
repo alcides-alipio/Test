@@ -231,6 +231,24 @@
     <Compile Include="Features\Auth\Presentation\LoginControl.Designer.cs">
       <DependentUpon>LoginControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\Auth\Presentation\RecoverAccount_CheckAccount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\Auth\Presentation\RecoverAccount_CheckAccount.Designer.cs">
+      <DependentUpon>RecoverAccount_CheckAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Auth\Presentation\RecoverAccount_FindAccount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\Auth\Presentation\RecoverAccount_FindAccount.Designer.cs">
+      <DependentUpon>RecoverAccount_FindAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Auth\Presentation\RecoverAccount_RecoverAccount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\Auth\Presentation\RecoverAccount_RecoverAccount.Designer.cs">
+      <DependentUpon>RecoverAccount_RecoverAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\Auth\Presentation\RegisterControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -247,6 +265,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Features\Auth\Presentation\LoginControl.resx">
       <DependentUpon>LoginControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Auth\Presentation\RecoverAccount_CheckAccount.resx">
+      <DependentUpon>RecoverAccount_CheckAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Auth\Presentation\RecoverAccount_FindAccount.resx">
+      <DependentUpon>RecoverAccount_FindAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Auth\Presentation\RecoverAccount_RecoverAccount.resx">
+      <DependentUpon>RecoverAccount_RecoverAccount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Auth\Presentation\RegisterControl.resx">
       <DependentUpon>RegisterControl.cs</DependentUpon>

@@ -1,27 +1,26 @@
 ﻿using EaseStay.Core;
+using EaseStay.Core.Services;
 using EaseStay.Features.Auth.Data.Repositories;
 using EaseStay.Features.Auth.Domain.Entities;
 using EaseStay.Features.Auth.Domain.Repositories;
-using EaseStay.Features.Auth.Domain.UseCases;
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace EaseStay.Features.Auth.Presentation
 {
-    public partial class LoginControl : UserControl
+    public partial class RecoverAccount_FindAccount : UserControl
     {
         private readonly Action<TableLayoutPanel> _subscribe;
         private readonly Action<TableLayoutPanel> _unsubscribe;
 
-        public LoginControl()
+        public RecoverAccount_FindAccount()
         {
             InitializeComponent();
 
             _subscribe = b => b.Click += ClearFocus;
             _unsubscribe = b => b.Click -= ClearFocus;
 
-            PBoxLogin.Click += ClearFocus;
+            PBoxAuth.Click += ClearFocus;
 
             Utils.SetControlEvents<TableLayoutPanel>(
                 this,
@@ -42,7 +41,7 @@ namespace EaseStay.Features.Auth.Presentation
             if (!disposing)
                 return;
 
-            PBoxLogin.Click -= ClearFocus;
+            PBoxAuth.Click -= ClearFocus;
 
             Utils.SetControlEvents<TableLayoutPanel>(
                 this,
@@ -57,47 +56,28 @@ namespace EaseStay.Features.Auth.Presentation
             ActiveControl = TblImageLayout;
         }
 
-        private async void BtnLogin_Click(object s, EventArgs e)
+        private async void BtnFindAccount_Click(object sender, EventArgs e)
         {
-            List<dynamic> invalidControls = new List<dynamic>();
-
-            if (string.IsNullOrWhiteSpace(TBoxEmail.Text))
-                invalidControls.Add(TBoxEmail);
-
-            if (string.IsNullOrWhiteSpace(TBoxPassword.Text))
-                invalidControls.Add(TBoxPassword);
-
-            if (invalidControls.Count > 0)
-            {
-                Utils.FlashBorders(invalidControls.ToArray());
-                return;
-            }
-
             IUserRepository repo = new UserRepository();
-            LoginUseCase login = new LoginUseCase(repo);
 
-            User user = await login.Execute(
-                TBoxEmail.Text,
-                TBoxPassword.Text
-            );
+            User user = await repo.GetByEmailAsync(TBoxEmail.Text);
 
             if (user == null)
             {
-                MessageBox.Show("Credenciais Invalidas", "Erro de Login");
+                MessageBox.Show("Email não encontrado");
                 return;
             }
 
-            MessageBox.Show("Hello " + user.FirstName + "!");
+            string code =  Utils.GenerateCode();
+
+            EmailService.Send("Email validation!", $"Your code is: '{code}'. Don't share!", TBoxEmail.Text);
+
+            MainForm.Instance.SetControl(new RecoverAccount_CheckAccount(code, user));
         }
 
-        private void LbBtnRegister_Click(object sender, EventArgs e)
+        private void BtnCancel_Click(object sender, EventArgs e)
         {
-            MainForm.Instance.SetControl(new RegisterControl());
-        }
-
-        private void LbBtnRecoverAccount_Click(object sender, EventArgs e)
-        {
-            MainForm.Instance.SetControl(new RecoverAccount_FindAccount());
+            MainForm.Instance.SetControl(new LoginControl());
         }
     }
 }
