@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EaseStay.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,6 +15,8 @@ namespace EaseStay
         [STAThread]
         static void Main()
         {
+            Settings.LoadSettings();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(MainForm.Instance);
