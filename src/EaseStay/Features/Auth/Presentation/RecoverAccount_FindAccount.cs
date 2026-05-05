@@ -56,11 +56,11 @@ namespace EaseStay.Features.Auth.Presentation
             ActiveControl = TblImageLayout;
         }
 
-        private async void BtnFindAccount_Click(object sender, EventArgs e)
+        private void BtnFindAccount_Click(object sender, EventArgs e)
         {
             IUserRepository repo = new UserRepository();
 
-            User user = await repo.GetByEmailAsync(TBoxEmail.Text);
+            User user = repo.GetByEmailAsync(TBoxEmail.Text);
 
             if (user == null)
             {

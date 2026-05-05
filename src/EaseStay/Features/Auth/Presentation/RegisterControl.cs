@@ -85,7 +85,7 @@ namespace EaseStay.Features.Auth.Presentation
             }
         }
 
-        private async void BtnRegister_Click(object sender, EventArgs e)
+        private void BtnRegister_Click(object sender, EventArgs e)
         {
             List<dynamic> invalidControls = new List<dynamic>();
 
@@ -107,7 +107,7 @@ namespace EaseStay.Features.Auth.Presentation
             IUserRepository repo = new UserRepository();
             RegisterUseCase register = new RegisterUseCase(repo);
 
-            User user = await register.Execute(
+            User user = register.Execute(
                 TBoxEmail.Text,
                 TBoxFirstName.Text,
                 TBoxLastName.Text,

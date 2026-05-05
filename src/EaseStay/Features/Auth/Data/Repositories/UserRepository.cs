@@ -2,7 +2,6 @@
 using EaseStay.Features.Auth.Domain.Entities;
 using EaseStay.Features.Auth.Domain.Repositories;
 using System;
-using System.Data.SqlClient;
 using System.Threading.Tasks;
 
 namespace EaseStay.Features.Auth.Data.Repositories
@@ -17,7 +16,7 @@ namespace EaseStay.Features.Auth.Data.Repositories
                 "Server=(LocalDB)\\MSSQLLocalDB;Database=PSI1624U_AlcidesAlipio_2224107;Trusted_Connection=True;TrustServerCertificate=True;";
         }
 
-        public async Task<User> GetByEmailAsync(string email)
+        public User GetByEmailAsync(string email)
         {
             Database db = new Database(_connectionString);
 
@@ -40,7 +39,7 @@ namespace EaseStay.Features.Auth.Data.Repositories
             );
         }
 
-        public async Task AddAsync(User user)
+        public void AddAsync(User user)
         {
             Database db = new Database(_connectionString);
 

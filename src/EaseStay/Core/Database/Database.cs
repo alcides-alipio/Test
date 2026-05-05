@@ -1,6 +1,4 @@
-﻿
-
-namespace EaseStay.Core.Database
+﻿namespace EaseStay.Core.Database
 {
     internal class Database
     {

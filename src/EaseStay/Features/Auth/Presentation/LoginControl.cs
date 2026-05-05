@@ -57,7 +57,7 @@ namespace EaseStay.Features.Auth.Presentation
             ActiveControl = TblImageLayout;
         }
 
-        private async void BtnLogin_Click(object s, EventArgs e)
+        private void BtnLogin_Click(object s, EventArgs e)
         {
             List<dynamic> invalidControls = new List<dynamic>();
 
@@ -76,7 +76,7 @@ namespace EaseStay.Features.Auth.Presentation
             IUserRepository repo = new UserRepository();
             LoginUseCase login = new LoginUseCase(repo);
 
-            User user = await login.Execute(
+            User user = login.Execute(
                 TBoxEmail.Text,
                 TBoxPassword.Text
             );
