@@ -1,8 +1,8 @@
-﻿using EaseStay.Core.Database;
+﻿using EaseStay.Core;
+using EaseStay.Core.Database;
 using EaseStay.Features.Auth.Domain.Entities;
 using EaseStay.Features.Auth.Domain.Repositories;
 using System;
-using System.Threading.Tasks;
 
 namespace EaseStay.Features.Auth.Data.Repositories
 {
@@ -12,8 +12,7 @@ namespace EaseStay.Features.Auth.Data.Repositories
 
         public UserRepository()
         {
-            _connectionString =
-                "Server=(LocalDB)\\MSSQLLocalDB;Database=PSI1624U_AlcidesAlipio_2224107;Trusted_Connection=True;TrustServerCertificate=True;";
+            _connectionString = Settings.DB_CONN;
         }
 
         public User GetByEmail(string email)

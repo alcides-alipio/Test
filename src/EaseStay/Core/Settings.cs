@@ -11,6 +11,7 @@ namespace EaseStay.Core
         public static int SMTP_PORT;
         public static string SMTP_USER;
         public static string SMTP_PASS;
+        public static string DB_CONN;
 
         public static void LoadSettings()
         {
@@ -20,6 +21,7 @@ namespace EaseStay.Core
             SMTP_PORT = int.Parse(Environment.GetEnvironmentVariable("SMTP_PORT"));
             SMTP_USER = Environment.GetEnvironmentVariable("SMTP_USER");
             SMTP_PASS = Environment.GetEnvironmentVariable("SMTP_PASS");
+            DB_CONN = Environment.GetEnvironmentVariable("DB_CONN");
         }
     }
 }
