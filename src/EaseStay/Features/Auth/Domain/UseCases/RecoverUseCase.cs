@@ -25,7 +25,7 @@ namespace EaseStay.Features.Auth.Domain.UseCases
             if (newPassword == null)
                 return null;
 
-            if (_repository.GetByEmailAsync(user.Email) == null)
+            if (_repository.GetByEmail(user.Email) == null)
                 return null;
 
             string passwordHash = BCrypt.Net.BCrypt.HashPassword(newPassword);
@@ -39,7 +39,7 @@ namespace EaseStay.Features.Auth.Domain.UseCases
                 passwordHash
             );
 
-            _repository.UpdateAsync(newUser);
+            _repository.Update(newUser);
 
             return newUser;
         }

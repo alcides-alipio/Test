@@ -16,7 +16,7 @@ namespace EaseStay.Features.Auth.Data.Repositories
                 "Server=(LocalDB)\\MSSQLLocalDB;Database=PSI1624U_AlcidesAlipio_2224107;Trusted_Connection=True;TrustServerCertificate=True;";
         }
 
-        public User GetByEmailAsync(string email)
+        public User GetByEmail(string email)
         {
             Database db = new Database(_connectionString);
 
@@ -39,7 +39,7 @@ namespace EaseStay.Features.Auth.Data.Repositories
             );
         }
 
-        public void AddAsync(User user)
+        public void Add(User user)
         {
             Database db = new Database(_connectionString);
 
@@ -49,7 +49,7 @@ namespace EaseStay.Features.Auth.Data.Repositories
                 .Execute();
         }
 
-        public void UpdateAsync(User user)
+        public void Update(User user)
         {
             Database db = new Database(_connectionString);
 

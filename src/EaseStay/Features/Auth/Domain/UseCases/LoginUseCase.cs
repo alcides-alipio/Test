@@ -19,7 +19,7 @@ namespace EaseStay.Features.Auth.Domain.UseCases
 
         public User Execute(string email, string password)
         {
-            User user = _repository.GetByEmailAsync(email);
+            User user = _repository.GetByEmail(email);
 
             if (user == null)
                 return null;

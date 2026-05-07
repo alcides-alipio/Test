@@ -5,8 +5,8 @@ namespace EaseStay.Features.Auth.Domain.Repositories
 {
     internal interface IUserRepository
     {
-        User GetByEmailAsync(string email);
-        void AddAsync(User user);
-        void UpdateAsync(User user);
+        User GetByEmail(string email);
+        void Add(User user);
+        void Update(User user);
     }
 }

@@ -60,7 +60,7 @@ namespace EaseStay.Features.Auth.Presentation
         {
             IUserRepository repo = new UserRepository();
 
-            User user = repo.GetByEmailAsync(TBoxEmail.Text);
+            User user = repo.GetByEmail(TBoxEmail.Text);
 
             if (user == null)
             {
