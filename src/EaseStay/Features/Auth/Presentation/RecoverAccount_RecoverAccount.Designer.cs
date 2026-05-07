@@ -30,6 +30,7 @@
         private void InitializeComponent()
         {
             this.TblImageLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.PBoxAuth = new System.Windows.Forms.PictureBox();
             this.TblRowLayout = new System.Windows.Forms.TableLayoutPanel();
             this.TblRegisterLayout = new System.Windows.Forms.TableLayoutPanel();
             this.LbTitleDescription = new System.Windows.Forms.Label();
@@ -38,13 +39,12 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.BtnChange = new System.Windows.Forms.Button();
             this.BtnCancel = new System.Windows.Forms.Button();
-            this.PBoxAuth = new System.Windows.Forms.PictureBox();
             this.TBoxPassword = new EaseStay.Core.Elements.TextBoxStylized();
             this.TblImageLayout.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PBoxAuth)).BeginInit();
             this.TblRowLayout.SuspendLayout();
             this.TblRegisterLayout.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PBoxAuth)).BeginInit();
             this.SuspendLayout();
             // 
             // TblImageLayout
@@ -62,6 +62,18 @@
             this.TblImageLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.TblImageLayout.Size = new System.Drawing.Size(768, 512);
             this.TblImageLayout.TabIndex = 0;
+            // 
+            // PBoxAuth
+            // 
+            this.PBoxAuth.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PBoxAuth.Image = global::EaseStay.Properties.Resources.Auth_Image;
+            this.PBoxAuth.Location = new System.Drawing.Point(384, 0);
+            this.PBoxAuth.Margin = new System.Windows.Forms.Padding(0);
+            this.PBoxAuth.Name = "PBoxAuth";
+            this.PBoxAuth.Size = new System.Drawing.Size(384, 512);
+            this.PBoxAuth.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PBoxAuth.TabIndex = 0;
+            this.PBoxAuth.TabStop = false;
             // 
             // TblRowLayout
             // 
@@ -144,6 +156,7 @@
             this.TBoxConfirmPassword.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
             this.TBoxConfirmPassword.Size = new System.Drawing.Size(259, 35);
             this.TBoxConfirmPassword.TabIndex = 4;
+            this.TBoxConfirmPassword.UseSystemPasswordChar = true;
             // 
             // tableLayoutPanel1
             // 
@@ -184,18 +197,6 @@
             this.BtnCancel.UseVisualStyleBackColor = true;
             this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
-            // PBoxAuth
-            // 
-            this.PBoxAuth.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PBoxAuth.Image = global::EaseStay.Properties.Resources.Auth_Image;
-            this.PBoxAuth.Location = new System.Drawing.Point(384, 0);
-            this.PBoxAuth.Margin = new System.Windows.Forms.Padding(0);
-            this.PBoxAuth.Name = "PBoxAuth";
-            this.PBoxAuth.Size = new System.Drawing.Size(384, 512);
-            this.PBoxAuth.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PBoxAuth.TabIndex = 0;
-            this.PBoxAuth.TabStop = false;
-            // 
             // TBoxPassword
             // 
             this.TBoxPassword.BackColor = System.Drawing.SystemColors.Window;
@@ -211,6 +212,7 @@
             this.TBoxPassword.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
             this.TBoxPassword.Size = new System.Drawing.Size(259, 35);
             this.TBoxPassword.TabIndex = 6;
+            this.TBoxPassword.UseSystemPasswordChar = true;
             // 
             // RecoverAccount_RecoverAccount
             // 
@@ -220,12 +222,12 @@
             this.Name = "RecoverAccount_RecoverAccount";
             this.Size = new System.Drawing.Size(768, 512);
             this.TblImageLayout.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PBoxAuth)).EndInit();
             this.TblRowLayout.ResumeLayout(false);
             this.TblRowLayout.PerformLayout();
             this.TblRegisterLayout.ResumeLayout(false);
             this.TblRegisterLayout.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PBoxAuth)).EndInit();
             this.ResumeLayout(false);
 
         }

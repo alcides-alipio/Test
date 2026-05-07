@@ -248,6 +248,7 @@
             this.TBoxPassword.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
             this.TBoxPassword.Size = new System.Drawing.Size(259, 35);
             this.TBoxPassword.TabIndex = 5;
+            this.TBoxPassword.UseSystemPasswordChar = true;
             // 
             // BtnRegister
             // 
@@ -323,6 +324,7 @@
             this.TBoxConfirmPassword.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
             this.TBoxConfirmPassword.Size = new System.Drawing.Size(259, 34);
             this.TBoxConfirmPassword.TabIndex = 8;
+            this.TBoxConfirmPassword.UseSystemPasswordChar = true;
             // 
             // TblLoginLayout
             // 

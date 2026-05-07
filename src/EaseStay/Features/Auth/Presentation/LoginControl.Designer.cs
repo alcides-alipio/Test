@@ -39,14 +39,14 @@
             this.TblLoginLayout = new System.Windows.Forms.TableLayoutPanel();
             this.LbTitleDescription = new System.Windows.Forms.Label();
             this.LbTextDescription = new System.Windows.Forms.Label();
-            this.TBoxEmail = new EaseStay.Core.Elements.TextBoxStylized();
-            this.TBoxPassword = new EaseStay.Core.Elements.TextBoxStylized();
             this.BtnLogin = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.CBoxRememberMe = new System.Windows.Forms.CheckBox();
-            this.LbBtnRecoverAccount = new EaseStay.Core.Elements.LabelButtonStylized();
             this.TblRegisterLayout = new System.Windows.Forms.TableLayoutPanel();
             this.LbRegisterText = new System.Windows.Forms.Label();
+            this.TBoxEmail = new EaseStay.Core.Elements.TextBoxStylized();
+            this.TBoxPassword = new EaseStay.Core.Elements.TextBoxStylized();
+            this.LbBtnRecoverAccount = new EaseStay.Core.Elements.LabelButtonStylized();
             this.LbBtnRegister = new EaseStay.Core.Elements.LabelButtonStylized();
             this.TblImageLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBoxLogin)).BeginInit();
@@ -211,39 +211,6 @@
             this.LbTextDescription.TabIndex = 3;
             this.LbTextDescription.Text = "Faça login ou registre-se no nosso aplicativo para encontrar sua proxima parada!";
             // 
-            // TBoxEmail
-            // 
-            this.TBoxEmail.BackColor = System.Drawing.SystemColors.Window;
-            this.TBoxEmail.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.TBoxEmail.BorderRadius = 6;
-            this.TBoxEmail.BorderWidth = 2F;
-            this.TBoxEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.TBoxEmail.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.TBoxEmail.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.TBoxEmail.Location = new System.Drawing.Point(56, 90);
-            this.TBoxEmail.Name = "TBoxEmail";
-            this.TBoxEmail.Placeholder = "E-mail";
-            this.TBoxEmail.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
-            this.TBoxEmail.Size = new System.Drawing.Size(259, 35);
-            this.TBoxEmail.TabIndex = 4;
-            // 
-            // TBoxPassword
-            // 
-            this.TBoxPassword.BackColor = System.Drawing.SystemColors.Window;
-            this.TBoxPassword.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.TBoxPassword.BorderRadius = 6;
-            this.TBoxPassword.BorderWidth = 2F;
-            this.TBoxPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.TBoxPassword.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.TBoxPassword.Location = new System.Drawing.Point(56, 131);
-            this.TBoxPassword.Name = "TBoxPassword";
-            this.TBoxPassword.Placeholder = "Senha";
-            this.TBoxPassword.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
-            this.TBoxPassword.Size = new System.Drawing.Size(259, 35);
-            this.TBoxPassword.TabIndex = 5;
-            // 
             // BtnLogin
             // 
             this.BtnLogin.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -283,17 +250,6 @@
             this.CBoxRememberMe.Text = "Lembrar de mim";
             this.CBoxRememberMe.UseVisualStyleBackColor = true;
             // 
-            // LbBtnRecoverAccount
-            // 
-            this.LbBtnRecoverAccount.AutoSize = true;
-            this.LbBtnRecoverAccount.Location = new System.Drawing.Point(154, 3);
-            this.LbBtnRecoverAccount.Margin = new System.Windows.Forms.Padding(3);
-            this.LbBtnRecoverAccount.Name = "LbBtnRecoverAccount";
-            this.LbBtnRecoverAccount.Size = new System.Drawing.Size(108, 13);
-            this.LbBtnRecoverAccount.TabIndex = 3;
-            this.LbBtnRecoverAccount.Text = "Esqueci minha senha";
-            this.LbBtnRecoverAccount.Click += new System.EventHandler(this.LbBtnRecoverAccount_Click);
-            // 
             // TblRegisterLayout
             // 
             this.TblRegisterLayout.AutoSize = true;
@@ -321,6 +277,51 @@
             this.LbRegisterText.Size = new System.Drawing.Size(106, 13);
             this.LbRegisterText.TabIndex = 0;
             this.LbRegisterText.Text = "Não tem uma conta?";
+            // 
+            // TBoxEmail
+            // 
+            this.TBoxEmail.BackColor = System.Drawing.SystemColors.Window;
+            this.TBoxEmail.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.TBoxEmail.BorderRadius = 6;
+            this.TBoxEmail.BorderWidth = 2F;
+            this.TBoxEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TBoxEmail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.TBoxEmail.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.TBoxEmail.Location = new System.Drawing.Point(56, 90);
+            this.TBoxEmail.Name = "TBoxEmail";
+            this.TBoxEmail.Placeholder = "E-mail";
+            this.TBoxEmail.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
+            this.TBoxEmail.Size = new System.Drawing.Size(259, 35);
+            this.TBoxEmail.TabIndex = 4;
+            // 
+            // TBoxPassword
+            // 
+            this.TBoxPassword.BackColor = System.Drawing.SystemColors.Window;
+            this.TBoxPassword.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.TBoxPassword.BorderRadius = 6;
+            this.TBoxPassword.BorderWidth = 2F;
+            this.TBoxPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TBoxPassword.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.TBoxPassword.Location = new System.Drawing.Point(56, 131);
+            this.TBoxPassword.Name = "TBoxPassword";
+            this.TBoxPassword.Placeholder = "Senha";
+            this.TBoxPassword.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
+            this.TBoxPassword.Size = new System.Drawing.Size(259, 35);
+            this.TBoxPassword.TabIndex = 5;
+            this.TBoxPassword.UseSystemPasswordChar = true;
+            // 
+            // LbBtnRecoverAccount
+            // 
+            this.LbBtnRecoverAccount.AutoSize = true;
+            this.LbBtnRecoverAccount.Location = new System.Drawing.Point(154, 3);
+            this.LbBtnRecoverAccount.Margin = new System.Windows.Forms.Padding(3);
+            this.LbBtnRecoverAccount.Name = "LbBtnRecoverAccount";
+            this.LbBtnRecoverAccount.Size = new System.Drawing.Size(108, 13);
+            this.LbBtnRecoverAccount.TabIndex = 3;
+            this.LbBtnRecoverAccount.Text = "Esqueci minha senha";
+            this.LbBtnRecoverAccount.Click += new System.EventHandler(this.LbBtnRecoverAccount_Click);
             // 
             // LbBtnRegister
             // 

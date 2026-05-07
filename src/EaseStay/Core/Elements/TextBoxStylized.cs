@@ -14,6 +14,7 @@ namespace EaseStay.Core.Elements
         private TextBox _textBox;
         private Panel _clientArea;
         private bool _isPlaceholderActive = false;
+        private bool _useSystemPasswordChar = false;
 
         #region Private variables for atributes
 
@@ -133,6 +134,16 @@ namespace EaseStay.Core.Elements
         }
 
         #endregion
+
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Category("Appearance")]
+        [DefaultValue(false)]
+        public bool UseSystemPasswordChar
+        {
+            get => _useSystemPasswordChar;
+            set => _useSystemPasswordChar = value;
+        }
 
         public TextBoxStylized()
         {
@@ -271,6 +282,7 @@ namespace EaseStay.Core.Elements
                 _textBox.Text = _placeholder;
                 base.Text = string.Empty;
                 _textBox.ForeColor = _placeholderColor;
+                _textBox.UseSystemPasswordChar = false;
             }
         }
 
@@ -281,6 +293,7 @@ namespace EaseStay.Core.Elements
                 _isPlaceholderActive = false;
                 _textBox.Text = string.Empty;
                 _textBox.ForeColor = ForeColor;
+                _textBox.UseSystemPasswordChar = _useSystemPasswordChar;
             }
         }
     }
@@ -318,6 +331,7 @@ namespace EaseStay.Core.Elements
                 new DesignerActionPropertyItem("Font", "Font", "TextStyle"),
                 new DesignerActionPropertyItem("Text", "Text", "TextStyle"),
                 new DesignerActionPropertyItem("PlaceholderText", "PlaceholderText", "TextStyle"),
+                new DesignerActionPropertyItem("UseSystemPasswordChar", "UseSystemPasswordChar", "TextStyle"),
 
                 new DesignerActionPropertyItem("BorderRadius", "BorderRadius", "Details"),
                 new DesignerActionPropertyItem("BorderWidth", "BorderWidth", "Details"),
@@ -355,6 +369,12 @@ namespace EaseStay.Core.Elements
         {
             get => _control.Placeholder;
             set => SetProperty(nameof(_control.Placeholder), value);
+        }
+
+        public bool UseSystemPasswordChar
+        {
+            get => _control.UseSystemPasswordChar;
+            set => SetProperty(nameof(_control.UseSystemPasswordChar), value);
         }
 
         #endregion
