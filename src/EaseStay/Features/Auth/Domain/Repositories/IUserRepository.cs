@@ -7,5 +7,6 @@ namespace EaseStay.Features.Auth.Domain.Repositories
     {
         User GetByEmailAsync(string email);
         void AddAsync(User user);
+        void UpdateAsync(User user);
     }
 }

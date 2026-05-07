@@ -48,5 +48,20 @@ namespace EaseStay.Features.Auth.Data.Repositories
                 .Values(user.Email, user.FirstName, user.LastName, user.PasswordHash)
                 .Execute();
         }
+
+        public void UpdateAsync(User user)
+        {
+            Database db = new Database(_connectionString);
+
+            db.Update("Users")
+                .Set("Email", user.Email)
+                .Set("EmailVerified", user.EmailVerified)
+                .Set("FirstName", user.FirstName)
+                .Set("LastName", user.LastName)
+                .Set("PasswordHash", user.PasswordHash)
+                .Where("UUID", "=", user.UUID)
+                .Execute();
+        }
+
     }
 }

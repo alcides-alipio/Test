@@ -1,5 +1,9 @@
 ﻿using EaseStay.Core;
+using EaseStay.Core.Database;
+using EaseStay.Features.Auth.Data.Repositories;
 using EaseStay.Features.Auth.Domain.Entities;
+using EaseStay.Features.Auth.Domain.Repositories;
+using EaseStay.Features.Auth.Domain.UseCases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -68,11 +72,29 @@ namespace EaseStay.Features.Auth.Presentation
         {
             if (_user == null)
             {
-                Console.WriteLine("Erro desconhecido!");
+                Console.WriteLine("Erro desconhecido nas etapas anteriores!");
                 return;
             }
 
-            MessageBox.Show("Ainda não implementado!");
+            if (TBoxPassword.Text != TBoxConfirmPassword.Text)
+            {
+                Utils.FlashBorders(TBoxPassword, TBoxConfirmPassword);
+                MessageBox.Show("As passwords não coincidem", "Erro de Recuperação de Conta");
+                return;
+            }
+
+            IUserRepository repo = new UserRepository();
+            var recover = new RecoverUseCase(repo);
+
+            User user = recover.Execute(_user, TBoxConfirmPassword.Text);
+
+            if (user == null)
+            {
+                MessageBox.Show("O utilizador não existe!", "Erro de Recuperação de Conta");
+                return;
+            }
+
+            MainForm.Instance.SetControl(new LoginControl());
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)

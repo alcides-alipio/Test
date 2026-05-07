@@ -213,6 +213,7 @@
     <Compile Include="Core\Database\Database.cs" />
     <Compile Include="Core\Database\SqlInsertBuilder.cs" />
     <Compile Include="Core\Database\SqlSelectBuilder.cs" />
+    <Compile Include="Core\Database\SqlUpdateBuilder.cs" />
     <Compile Include="Core\Elements\LabelButtonStylized.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -227,6 +228,7 @@
     <Compile Include="Features\Auth\Domain\Entities\User.cs" />
     <Compile Include="Features\Auth\Domain\Repositories\IUserRepository.cs" />
     <Compile Include="Features\Auth\Domain\UseCases\LoginUseCase.cs" />
+    <Compile Include="Features\Auth\Domain\UseCases\RecoverUseCase.cs" />
     <Compile Include="Features\Auth\Domain\UseCases\RegisterUseCase.cs" />
     <Compile Include="Features\Auth\Presentation\LoginControl.cs">
       <SubType>UserControl</SubType>
