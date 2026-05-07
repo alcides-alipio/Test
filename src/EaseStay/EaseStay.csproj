@@ -221,6 +221,9 @@
     <Compile Include="Core\Elements\LabelButtonStylized.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Core\Elements\PictureBoxStylized.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Core\Elements\TextBoxStylized.cs">
       <SubType>UserControl</SubType>
     </Compile>
