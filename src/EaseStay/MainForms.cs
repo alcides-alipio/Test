@@ -1,4 +1,9 @@
-﻿using EaseStay.Features.Auth.Presentation;
+﻿using EaseStay.Core;
+using EaseStay.Features.Auth.Data.Repositories;
+using EaseStay.Features.Auth.Domain.Repositories;
+using EaseStay.Features.Auth.Domain.UseCases;
+using EaseStay.Features.Auth.Presentation;
+using EaseStay.Features.Pages.Presentation;
 using System;
 using System.Windows.Forms;
 
@@ -23,7 +28,29 @@ namespace EaseStay
         private MainForm()
         {
             InitializeComponent();
-            SetControl(new LoginControl());
+        }
+
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            var press = Settings.GetPersistentSession();
+
+            if (press != Guid.Empty)
+            {
+                IUserRepository repo = new UserRepository();
+
+                var user = repo.GetByUUID(press);
+
+                Settings.UserUUID = user.UUID;
+                Settings.UserFirstName = user.FirstName;
+                Settings.UserLastName = user.LastName;
+                Settings.UserEmail = user.Email;
+
+                SetControl(new PagesControl());
+            }
+            else
+                SetControl(new LoginControl());
         }
 
         public void SetControl(UserControl control)

@@ -3,6 +3,7 @@ using EaseStay.Features.Auth.Data.Repositories;
 using EaseStay.Features.Auth.Domain.Entities;
 using EaseStay.Features.Auth.Domain.Repositories;
 using EaseStay.Features.Auth.Domain.UseCases;
+using EaseStay.Features.Pages.Presentation;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -78,7 +79,8 @@ namespace EaseStay.Features.Auth.Presentation
 
             User user = login.Execute(
                 TBoxEmail.Text,
-                TBoxPassword.Text
+                TBoxPassword.Text,
+                CBoxRememberMe.Checked
             );
 
             if (user == null)
@@ -87,7 +89,7 @@ namespace EaseStay.Features.Auth.Presentation
                 return;
             }
 
-            MessageBox.Show("Hello " + user.FirstName + "!");
+            MainForm.Instance.SetControl(new PagesControl());
         }
 
         private void LbBtnRegister_Click(object sender, EventArgs e)

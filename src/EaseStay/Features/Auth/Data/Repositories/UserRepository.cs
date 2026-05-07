@@ -38,6 +38,29 @@ namespace EaseStay.Features.Auth.Data.Repositories
             );
         }
 
+        public User GetByUUID(Guid uuid)
+        {
+            Database db = new Database(_connectionString);
+
+            var data = db.Select("Users")
+                .Columns("UUID", "Email", "EmailVerified", "FirstName", "LastName", "PasswordHash")
+                .Where("UUID", "=", uuid)
+                .Execute();
+
+            if (data.Count <= 0)
+                return null;
+
+            return new User
+            (
+                Guid.Parse(data[0]["UUID"].ToString()),
+                data[0]["Email"].ToString(),
+                Convert.ToBoolean(data[0]["EmailVerified"]),
+                data[0]["FirstName"].ToString(),
+                data[0]["LastName"].ToString(),
+                data[0]["PasswordHash"].ToString()
+            );
+        }
+
         public void Add(User user)
         {
             Database db = new Database(_connectionString);
