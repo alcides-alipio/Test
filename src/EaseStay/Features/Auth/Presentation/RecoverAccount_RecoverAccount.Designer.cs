@@ -35,11 +35,11 @@
             this.TblRegisterLayout = new System.Windows.Forms.TableLayoutPanel();
             this.LbTitleDescription = new System.Windows.Forms.Label();
             this.LbTextDescription = new System.Windows.Forms.Label();
-            this.TBoxConfirmPassword = new EaseStay.Core.Elements.TextBoxStylized();
+            this.TBoxConfirmPassword = new StylizedComponents.Controls.StylizedTextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.BtnChange = new System.Windows.Forms.Button();
             this.BtnCancel = new System.Windows.Forms.Button();
-            this.TBoxPassword = new EaseStay.Core.Elements.TextBoxStylized();
+            this.TBoxPassword = new StylizedComponents.Controls.StylizedTextBox();
             this.TblImageLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBoxAuth)).BeginInit();
             this.TblRowLayout.SuspendLayout();
@@ -145,14 +145,14 @@
             this.TBoxConfirmPassword.BackColor = System.Drawing.SystemColors.Window;
             this.TBoxConfirmPassword.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.TBoxConfirmPassword.BorderRadius = 8;
-            this.TBoxConfirmPassword.BorderWidth = 2F;
+            this.TBoxConfirmPassword.BorderThickness = 1;
             this.TBoxConfirmPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TBoxConfirmPassword.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TBoxConfirmPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.TBoxConfirmPassword.ForeColor = System.Drawing.SystemColors.ControlText;
             this.TBoxConfirmPassword.Location = new System.Drawing.Point(56, 112);
             this.TBoxConfirmPassword.Name = "TBoxConfirmPassword";
-            this.TBoxConfirmPassword.Placeholder = "Confirmar Password";
+            this.TBoxConfirmPassword.PlaceholderText = "Confirmar Password";
             this.TBoxConfirmPassword.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
             this.TBoxConfirmPassword.Size = new System.Drawing.Size(259, 35);
             this.TBoxConfirmPassword.TabIndex = 4;
@@ -202,13 +202,13 @@
             this.TBoxPassword.BackColor = System.Drawing.SystemColors.Window;
             this.TBoxPassword.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.TBoxPassword.BorderRadius = 8;
-            this.TBoxPassword.BorderWidth = 2F;
+            this.TBoxPassword.BorderThickness = 1;
             this.TBoxPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TBoxPassword.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.TBoxPassword.Location = new System.Drawing.Point(56, 71);
             this.TBoxPassword.Name = "TBoxPassword";
-            this.TBoxPassword.Placeholder = "Nova Password";
+            this.TBoxPassword.PlaceholderText = "Nova Password";
             this.TBoxPassword.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
             this.TBoxPassword.Size = new System.Drawing.Size(259, 35);
             this.TBoxPassword.TabIndex = 6;
@@ -240,10 +240,10 @@
         private System.Windows.Forms.TableLayoutPanel TblRegisterLayout;
         private System.Windows.Forms.Label LbTitleDescription;
         private System.Windows.Forms.Label LbTextDescription;
-        private Core.Elements.TextBoxStylized TBoxConfirmPassword;
+        private StylizedComponents.Controls.StylizedTextBox TBoxConfirmPassword;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button BtnCancel;
         private System.Windows.Forms.Button BtnChange;
-        private Core.Elements.TextBoxStylized TBoxPassword;
+        private StylizedComponents.Controls.StylizedTextBox TBoxPassword;
     }
 }

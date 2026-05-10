@@ -35,7 +35,7 @@
             this.TblRegisterLayout = new System.Windows.Forms.TableLayoutPanel();
             this.LbTitleDescription = new System.Windows.Forms.Label();
             this.LbTextDescription = new System.Windows.Forms.Label();
-            this.TBoxCode = new EaseStay.Core.Elements.TextBoxStylized();
+            this.TBoxCode = new StylizedComponents.Controls.StylizedTextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.BtnFindAccount = new System.Windows.Forms.Button();
             this.BtnCancel = new System.Windows.Forms.Button();
@@ -142,14 +142,14 @@
             this.TBoxCode.BackColor = System.Drawing.SystemColors.Window;
             this.TBoxCode.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.TBoxCode.BorderRadius = 6;
-            this.TBoxCode.BorderWidth = 2F;
+            this.TBoxCode.BorderThickness = 1;
             this.TBoxCode.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TBoxCode.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TBoxCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.TBoxCode.ForeColor = System.Drawing.SystemColors.ControlText;
             this.TBoxCode.Location = new System.Drawing.Point(56, 71);
             this.TBoxCode.Name = "TBoxCode";
-            this.TBoxCode.Placeholder = "Codigo";
+            this.TBoxCode.PlaceholderText = "Codigo";
             this.TBoxCode.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
             this.TBoxCode.Size = new System.Drawing.Size(259, 35);
             this.TBoxCode.TabIndex = 4;
@@ -219,7 +219,7 @@
         private System.Windows.Forms.TableLayoutPanel TblRegisterLayout;
         private System.Windows.Forms.Label LbTitleDescription;
         private System.Windows.Forms.Label LbTextDescription;
-        private Core.Elements.TextBoxStylized TBoxCode;
+        private StylizedComponents.Controls.StylizedTextBox TBoxCode;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button BtnCancel;
         private System.Windows.Forms.Button BtnFindAccount;

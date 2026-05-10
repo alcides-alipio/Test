@@ -1,6 +1,6 @@
 ﻿using EaseStay.Core;
 using EaseStay.Core.Database;
-using EaseStay.Core.Elements;
+using StylizedComponents.Controls;
 using EaseStay.Features.Auth.Data.Repositories;
 using EaseStay.Features.Auth.Domain.Entities;
 using EaseStay.Features.Auth.Domain.Repositories;
@@ -74,7 +74,7 @@ namespace EaseStay.Features.Auth.Presentation
         {
             foreach (Control control in parent.Controls)
             {
-                if (control is TextBoxStylized tbox)
+                if (control is StylizedTextBox tbox)
                 {
                     if (string.IsNullOrWhiteSpace(tbox.Text))
                         invalidControls.Add(tbox);

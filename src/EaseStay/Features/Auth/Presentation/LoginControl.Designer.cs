@@ -44,10 +44,10 @@
             this.CBoxRememberMe = new System.Windows.Forms.CheckBox();
             this.TblRegisterLayout = new System.Windows.Forms.TableLayoutPanel();
             this.LbRegisterText = new System.Windows.Forms.Label();
-            this.TBoxEmail = new EaseStay.Core.Elements.TextBoxStylized();
-            this.TBoxPassword = new EaseStay.Core.Elements.TextBoxStylized();
-            this.LbBtnRecoverAccount = new EaseStay.Core.Elements.LabelButtonStylized();
-            this.LbBtnRegister = new EaseStay.Core.Elements.LabelButtonStylized();
+            this.TBoxEmail = new StylizedComponents.Controls.StylizedTextBox();
+            this.TBoxPassword = new StylizedComponents.Controls.StylizedTextBox();
+            this.LbBtnRecoverAccount = new StylizedComponents.Controls.LabelButtonStylized();
+            this.LbBtnRegister = new StylizedComponents.Controls.LabelButtonStylized();
             this.TblImageLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBoxLogin)).BeginInit();
             this.TblRowLayout.SuspendLayout();
@@ -283,14 +283,14 @@
             this.TBoxEmail.BackColor = System.Drawing.SystemColors.Window;
             this.TBoxEmail.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.TBoxEmail.BorderRadius = 6;
-            this.TBoxEmail.BorderWidth = 2F;
+            this.TBoxEmail.BorderThickness = 1;
             this.TBoxEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TBoxEmail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.TBoxEmail.ForeColor = System.Drawing.SystemColors.ControlText;
             this.TBoxEmail.Location = new System.Drawing.Point(56, 90);
             this.TBoxEmail.Name = "TBoxEmail";
-            this.TBoxEmail.Placeholder = "E-mail";
+            this.TBoxEmail.PlaceholderText = "E-mail";
             this.TBoxEmail.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
             this.TBoxEmail.Size = new System.Drawing.Size(259, 35);
             this.TBoxEmail.TabIndex = 4;
@@ -300,13 +300,13 @@
             this.TBoxPassword.BackColor = System.Drawing.SystemColors.Window;
             this.TBoxPassword.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.TBoxPassword.BorderRadius = 6;
-            this.TBoxPassword.BorderWidth = 2F;
+            this.TBoxPassword.BorderThickness = 1;
             this.TBoxPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TBoxPassword.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.TBoxPassword.Location = new System.Drawing.Point(56, 131);
             this.TBoxPassword.Name = "TBoxPassword";
-            this.TBoxPassword.Placeholder = "Senha";
+            this.TBoxPassword.PlaceholderText = "Senha";
             this.TBoxPassword.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
             this.TBoxPassword.Size = new System.Drawing.Size(259, 35);
             this.TBoxPassword.TabIndex = 5;
@@ -370,14 +370,14 @@
         private System.Windows.Forms.TableLayoutPanel TblLoginLayout;
         private System.Windows.Forms.Label LbTitleDescription;
         private System.Windows.Forms.Label LbTextDescription;
-        private Core.Elements.TextBoxStylized TBoxEmail;
-        private Core.Elements.TextBoxStylized TBoxPassword;
+        private StylizedComponents.Controls.StylizedTextBox TBoxEmail;
+        private StylizedComponents.Controls.StylizedTextBox TBoxPassword;
         private System.Windows.Forms.Button BtnLogin;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.CheckBox CBoxRememberMe;
         private System.Windows.Forms.TableLayoutPanel TblRegisterLayout;
         private System.Windows.Forms.Label LbRegisterText;
-        private Core.Elements.LabelButtonStylized LbBtnRegister;
-        private Core.Elements.LabelButtonStylized LbBtnRecoverAccount;
+        private StylizedComponents.Controls.LabelButtonStylized LbBtnRegister;
+        private StylizedComponents.Controls.LabelButtonStylized LbBtnRecoverAccount;
     }
 }

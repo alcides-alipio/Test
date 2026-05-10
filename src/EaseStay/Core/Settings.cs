@@ -1,9 +1,6 @@
 ﻿using CredentialManagement;
 using DotNetEnv;
-using EaseStay.Features.Auth.Domain.Entities;
 using System;
-using System.Collections.Generic;
-using System.Net.NetworkInformation;
 
 namespace EaseStay.Core
 {

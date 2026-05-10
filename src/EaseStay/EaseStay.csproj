@@ -58,6 +58,9 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="StylizedComponents, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\StylizedComponents.1.0.1\lib\net472\StylizedComponents.dll</HintPath>
+    </Reference>
     <Reference Include="Superpower, Version=1.0.0.0, Culture=neutral, PublicKeyToken=aec39280ded1b3a7, processorArchitecture=MSIL">
       <HintPath>packages\Superpower.3.2.1\lib\netstandard2.0\Superpower.dll</HintPath>
     </Reference>
@@ -220,12 +223,6 @@
     <Compile Include="Core\Database\SqlUpdateBuilder.cs" />
     <Compile Include="Core\Elements\LabelButtonStylized.cs">
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Core\Elements\PictureBoxStylized.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Core\Elements\TextBoxStylized.cs">
-      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Core\Services\EmailService.cs" />
     <Compile Include="Core\Settings.cs" />

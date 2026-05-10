@@ -37,7 +37,7 @@
             this.LbTextDescription = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.BtnCancel = new System.Windows.Forms.Button();
-            this.TBoxEmail = new EaseStay.Core.Elements.TextBoxStylized();
+            this.TBoxEmail = new StylizedComponents.Controls.StylizedTextBox();
             this.BtnFindAccount = new System.Windows.Forms.Button();
             this.TblImageLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBoxAuth)).BeginInit();
@@ -170,14 +170,14 @@
             this.TBoxEmail.BackColor = System.Drawing.SystemColors.Window;
             this.TBoxEmail.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.TBoxEmail.BorderRadius = 6;
-            this.TBoxEmail.BorderWidth = 2F;
+            this.TBoxEmail.BorderThickness = 1;
             this.TBoxEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TBoxEmail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.TBoxEmail.ForeColor = System.Drawing.SystemColors.ControlText;
             this.TBoxEmail.Location = new System.Drawing.Point(56, 55);
             this.TBoxEmail.Name = "TBoxEmail";
-            this.TBoxEmail.Placeholder = "E-mail";
+            this.TBoxEmail.PlaceholderText = "E-mail";
             this.TBoxEmail.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
             this.TBoxEmail.Size = new System.Drawing.Size(259, 35);
             this.TBoxEmail.TabIndex = 4;
@@ -219,7 +219,7 @@
         private System.Windows.Forms.TableLayoutPanel TblRegisterLayout;
         private System.Windows.Forms.Label LbTitleDescription;
         private System.Windows.Forms.Label LbTextDescription;
-        private Core.Elements.TextBoxStylized TBoxEmail;
+        private StylizedComponents.Controls.StylizedTextBox TBoxEmail;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button BtnCancel;
         private System.Windows.Forms.Button BtnFindAccount;

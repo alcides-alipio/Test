@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace EaseStay.Core.Elements
+namespace StylizedComponents.Controls
 {
     internal class LabelButtonStylized : Label
     {

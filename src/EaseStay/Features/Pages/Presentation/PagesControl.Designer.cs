@@ -41,7 +41,7 @@
             this.LbOptionsHeader5 = new System.Windows.Forms.Label();
             this.LbOptionsHeader6 = new System.Windows.Forms.Label();
             this.SplLogoOptions = new System.Windows.Forms.Splitter();
-            this.LbBtnLogout = new EaseStay.Core.Elements.LabelButtonStylized();
+            this.LbBtnLogout = new StylizedComponents.Controls.LabelButtonStylized();
             this.TblDashboardLayout.SuspendLayout();
             this.TblMenuLayout.SuspendLayout();
             this.TblMenuLogoLayout.SuspendLayout();
@@ -266,6 +266,6 @@
         private System.Windows.Forms.Label LbOptionsHeader2;
         private System.Windows.Forms.Splitter SplLogoOptions;
         private System.Windows.Forms.Label LbOptionsHeader6;
-        private Core.Elements.LabelButtonStylized LbBtnLogout;
+        private StylizedComponents.Controls.LabelButtonStylized LbBtnLogout;
     }
 }
