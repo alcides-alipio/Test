@@ -39,13 +39,13 @@
             this.TblLoginLayout = new System.Windows.Forms.TableLayoutPanel();
             this.LbTitleDescription = new System.Windows.Forms.Label();
             this.LbTextDescription = new System.Windows.Forms.Label();
-            this.BtnLogin = new System.Windows.Forms.Button();
+            this.TBoxEmail = new StylizedComponents.Controls.StylizedTextBox();
+            this.TBoxPassword = new StylizedComponents.Controls.StylizedTextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.CBoxRememberMe = new System.Windows.Forms.CheckBox();
             this.TblRegisterLayout = new System.Windows.Forms.TableLayoutPanel();
             this.LbRegisterText = new System.Windows.Forms.Label();
-            this.TBoxEmail = new StylizedComponents.Controls.StylizedTextBox();
-            this.TBoxPassword = new StylizedComponents.Controls.StylizedTextBox();
+            this.BtnLogin = new StylizedComponents.Controls.StylizedButton();
             this.LbBtnRecoverAccount = new StylizedComponents.Controls.LabelButtonStylized();
             this.LbBtnRegister = new StylizedComponents.Controls.LabelButtonStylized();
             this.TblImageLayout.SuspendLayout();
@@ -175,8 +175,8 @@
             this.TblLoginLayout.Controls.Add(this.LbTextDescription, 1, 1);
             this.TblLoginLayout.Controls.Add(this.TBoxEmail, 1, 2);
             this.TblLoginLayout.Controls.Add(this.TBoxPassword, 1, 3);
-            this.TblLoginLayout.Controls.Add(this.BtnLogin, 1, 5);
             this.TblLoginLayout.Controls.Add(this.tableLayoutPanel1, 1, 4);
+            this.TblLoginLayout.Controls.Add(this.BtnLogin, 1, 5);
             this.TblLoginLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TblLoginLayout.Location = new System.Drawing.Point(3, 192);
             this.TblLoginLayout.Name = "TblLoginLayout";
@@ -211,16 +211,33 @@
             this.LbTextDescription.TabIndex = 3;
             this.LbTextDescription.Text = "Faça login ou registre-se no nosso aplicativo para encontrar sua proxima parada!";
             // 
-            // BtnLogin
+            // TBoxEmail
             // 
-            this.BtnLogin.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnLogin.Location = new System.Drawing.Point(56, 195);
-            this.BtnLogin.Name = "BtnLogin";
-            this.BtnLogin.Size = new System.Drawing.Size(259, 30);
-            this.BtnLogin.TabIndex = 6;
-            this.BtnLogin.Text = "Entrar";
-            this.BtnLogin.UseVisualStyleBackColor = true;
-            this.BtnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
+            this.TBoxEmail.BackColor = System.Drawing.SystemColors.Window;
+            this.TBoxEmail.BorderRadius = 6;
+            this.TBoxEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TBoxEmail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.TBoxEmail.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.TBoxEmail.Location = new System.Drawing.Point(56, 90);
+            this.TBoxEmail.Name = "TBoxEmail";
+            this.TBoxEmail.PlaceholderText = "E-mail";
+            this.TBoxEmail.Size = new System.Drawing.Size(259, 35);
+            this.TBoxEmail.TabIndex = 4;
+            // 
+            // TBoxPassword
+            // 
+            this.TBoxPassword.BackColor = System.Drawing.SystemColors.Window;
+            this.TBoxPassword.BorderRadius = 6;
+            this.TBoxPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TBoxPassword.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.TBoxPassword.Location = new System.Drawing.Point(56, 131);
+            this.TBoxPassword.Name = "TBoxPassword";
+            this.TBoxPassword.PlaceholderText = "Senha";
+            this.TBoxPassword.Size = new System.Drawing.Size(259, 35);
+            this.TBoxPassword.TabIndex = 5;
+            this.TBoxPassword.UseSystemPasswordChar = true;
             // 
             // tableLayoutPanel1
             // 
@@ -278,39 +295,17 @@
             this.LbRegisterText.TabIndex = 0;
             this.LbRegisterText.Text = "Não tem uma conta?";
             // 
-            // TBoxEmail
+            // BtnLogin
             // 
-            this.TBoxEmail.BackColor = System.Drawing.SystemColors.Window;
-            this.TBoxEmail.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.TBoxEmail.BorderRadius = 6;
-            this.TBoxEmail.BorderThickness = 1;
-            this.TBoxEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.TBoxEmail.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.TBoxEmail.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.TBoxEmail.Location = new System.Drawing.Point(56, 90);
-            this.TBoxEmail.Name = "TBoxEmail";
-            this.TBoxEmail.PlaceholderText = "E-mail";
-            this.TBoxEmail.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
-            this.TBoxEmail.Size = new System.Drawing.Size(259, 35);
-            this.TBoxEmail.TabIndex = 4;
-            // 
-            // TBoxPassword
-            // 
-            this.TBoxPassword.BackColor = System.Drawing.SystemColors.Window;
-            this.TBoxPassword.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.TBoxPassword.BorderRadius = 6;
-            this.TBoxPassword.BorderThickness = 1;
-            this.TBoxPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.TBoxPassword.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.TBoxPassword.Location = new System.Drawing.Point(56, 131);
-            this.TBoxPassword.Name = "TBoxPassword";
-            this.TBoxPassword.PlaceholderText = "Senha";
-            this.TBoxPassword.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
-            this.TBoxPassword.Size = new System.Drawing.Size(259, 35);
-            this.TBoxPassword.TabIndex = 5;
-            this.TBoxPassword.UseSystemPasswordChar = true;
+            this.BtnLogin.BorderRadius = 4;
+            this.BtnLogin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnLogin.HoverFilterStrength = 0.2F;
+            this.BtnLogin.Location = new System.Drawing.Point(56, 195);
+            this.BtnLogin.Name = "BtnLogin";
+            this.BtnLogin.Size = new System.Drawing.Size(259, 30);
+            this.BtnLogin.TabIndex = 8;
+            this.BtnLogin.Text = "Entrar";
+            this.BtnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
             // 
             // LbBtnRecoverAccount
             // 
@@ -372,12 +367,12 @@
         private System.Windows.Forms.Label LbTextDescription;
         private StylizedComponents.Controls.StylizedTextBox TBoxEmail;
         private StylizedComponents.Controls.StylizedTextBox TBoxPassword;
-        private System.Windows.Forms.Button BtnLogin;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.CheckBox CBoxRememberMe;
         private System.Windows.Forms.TableLayoutPanel TblRegisterLayout;
         private System.Windows.Forms.Label LbRegisterText;
         private StylizedComponents.Controls.LabelButtonStylized LbBtnRegister;
         private StylizedComponents.Controls.LabelButtonStylized LbBtnRecoverAccount;
+        private StylizedComponents.Controls.StylizedButton BtnLogin;
     }
 }
