@@ -41,7 +41,7 @@
             this.LbTextDescription = new System.Windows.Forms.Label();
             this.TBoxEmail = new StylizedComponents.Controls.StylizedTextBox();
             this.TBoxPassword = new StylizedComponents.Controls.StylizedTextBox();
-            this.BtnRegister = new System.Windows.Forms.Button();
+            this.BtnRegister = new StylizedComponents.Controls.StylizedButton();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.TBoxFirstName = new StylizedComponents.Controls.StylizedTextBox();
             this.TBoxLastName = new StylizedComponents.Controls.StylizedTextBox();
@@ -219,9 +219,7 @@
             // TBoxEmail
             // 
             this.TBoxEmail.BackColor = System.Drawing.SystemColors.Window;
-            this.TBoxEmail.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.TBoxEmail.BorderRadius = 6;
-            this.TBoxEmail.BorderThickness = 1;
             this.TBoxEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TBoxEmail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -229,36 +227,33 @@
             this.TBoxEmail.Location = new System.Drawing.Point(56, 90);
             this.TBoxEmail.Name = "TBoxEmail";
             this.TBoxEmail.PlaceholderText = "E-mail";
-            this.TBoxEmail.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
             this.TBoxEmail.Size = new System.Drawing.Size(259, 35);
             this.TBoxEmail.TabIndex = 4;
             // 
             // TBoxPassword
             // 
             this.TBoxPassword.BackColor = System.Drawing.SystemColors.Window;
-            this.TBoxPassword.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.TBoxPassword.BorderRadius = 6;
-            this.TBoxPassword.BorderThickness = 1;
             this.TBoxPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TBoxPassword.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.TBoxPassword.ForeColor = System.Drawing.SystemColors.ControlText;
             this.TBoxPassword.Location = new System.Drawing.Point(56, 171);
             this.TBoxPassword.Name = "TBoxPassword";
             this.TBoxPassword.PlaceholderText = "Senha";
-            this.TBoxPassword.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
             this.TBoxPassword.Size = new System.Drawing.Size(259, 35);
             this.TBoxPassword.TabIndex = 5;
             this.TBoxPassword.UseSystemPasswordChar = true;
             // 
             // BtnRegister
             // 
+            this.BtnRegister.BorderRadius = 4;
             this.BtnRegister.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnRegister.Location = new System.Drawing.Point(56, 252);
             this.BtnRegister.Name = "BtnRegister";
             this.BtnRegister.Size = new System.Drawing.Size(259, 30);
             this.BtnRegister.TabIndex = 6;
             this.BtnRegister.Text = "Registrar";
-            this.BtnRegister.UseVisualStyleBackColor = true;
             this.BtnRegister.Click += new System.EventHandler(this.BtnRegister_Click);
             // 
             // tableLayoutPanel1
@@ -280,48 +275,41 @@
             // TBoxFirstName
             // 
             this.TBoxFirstName.BackColor = System.Drawing.SystemColors.Window;
-            this.TBoxFirstName.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.TBoxFirstName.BorderRadius = 8;
-            this.TBoxFirstName.BorderThickness = 1;
             this.TBoxFirstName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TBoxFirstName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TBoxFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.TBoxFirstName.ForeColor = System.Drawing.SystemColors.ControlText;
             this.TBoxFirstName.Location = new System.Drawing.Point(3, 3);
             this.TBoxFirstName.Name = "TBoxFirstName";
             this.TBoxFirstName.PlaceholderText = "Primeiro Nome";
-            this.TBoxFirstName.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
             this.TBoxFirstName.Size = new System.Drawing.Size(126, 34);
             this.TBoxFirstName.TabIndex = 0;
             // 
             // TBoxLastName
             // 
             this.TBoxLastName.BackColor = System.Drawing.SystemColors.Window;
-            this.TBoxLastName.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.TBoxLastName.BorderRadius = 8;
-            this.TBoxLastName.BorderThickness = 1;
             this.TBoxLastName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TBoxLastName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TBoxLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.TBoxLastName.ForeColor = System.Drawing.SystemColors.ControlText;
             this.TBoxLastName.Location = new System.Drawing.Point(135, 3);
             this.TBoxLastName.Name = "TBoxLastName";
             this.TBoxLastName.PlaceholderText = "Ultimo Nome";
-            this.TBoxLastName.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
             this.TBoxLastName.Size = new System.Drawing.Size(127, 34);
             this.TBoxLastName.TabIndex = 1;
             // 
             // TBoxConfirmPassword
             // 
             this.TBoxConfirmPassword.BackColor = System.Drawing.SystemColors.Window;
-            this.TBoxConfirmPassword.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.TBoxConfirmPassword.BorderRadius = 8;
-            this.TBoxConfirmPassword.BorderThickness = 1;
             this.TBoxConfirmPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TBoxConfirmPassword.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TBoxConfirmPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.TBoxConfirmPassword.ForeColor = System.Drawing.SystemColors.ControlText;
             this.TBoxConfirmPassword.Location = new System.Drawing.Point(56, 212);
             this.TBoxConfirmPassword.Name = "TBoxConfirmPassword";
             this.TBoxConfirmPassword.PlaceholderText = "Confirmar Senha";
-            this.TBoxConfirmPassword.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
             this.TBoxConfirmPassword.Size = new System.Drawing.Size(259, 34);
             this.TBoxConfirmPassword.TabIndex = 8;
             this.TBoxConfirmPassword.UseSystemPasswordChar = true;
@@ -402,7 +390,6 @@
         private System.Windows.Forms.Label LbTextDescription;
         private StylizedComponents.Controls.StylizedTextBox TBoxEmail;
         private StylizedComponents.Controls.StylizedTextBox TBoxPassword;
-        private System.Windows.Forms.Button BtnRegister;
         private System.Windows.Forms.TableLayoutPanel TblLoginLayout;
         private System.Windows.Forms.Label LbRegisterText;
         private StylizedComponents.Controls.LabelButtonStylized LbBtnLogin;
@@ -410,5 +397,6 @@
         private StylizedComponents.Controls.StylizedTextBox TBoxFirstName;
         private StylizedComponents.Controls.StylizedTextBox TBoxLastName;
         private StylizedComponents.Controls.StylizedTextBox TBoxConfirmPassword;
+        private StylizedComponents.Controls.StylizedButton BtnRegister;
     }
 }

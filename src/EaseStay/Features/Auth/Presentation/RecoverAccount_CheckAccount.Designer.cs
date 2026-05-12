@@ -37,8 +37,8 @@
             this.LbTextDescription = new System.Windows.Forms.Label();
             this.TBoxCode = new StylizedComponents.Controls.StylizedTextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.BtnFindAccount = new System.Windows.Forms.Button();
-            this.BtnCancel = new System.Windows.Forms.Button();
+            this.BtnFindAccount = new StylizedComponents.Controls.StylizedButton();
+            this.BtnCancel = new StylizedComponents.Controls.StylizedButton();
             this.TblImageLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBoxAuth)).BeginInit();
             this.TblRowLayout.SuspendLayout();
@@ -140,9 +140,7 @@
             // TBoxCode
             // 
             this.TBoxCode.BackColor = System.Drawing.SystemColors.Window;
-            this.TBoxCode.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.TBoxCode.BorderRadius = 6;
-            this.TBoxCode.BorderThickness = 1;
             this.TBoxCode.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TBoxCode.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TBoxCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -150,7 +148,6 @@
             this.TBoxCode.Location = new System.Drawing.Point(56, 71);
             this.TBoxCode.Name = "TBoxCode";
             this.TBoxCode.PlaceholderText = "Codigo";
-            this.TBoxCode.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
             this.TBoxCode.Size = new System.Drawing.Size(259, 35);
             this.TBoxCode.TabIndex = 4;
             // 
@@ -173,24 +170,26 @@
             // 
             // BtnFindAccount
             // 
+            this.BtnFindAccount.BorderRadius = 4;
             this.BtnFindAccount.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnFindAccount.Location = new System.Drawing.Point(135, 3);
             this.BtnFindAccount.Name = "BtnFindAccount";
             this.BtnFindAccount.Size = new System.Drawing.Size(127, 40);
             this.BtnFindAccount.TabIndex = 1;
             this.BtnFindAccount.Text = "Encontrar conta";
-            this.BtnFindAccount.UseVisualStyleBackColor = true;
             this.BtnFindAccount.Click += new System.EventHandler(this.BtnFindAccount_Click);
             // 
             // BtnCancel
             // 
-            this.BtnCancel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnCancel.BackColor = System.Drawing.Color.White;
+            this.BtnCancel.BorderRadius = 4;
+            this.BtnCancel.BorderThickness = 1;
+            this.BtnCancel.ForeColor = System.Drawing.Color.Black;
             this.BtnCancel.Location = new System.Drawing.Point(3, 3);
             this.BtnCancel.Name = "BtnCancel";
             this.BtnCancel.Size = new System.Drawing.Size(126, 40);
-            this.BtnCancel.TabIndex = 0;
+            this.BtnCancel.TabIndex = 2;
             this.BtnCancel.Text = "Cancelar";
-            this.BtnCancel.UseVisualStyleBackColor = true;
             this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // RecoverAccount_CheckAccount
@@ -221,7 +220,7 @@
         private System.Windows.Forms.Label LbTextDescription;
         private StylizedComponents.Controls.StylizedTextBox TBoxCode;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button BtnCancel;
-        private System.Windows.Forms.Button BtnFindAccount;
+        private StylizedComponents.Controls.StylizedButton BtnFindAccount;
+        private StylizedComponents.Controls.StylizedButton BtnCancel;
     }
 }

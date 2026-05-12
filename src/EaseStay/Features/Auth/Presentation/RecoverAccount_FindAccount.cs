@@ -58,21 +58,7 @@ namespace EaseStay.Features.Auth.Presentation
 
         private void BtnFindAccount_Click(object sender, EventArgs e)
         {
-            IUserRepository repo = new UserRepository();
 
-            User user = repo.GetByEmail(TBoxEmail.Text);
-
-            if (user == null)
-            {
-                MessageBox.Show("Email não encontrado");
-                return;
-            }
-
-            string code =  Utils.GenerateCode();
-
-            EmailService.Send("Email validation!", $"Your code is: '{code}'. Don't share!", TBoxEmail.Text);
-
-            MainForm.Instance.SetControl(new RecoverAccount_CheckAccount(code, user));
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)

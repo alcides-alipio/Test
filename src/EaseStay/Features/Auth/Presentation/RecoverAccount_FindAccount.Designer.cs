@@ -35,10 +35,10 @@
             this.TblRegisterLayout = new System.Windows.Forms.TableLayoutPanel();
             this.LbTitleDescription = new System.Windows.Forms.Label();
             this.LbTextDescription = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.BtnCancel = new System.Windows.Forms.Button();
             this.TBoxEmail = new StylizedComponents.Controls.StylizedTextBox();
-            this.BtnFindAccount = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.BtnFindAccount = new StylizedComponents.Controls.StylizedButton();
+            this.BtnCancel = new StylizedComponents.Controls.StylizedButton();
             this.TblImageLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBoxAuth)).BeginInit();
             this.TblRowLayout.SuspendLayout();
@@ -105,14 +105,14 @@
             this.TblRegisterLayout.Controls.Add(this.TBoxEmail, 1, 2);
             this.TblRegisterLayout.Controls.Add(this.tableLayoutPanel1, 1, 3);
             this.TblRegisterLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TblRegisterLayout.Location = new System.Drawing.Point(3, 183);
+            this.TblRegisterLayout.Location = new System.Drawing.Point(3, 186);
             this.TblRegisterLayout.Name = "TblRegisterLayout";
             this.TblRegisterLayout.RowCount = 4;
             this.TblRegisterLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.TblRegisterLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.TblRegisterLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.TblRegisterLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.TblRegisterLayout.Size = new System.Drawing.Size(372, 139);
+            this.TblRegisterLayout.Size = new System.Drawing.Size(372, 133);
             this.TblRegisterLayout.TabIndex = 1;
             // 
             // LbTitleDescription
@@ -137,6 +137,20 @@
             this.LbTextDescription.TabIndex = 3;
             this.LbTextDescription.Text = "Introduza o email associado à sua conta.";
             // 
+            // TBoxEmail
+            // 
+            this.TBoxEmail.BackColor = System.Drawing.SystemColors.Window;
+            this.TBoxEmail.BorderRadius = 6;
+            this.TBoxEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TBoxEmail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.TBoxEmail.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.TBoxEmail.Location = new System.Drawing.Point(56, 55);
+            this.TBoxEmail.Name = "TBoxEmail";
+            this.TBoxEmail.PlaceholderText = "E-mail";
+            this.TBoxEmail.Size = new System.Drawing.Size(259, 35);
+            this.TBoxEmail.TabIndex = 4;
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.AutoSize = true;
@@ -150,48 +164,34 @@
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(265, 46);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(265, 40);
             this.tableLayoutPanel1.TabIndex = 5;
-            // 
-            // BtnCancel
-            // 
-            this.BtnCancel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnCancel.Location = new System.Drawing.Point(3, 3);
-            this.BtnCancel.Name = "BtnCancel";
-            this.BtnCancel.Size = new System.Drawing.Size(126, 40);
-            this.BtnCancel.TabIndex = 0;
-            this.BtnCancel.Text = "Cancelar";
-            this.BtnCancel.UseVisualStyleBackColor = true;
-            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
-            // 
-            // TBoxEmail
-            // 
-            this.TBoxEmail.BackColor = System.Drawing.SystemColors.Window;
-            this.TBoxEmail.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.TBoxEmail.BorderRadius = 6;
-            this.TBoxEmail.BorderThickness = 1;
-            this.TBoxEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.TBoxEmail.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.TBoxEmail.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.TBoxEmail.Location = new System.Drawing.Point(56, 55);
-            this.TBoxEmail.Name = "TBoxEmail";
-            this.TBoxEmail.PlaceholderText = "E-mail";
-            this.TBoxEmail.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
-            this.TBoxEmail.Size = new System.Drawing.Size(259, 35);
-            this.TBoxEmail.TabIndex = 4;
             // 
             // BtnFindAccount
             // 
+            this.BtnFindAccount.BorderRadius = 4;
             this.BtnFindAccount.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnFindAccount.Location = new System.Drawing.Point(135, 3);
             this.BtnFindAccount.Name = "BtnFindAccount";
-            this.BtnFindAccount.Size = new System.Drawing.Size(127, 40);
+            this.BtnFindAccount.Size = new System.Drawing.Size(127, 34);
             this.BtnFindAccount.TabIndex = 1;
             this.BtnFindAccount.Text = "Encontrar conta";
-            this.BtnFindAccount.UseVisualStyleBackColor = true;
             this.BtnFindAccount.Click += new System.EventHandler(this.BtnFindAccount_Click);
+            // 
+            // BtnCancel
+            // 
+            this.BtnCancel.BackColor = System.Drawing.Color.White;
+            this.BtnCancel.BorderRadius = 4;
+            this.BtnCancel.BorderThickness = 1;
+            this.BtnCancel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnCancel.ForeColor = System.Drawing.Color.Black;
+            this.BtnCancel.Location = new System.Drawing.Point(3, 3);
+            this.BtnCancel.Name = "BtnCancel";
+            this.BtnCancel.Size = new System.Drawing.Size(126, 34);
+            this.BtnCancel.TabIndex = 2;
+            this.BtnCancel.Text = "Cancelar";
+            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // RecoverAccount_FindAccount
             // 
@@ -221,7 +221,7 @@
         private System.Windows.Forms.Label LbTextDescription;
         private StylizedComponents.Controls.StylizedTextBox TBoxEmail;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button BtnCancel;
-        private System.Windows.Forms.Button BtnFindAccount;
+        private StylizedComponents.Controls.StylizedButton BtnFindAccount;
+        private StylizedComponents.Controls.StylizedButton BtnCancel;
     }
 }

@@ -37,8 +37,8 @@
             this.LbTextDescription = new System.Windows.Forms.Label();
             this.TBoxConfirmPassword = new StylizedComponents.Controls.StylizedTextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.BtnChange = new System.Windows.Forms.Button();
-            this.BtnCancel = new System.Windows.Forms.Button();
+            this.BtnChangePassword = new StylizedComponents.Controls.StylizedButton();
+            this.BtnCancel = new StylizedComponents.Controls.StylizedButton();
             this.TBoxPassword = new StylizedComponents.Controls.StylizedTextBox();
             this.TblImageLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBoxAuth)).BeginInit();
@@ -107,7 +107,7 @@
             this.TblRegisterLayout.Controls.Add(this.tableLayoutPanel1, 1, 4);
             this.TblRegisterLayout.Controls.Add(this.TBoxPassword, 1, 2);
             this.TblRegisterLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TblRegisterLayout.Location = new System.Drawing.Point(3, 155);
+            this.TblRegisterLayout.Location = new System.Drawing.Point(3, 152);
             this.TblRegisterLayout.Name = "TblRegisterLayout";
             this.TblRegisterLayout.RowCount = 5;
             this.TblRegisterLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -115,7 +115,7 @@
             this.TblRegisterLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.TblRegisterLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.TblRegisterLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.TblRegisterLayout.Size = new System.Drawing.Size(372, 196);
+            this.TblRegisterLayout.Size = new System.Drawing.Size(372, 201);
             this.TblRegisterLayout.TabIndex = 1;
             // 
             // LbTitleDescription
@@ -143,9 +143,7 @@
             // TBoxConfirmPassword
             // 
             this.TBoxConfirmPassword.BackColor = System.Drawing.SystemColors.Window;
-            this.TBoxConfirmPassword.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.TBoxConfirmPassword.BorderRadius = 8;
-            this.TBoxConfirmPassword.BorderThickness = 1;
             this.TBoxConfirmPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TBoxConfirmPassword.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TBoxConfirmPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -153,7 +151,6 @@
             this.TBoxConfirmPassword.Location = new System.Drawing.Point(56, 112);
             this.TBoxConfirmPassword.Name = "TBoxConfirmPassword";
             this.TBoxConfirmPassword.PlaceholderText = "Confirmar Password";
-            this.TBoxConfirmPassword.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
             this.TBoxConfirmPassword.Size = new System.Drawing.Size(259, 35);
             this.TBoxConfirmPassword.TabIndex = 4;
             this.TBoxConfirmPassword.UseSystemPasswordChar = true;
@@ -164,7 +161,7 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.BtnChange, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.BtnChangePassword, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.BtnCancel, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(53, 150);
@@ -172,44 +169,45 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(265, 46);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(265, 51);
             this.tableLayoutPanel1.TabIndex = 5;
             // 
-            // BtnChange
+            // BtnChangePassword
             // 
-            this.BtnChange.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnChange.Location = new System.Drawing.Point(135, 3);
-            this.BtnChange.Name = "BtnChange";
-            this.BtnChange.Size = new System.Drawing.Size(127, 40);
-            this.BtnChange.TabIndex = 1;
-            this.BtnChange.Text = "Mudar senha";
-            this.BtnChange.UseVisualStyleBackColor = true;
-            this.BtnChange.Click += new System.EventHandler(this.BtnChange_Click);
+            this.BtnChangePassword.BorderRadius = 8;
+            this.BtnChangePassword.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnChangePassword.Location = new System.Drawing.Point(135, 3);
+            this.BtnChangePassword.Name = "BtnChangePassword";
+            this.BtnChangePassword.Size = new System.Drawing.Size(127, 45);
+            this.BtnChangePassword.TabIndex = 1;
+            this.BtnChangePassword.Text = "Mudar Senha";
+            this.BtnChangePassword.Click += new System.EventHandler(this.BtnChange_Click);
             // 
             // BtnCancel
             // 
+            this.BtnCancel.BackColor = System.Drawing.Color.White;
+            this.BtnCancel.BorderRadius = 4;
+            this.BtnCancel.BorderThickness = 1;
             this.BtnCancel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnCancel.ForeColor = System.Drawing.Color.Black;
             this.BtnCancel.Location = new System.Drawing.Point(3, 3);
             this.BtnCancel.Name = "BtnCancel";
-            this.BtnCancel.Size = new System.Drawing.Size(126, 40);
-            this.BtnCancel.TabIndex = 0;
+            this.BtnCancel.Size = new System.Drawing.Size(126, 45);
+            this.BtnCancel.TabIndex = 2;
             this.BtnCancel.Text = "Cancelar";
-            this.BtnCancel.UseVisualStyleBackColor = true;
             this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // TBoxPassword
             // 
             this.TBoxPassword.BackColor = System.Drawing.SystemColors.Window;
-            this.TBoxPassword.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.TBoxPassword.BorderRadius = 8;
-            this.TBoxPassword.BorderThickness = 1;
             this.TBoxPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TBoxPassword.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.TBoxPassword.ForeColor = System.Drawing.SystemColors.ControlText;
             this.TBoxPassword.Location = new System.Drawing.Point(56, 71);
             this.TBoxPassword.Name = "TBoxPassword";
             this.TBoxPassword.PlaceholderText = "Nova Password";
-            this.TBoxPassword.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
             this.TBoxPassword.Size = new System.Drawing.Size(259, 35);
             this.TBoxPassword.TabIndex = 6;
             this.TBoxPassword.UseSystemPasswordChar = true;
@@ -242,8 +240,8 @@
         private System.Windows.Forms.Label LbTextDescription;
         private StylizedComponents.Controls.StylizedTextBox TBoxConfirmPassword;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button BtnCancel;
-        private System.Windows.Forms.Button BtnChange;
         private StylizedComponents.Controls.StylizedTextBox TBoxPassword;
+        private StylizedComponents.Controls.StylizedButton BtnChangePassword;
+        private StylizedComponents.Controls.StylizedButton BtnCancel;
     }
 }

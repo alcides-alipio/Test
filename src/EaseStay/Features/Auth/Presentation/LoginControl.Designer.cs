@@ -43,10 +43,10 @@
             this.TBoxPassword = new StylizedComponents.Controls.StylizedTextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.CBoxRememberMe = new System.Windows.Forms.CheckBox();
+            this.LbBtnRecoverAccount = new StylizedComponents.Controls.LabelButtonStylized();
+            this.BtnLogin = new StylizedComponents.Controls.StylizedButton();
             this.TblRegisterLayout = new System.Windows.Forms.TableLayoutPanel();
             this.LbRegisterText = new System.Windows.Forms.Label();
-            this.BtnLogin = new StylizedComponents.Controls.StylizedButton();
-            this.LbBtnRecoverAccount = new StylizedComponents.Controls.LabelButtonStylized();
             this.LbBtnRegister = new StylizedComponents.Controls.LabelButtonStylized();
             this.TblImageLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBoxLogin)).BeginInit();
@@ -232,6 +232,7 @@
             this.TBoxPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TBoxPassword.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.TBoxPassword.ForeColor = System.Drawing.SystemColors.ControlText;
             this.TBoxPassword.Location = new System.Drawing.Point(56, 131);
             this.TBoxPassword.Name = "TBoxPassword";
             this.TBoxPassword.PlaceholderText = "Senha";
@@ -267,6 +268,29 @@
             this.CBoxRememberMe.Text = "Lembrar de mim";
             this.CBoxRememberMe.UseVisualStyleBackColor = true;
             // 
+            // LbBtnRecoverAccount
+            // 
+            this.LbBtnRecoverAccount.AutoSize = true;
+            this.LbBtnRecoverAccount.Location = new System.Drawing.Point(154, 3);
+            this.LbBtnRecoverAccount.Margin = new System.Windows.Forms.Padding(3);
+            this.LbBtnRecoverAccount.Name = "LbBtnRecoverAccount";
+            this.LbBtnRecoverAccount.Size = new System.Drawing.Size(108, 13);
+            this.LbBtnRecoverAccount.TabIndex = 3;
+            this.LbBtnRecoverAccount.Text = "Esqueci minha senha";
+            this.LbBtnRecoverAccount.Click += new System.EventHandler(this.LbBtnRecoverAccount_Click);
+            // 
+            // BtnLogin
+            // 
+            this.BtnLogin.BorderRadius = 4;
+            this.BtnLogin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnLogin.HoverFilterStrength = 0.2F;
+            this.BtnLogin.Location = new System.Drawing.Point(56, 195);
+            this.BtnLogin.Name = "BtnLogin";
+            this.BtnLogin.Size = new System.Drawing.Size(259, 30);
+            this.BtnLogin.TabIndex = 8;
+            this.BtnLogin.Text = "Entrar";
+            this.BtnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
+            // 
             // TblRegisterLayout
             // 
             this.TblRegisterLayout.AutoSize = true;
@@ -294,29 +318,6 @@
             this.LbRegisterText.Size = new System.Drawing.Size(106, 13);
             this.LbRegisterText.TabIndex = 0;
             this.LbRegisterText.Text = "Não tem uma conta?";
-            // 
-            // BtnLogin
-            // 
-            this.BtnLogin.BorderRadius = 4;
-            this.BtnLogin.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnLogin.HoverFilterStrength = 0.2F;
-            this.BtnLogin.Location = new System.Drawing.Point(56, 195);
-            this.BtnLogin.Name = "BtnLogin";
-            this.BtnLogin.Size = new System.Drawing.Size(259, 30);
-            this.BtnLogin.TabIndex = 8;
-            this.BtnLogin.Text = "Entrar";
-            this.BtnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
-            // 
-            // LbBtnRecoverAccount
-            // 
-            this.LbBtnRecoverAccount.AutoSize = true;
-            this.LbBtnRecoverAccount.Location = new System.Drawing.Point(154, 3);
-            this.LbBtnRecoverAccount.Margin = new System.Windows.Forms.Padding(3);
-            this.LbBtnRecoverAccount.Name = "LbBtnRecoverAccount";
-            this.LbBtnRecoverAccount.Size = new System.Drawing.Size(108, 13);
-            this.LbBtnRecoverAccount.TabIndex = 3;
-            this.LbBtnRecoverAccount.Text = "Esqueci minha senha";
-            this.LbBtnRecoverAccount.Click += new System.EventHandler(this.LbBtnRecoverAccount_Click);
             // 
             // LbBtnRegister
             // 
