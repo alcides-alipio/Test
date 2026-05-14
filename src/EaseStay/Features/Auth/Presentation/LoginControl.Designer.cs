@@ -43,11 +43,11 @@
             this.TBoxPassword = new StylizedComponents.Controls.StylizedTextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.CBoxRememberMe = new System.Windows.Forms.CheckBox();
-            this.LbBtnRecoverAccount = new StylizedComponents.Controls.LabelButtonStylized();
+            this.LbBtnRecoverAccount = new System.Windows.Forms.Label();
             this.BtnLogin = new StylizedComponents.Controls.StylizedButton();
             this.TblRegisterLayout = new System.Windows.Forms.TableLayoutPanel();
             this.LbRegisterText = new System.Windows.Forms.Label();
-            this.LbBtnRegister = new StylizedComponents.Controls.LabelButtonStylized();
+            this.LbBtnRegister = new System.Windows.Forms.Label();
             this.TblImageLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBoxLogin)).BeginInit();
             this.TblRowLayout.SuspendLayout();
@@ -372,8 +372,8 @@
         private System.Windows.Forms.CheckBox CBoxRememberMe;
         private System.Windows.Forms.TableLayoutPanel TblRegisterLayout;
         private System.Windows.Forms.Label LbRegisterText;
-        private StylizedComponents.Controls.LabelButtonStylized LbBtnRegister;
-        private StylizedComponents.Controls.LabelButtonStylized LbBtnRecoverAccount;
+        private System.Windows.Forms.Label LbBtnRegister;
+        private System.Windows.Forms.Label LbBtnRecoverAccount;
         private StylizedComponents.Controls.StylizedButton BtnLogin;
     }
 }

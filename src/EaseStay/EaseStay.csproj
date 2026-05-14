@@ -221,9 +221,6 @@
     <Compile Include="Core\Database\SqlInsertBuilder.cs" />
     <Compile Include="Core\Database\SqlSelectBuilder.cs" />
     <Compile Include="Core\Database\SqlUpdateBuilder.cs" />
-    <Compile Include="Core\Elements\LabelButtonStylized.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Core\Services\EmailService.cs" />
     <Compile Include="Core\Settings.cs" />
     <Compile Include="Core\Utils.cs" />
@@ -264,11 +261,11 @@
     <Compile Include="Features\Auth\Presentation\RegisterControl.Designer.cs">
       <DependentUpon>RegisterControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Features\Pages\Presentation\PagesControl.cs">
+    <Compile Include="Features\Dashboard\Presentation\DashboardControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Features\Pages\Presentation\PagesControl.Designer.cs">
-      <DependentUpon>PagesControl.cs</DependentUpon>
+    <Compile Include="Features\Dashboard\Presentation\DashboardControl.Designer.cs">
+      <DependentUpon>DashboardControl.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForms.cs">
       <SubType>Form</SubType>
@@ -293,8 +290,8 @@
     <EmbeddedResource Include="Features\Auth\Presentation\RegisterControl.resx">
       <DependentUpon>RegisterControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Features\Pages\Presentation\PagesControl.resx">
-      <DependentUpon>PagesControl.cs</DependentUpon>
+    <EmbeddedResource Include="Features\Dashboard\Presentation\DashboardControl.resx">
+      <DependentUpon>DashboardControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForms.resx">
       <DependentUpon>MainForms.cs</DependentUpon>
@@ -335,13 +332,7 @@
   <ItemGroup>
     <None Include="Resources\Logo_128px.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Features\Dashboard\Data\" />
-    <Folder Include="Features\Dashboard\Domain\" />
-    <Folder Include="Features\Dashboard\Presentation\" />
-    <Folder Include="Features\Pages\Data\" />
-    <Folder Include="Features\Pages\Domain\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

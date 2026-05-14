@@ -48,7 +48,7 @@
             this.TBoxConfirmPassword = new StylizedComponents.Controls.StylizedTextBox();
             this.TblLoginLayout = new System.Windows.Forms.TableLayoutPanel();
             this.LbRegisterText = new System.Windows.Forms.Label();
-            this.LbBtnLogin = new StylizedComponents.Controls.LabelButtonStylized();
+            this.LbBtnLogin = new System.Windows.Forms.Label();
             this.TblImageLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBoxRegister)).BeginInit();
             this.TblRowLayout.SuspendLayout();
@@ -392,7 +392,7 @@
         private StylizedComponents.Controls.StylizedTextBox TBoxPassword;
         private System.Windows.Forms.TableLayoutPanel TblLoginLayout;
         private System.Windows.Forms.Label LbRegisterText;
-        private StylizedComponents.Controls.LabelButtonStylized LbBtnLogin;
+        private System.Windows.Forms.Label LbBtnLogin;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private StylizedComponents.Controls.StylizedTextBox TBoxFirstName;
         private StylizedComponents.Controls.StylizedTextBox TBoxLastName;

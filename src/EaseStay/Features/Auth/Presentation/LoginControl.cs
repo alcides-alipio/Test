@@ -3,13 +3,15 @@ using EaseStay.Features.Auth.Data.Repositories;
 using EaseStay.Features.Auth.Domain.Entities;
 using EaseStay.Features.Auth.Domain.Repositories;
 using EaseStay.Features.Auth.Domain.UseCases;
-using EaseStay.Features.Pages.Presentation;
+using EaseStay.Features.Dashboard.Presentation;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace EaseStay.Features.Auth.Presentation
 {
+    [ToolboxItem(false)]
     public partial class LoginControl : UserControl
     {
         private readonly Action<TableLayoutPanel> _subscribe;
@@ -89,7 +91,7 @@ namespace EaseStay.Features.Auth.Presentation
                 return;
             }
 
-            MainForm.Instance.SetControl(new PagesControl());
+            MainForm.Instance.SetControl(new DashboardControl());
         }
 
         private void LbBtnRegister_Click(object sender, EventArgs e)

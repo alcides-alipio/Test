@@ -1,9 +1,8 @@
 ﻿using EaseStay.Core;
 using EaseStay.Features.Auth.Data.Repositories;
 using EaseStay.Features.Auth.Domain.Repositories;
-using EaseStay.Features.Auth.Domain.UseCases;
 using EaseStay.Features.Auth.Presentation;
-using EaseStay.Features.Pages.Presentation;
+using EaseStay.Features.Dashboard.Presentation;
 using System;
 using System.Windows.Forms;
 
@@ -47,7 +46,7 @@ namespace EaseStay
                 Settings.UserLastName = user.LastName;
                 Settings.UserEmail = user.Email;
 
-                SetControl(new PagesControl());
+                SetControl(new DashboardControl());
             }
             else
                 SetControl(new LoginControl());

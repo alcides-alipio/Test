@@ -1,21 +1,15 @@
 ﻿using EaseStay.Core;
-using EaseStay.Core.Database;
 using EaseStay.Features.Auth.Data.Repositories;
 using EaseStay.Features.Auth.Domain.Entities;
 using EaseStay.Features.Auth.Domain.Repositories;
 using EaseStay.Features.Auth.Domain.UseCases;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace EaseStay.Features.Auth.Presentation
 {
+    [ToolboxItem(false)]
     public partial class RecoverAccount_RecoverAccount : UserControl
     {
         private User _user;

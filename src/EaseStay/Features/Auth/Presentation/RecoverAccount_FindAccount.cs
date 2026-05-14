@@ -1,13 +1,11 @@
 ﻿using EaseStay.Core;
-using EaseStay.Core.Services;
-using EaseStay.Features.Auth.Data.Repositories;
-using EaseStay.Features.Auth.Domain.Entities;
-using EaseStay.Features.Auth.Domain.Repositories;
 using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace EaseStay.Features.Auth.Presentation
 {
+    [ToolboxItem(false)]
     public partial class RecoverAccount_FindAccount : UserControl
     {
         private readonly Action<TableLayoutPanel> _subscribe;
