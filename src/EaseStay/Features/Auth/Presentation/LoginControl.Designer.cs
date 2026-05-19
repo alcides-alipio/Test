@@ -213,7 +213,7 @@
             // 
             // TBoxEmail
             // 
-            this.TBoxEmail.BackColor = System.Drawing.SystemColors.Window;
+            this.TBoxEmail.BackColor = System.Drawing.SystemColors.Control;
             this.TBoxEmail.BorderRadius = 6;
             this.TBoxEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TBoxEmail.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -224,10 +224,11 @@
             this.TBoxEmail.PlaceholderText = "E-mail";
             this.TBoxEmail.Size = new System.Drawing.Size(259, 35);
             this.TBoxEmail.TabIndex = 4;
+            this.TBoxEmail.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // TBoxPassword
             // 
-            this.TBoxPassword.BackColor = System.Drawing.SystemColors.Window;
+            this.TBoxPassword.BackColor = System.Drawing.SystemColors.Control;
             this.TBoxPassword.BorderRadius = 6;
             this.TBoxPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TBoxPassword.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -238,6 +239,7 @@
             this.TBoxPassword.PlaceholderText = "Senha";
             this.TBoxPassword.Size = new System.Drawing.Size(259, 35);
             this.TBoxPassword.TabIndex = 5;
+            this.TBoxPassword.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.TBoxPassword.UseSystemPasswordChar = true;
             // 
             // tableLayoutPanel1

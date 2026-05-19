@@ -139,7 +139,7 @@
             // 
             // TBoxEmail
             // 
-            this.TBoxEmail.BackColor = System.Drawing.SystemColors.Window;
+            this.TBoxEmail.BackColor = System.Drawing.SystemColors.Control;
             this.TBoxEmail.BorderRadius = 6;
             this.TBoxEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TBoxEmail.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -150,6 +150,7 @@
             this.TBoxEmail.PlaceholderText = "E-mail";
             this.TBoxEmail.Size = new System.Drawing.Size(259, 35);
             this.TBoxEmail.TabIndex = 4;
+            this.TBoxEmail.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tableLayoutPanel1
             // 

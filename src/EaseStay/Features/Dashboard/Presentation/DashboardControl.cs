@@ -1,13 +1,7 @@
 ﻿using EaseStay.Core;
 using EaseStay.Features.Auth.Presentation;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace EaseStay.Features.Dashboard.Presentation
@@ -19,7 +13,7 @@ namespace EaseStay.Features.Dashboard.Presentation
         {
             InitializeComponent();
 
-            label1.Text = Properties.Settings.Default.UserUUID.ToString();
+            label1.Text = Settings.UserUUID.ToString();
         }
 
         private void Dashboard_Resize(object sender, EventArgs e)

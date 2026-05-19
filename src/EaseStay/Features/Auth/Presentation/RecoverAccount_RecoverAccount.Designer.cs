@@ -142,7 +142,7 @@
             // 
             // TBoxConfirmPassword
             // 
-            this.TBoxConfirmPassword.BackColor = System.Drawing.SystemColors.Window;
+            this.TBoxConfirmPassword.BackColor = System.Drawing.SystemColors.Control;
             this.TBoxConfirmPassword.BorderRadius = 8;
             this.TBoxConfirmPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TBoxConfirmPassword.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -153,6 +153,7 @@
             this.TBoxConfirmPassword.PlaceholderText = "Confirmar Password";
             this.TBoxConfirmPassword.Size = new System.Drawing.Size(259, 35);
             this.TBoxConfirmPassword.TabIndex = 4;
+            this.TBoxConfirmPassword.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.TBoxConfirmPassword.UseSystemPasswordChar = true;
             // 
             // tableLayoutPanel1
@@ -210,6 +211,7 @@
             this.TBoxPassword.PlaceholderText = "Nova Password";
             this.TBoxPassword.Size = new System.Drawing.Size(259, 35);
             this.TBoxPassword.TabIndex = 6;
+            this.TBoxPassword.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.TBoxPassword.UseSystemPasswordChar = true;
             // 
             // RecoverAccount_RecoverAccount

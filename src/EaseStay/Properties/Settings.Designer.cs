@@ -25,23 +25,47 @@ namespace EaseStay.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("(LocalDB)\\MSSQLLocalDB;Database=PSI1624U_AlcidesAlipio_2224107;Trusted_Connection" +
-            "=True;")]
-        public string ConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("Server=(LocalDB)\\MSSQLLocalDB;Database=PSI1624U_AlcidesAlipio_2224107;Trusted_Con" +
+            "nection=True;")]
+        public string DB_CONN {
             get {
-                return ((string)(this["ConnectionString"]));
+                return ((string)(this["DB_CONN"]));
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("00000000-0000-0000-0000-000000000000")]
-        public global::System.Guid UserUUID {
+        [global::System.Configuration.DefaultSettingValueAttribute("587")]
+        public int SMTP_PORT {
             get {
-                return ((global::System.Guid)(this["UserUUID"]));
+                return ((int)(this["SMTP_PORT"]));
             }
-            set {
-                this["UserUUID"] = value;
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("easestay.support@gmail.com")]
+        public string SMTP_USER {
+            get {
+                return ((string)(this["SMTP_USER"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("auyo sjts soab lzfr")]
+        public string SMTP_PASS {
+            get {
+                return ((string)(this["SMTP_PASS"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("smtp.gmail.com")]
+        public string SMTP_HOST {
+            get {
+                return ((string)(this["SMTP_HOST"]));
             }
         }
     }

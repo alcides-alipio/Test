@@ -22,11 +22,11 @@ namespace EaseStay.Core
         {
             Env.Load();
 
-            SMTP_HOST = Environment.GetEnvironmentVariable("SMTP_HOST");
-            SMTP_PORT = int.Parse(Environment.GetEnvironmentVariable("SMTP_PORT"));
-            SMTP_USER = Environment.GetEnvironmentVariable("SMTP_USER");
-            SMTP_PASS = Environment.GetEnvironmentVariable("SMTP_PASS");
-            DB_CONN = Environment.GetEnvironmentVariable("DB_CONN");
+            SMTP_HOST = Properties.Settings.Default.SMTP_HOST;
+            SMTP_PORT = Properties.Settings.Default.SMTP_PORT;
+            SMTP_USER = Properties.Settings.Default.SMTP_USER;
+            SMTP_PASS = Properties.Settings.Default.SMTP_PASS;
+            DB_CONN = Properties.Settings.Default.DB_CONN;
         }
 
         public static void SavePersistentSession(Guid uuid)

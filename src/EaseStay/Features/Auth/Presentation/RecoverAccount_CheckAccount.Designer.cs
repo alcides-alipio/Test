@@ -139,7 +139,7 @@
             // 
             // TBoxCode
             // 
-            this.TBoxCode.BackColor = System.Drawing.SystemColors.Window;
+            this.TBoxCode.BackColor = System.Drawing.SystemColors.Control;
             this.TBoxCode.BorderRadius = 6;
             this.TBoxCode.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TBoxCode.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -150,6 +150,7 @@
             this.TBoxCode.PlaceholderText = "Codigo";
             this.TBoxCode.Size = new System.Drawing.Size(259, 35);
             this.TBoxCode.TabIndex = 4;
+            this.TBoxCode.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tableLayoutPanel1
             // 

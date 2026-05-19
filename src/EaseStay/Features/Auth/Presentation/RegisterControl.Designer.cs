@@ -218,7 +218,7 @@
             // 
             // TBoxEmail
             // 
-            this.TBoxEmail.BackColor = System.Drawing.SystemColors.Window;
+            this.TBoxEmail.BackColor = System.Drawing.SystemColors.Control;
             this.TBoxEmail.BorderRadius = 6;
             this.TBoxEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TBoxEmail.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -229,6 +229,7 @@
             this.TBoxEmail.PlaceholderText = "E-mail";
             this.TBoxEmail.Size = new System.Drawing.Size(259, 35);
             this.TBoxEmail.TabIndex = 4;
+            this.TBoxEmail.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // TBoxPassword
             // 
@@ -243,6 +244,7 @@
             this.TBoxPassword.PlaceholderText = "Senha";
             this.TBoxPassword.Size = new System.Drawing.Size(259, 35);
             this.TBoxPassword.TabIndex = 5;
+            this.TBoxPassword.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.TBoxPassword.UseSystemPasswordChar = true;
             // 
             // BtnRegister
@@ -274,20 +276,22 @@
             // 
             // TBoxFirstName
             // 
-            this.TBoxFirstName.BackColor = System.Drawing.SystemColors.Window;
+            this.TBoxFirstName.BackColor = System.Drawing.SystemColors.Control;
             this.TBoxFirstName.BorderRadius = 8;
             this.TBoxFirstName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TBoxFirstName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TBoxFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.TBoxFirstName.ForeColor = System.Drawing.SystemColors.ControlText;
             this.TBoxFirstName.Location = new System.Drawing.Point(3, 3);
             this.TBoxFirstName.Name = "TBoxFirstName";
             this.TBoxFirstName.PlaceholderText = "Primeiro Nome";
             this.TBoxFirstName.Size = new System.Drawing.Size(126, 34);
             this.TBoxFirstName.TabIndex = 0;
+            this.TBoxFirstName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // TBoxLastName
             // 
-            this.TBoxLastName.BackColor = System.Drawing.SystemColors.Window;
+            this.TBoxLastName.BackColor = System.Drawing.SystemColors.Control;
             this.TBoxLastName.BorderRadius = 8;
             this.TBoxLastName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TBoxLastName.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -298,10 +302,11 @@
             this.TBoxLastName.PlaceholderText = "Ultimo Nome";
             this.TBoxLastName.Size = new System.Drawing.Size(127, 34);
             this.TBoxLastName.TabIndex = 1;
+            this.TBoxLastName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // TBoxConfirmPassword
             // 
-            this.TBoxConfirmPassword.BackColor = System.Drawing.SystemColors.Window;
+            this.TBoxConfirmPassword.BackColor = System.Drawing.SystemColors.Control;
             this.TBoxConfirmPassword.BorderRadius = 8;
             this.TBoxConfirmPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TBoxConfirmPassword.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -312,6 +317,7 @@
             this.TBoxConfirmPassword.PlaceholderText = "Confirmar Senha";
             this.TBoxConfirmPassword.Size = new System.Drawing.Size(259, 34);
             this.TBoxConfirmPassword.TabIndex = 8;
+            this.TBoxConfirmPassword.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.TBoxConfirmPassword.UseSystemPasswordChar = true;
             // 
             // TblLoginLayout
