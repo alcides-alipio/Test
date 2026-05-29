@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using static System.Windows.Forms.AxHost;
 
 namespace EaseStay.Core
 {
@@ -9,96 +10,57 @@ namespace EaseStay.Core
     {
         public static void FlashBorders(params dynamic[] controls)
         {
+            if (controls == null || controls.Length == 0)
+                return;
+
             int ticks = 0;
 
             var states = controls.Select(c => new
             {
                 Control = c,
-                Original = c.BorderColor
+                Original = c.BorderColor,
+                OriginalHover = c.HoverBorderColor
             }).ToList();
 
-            var timer = new Timer();
-            timer.Interval = 200;
+            var timer = new Timer
+            {
+                Interval = 200
+            };
 
             timer.Tick += (sender, args) =>
             {
+                bool isFlashing = ticks % 2 == 0;
+
                 foreach (var state in states)
                 {
-                    state.Control.BorderColor =
-                        state.Control.BorderColor == Color.LightCoral
-                            ? state.Original
-                            : Color.LightCoral;
+                    if (isFlashing)
+                    {
+                        state.Control.BorderColor = Color.LightCoral;
+                        state.Control.HoverBorderColor = Color.LightCoral;
+                    }
+                    else
+                    {
+                        state.Control.BorderColor = state.Original;
+                        state.Control.HoverBorderColor = state.Original;
+                    }
                 }
 
                 ticks++;
 
-                if (ticks >= 4)
+                if (ticks >= 6)
                 {
-                    timer.Stop();
-
                     foreach (var state in states)
                     {
                         state.Control.BorderColor = state.Original;
+                        state.Control.HoverBorderColor = state.OriginalHover;
                     }
-                }
+
+                    timer.Stop();
+                    timer.Dispose();
+                } 
             };
 
             timer.Start();
-        }
-
-
-        /// <summary>
-        /// Associa ou remove um manipulador de evento para todos os controles do tipo 
-        /// <typeparamref name="T"/> dentro de um contêiner, percorrendo a hierarquia 
-        /// de forma recursiva.
-        /// </summary>
-        /// <typeparam name="T">
-        /// Tipo de controle alvo que receberá o evento.
-        /// </typeparam>
-        /// <param name="parent">
-        /// Controle raiz cuja árvore de filhos será percorrida.
-        /// </param>
-        /// <param name="subscribe">
-        /// Ação responsável por associar o manipulador ao evento desejado.
-        /// </param>
-        /// <param name="unsubscribe">
-        /// Ação responsável por remover o manipulador do evento desejado.
-        /// </param>
-        /// <param name="enable">
-        /// Se <c>true</c>, associa o evento; se <c>false</c>, remove.
-        /// </param>
-        /// <remarks>
-        /// Evite o uso de expressões lambda anônimas diretamente na inscrição,
-        /// pois sua remoção posterior pode não ser possível sem manter referência.
-        /// </remarks>
-        public static void SetControlEvents<T>(
-            Control parent,
-            Action<T> subscribe,
-            Action<T> unsubscribe,
-            bool enable
-        ) where T : Control
-        {
-            foreach (Control control in parent.Controls)
-            {
-                if (control is T target)
-                {
-                    if (enable)
-                        subscribe(target);
-                    else
-                        unsubscribe(target);
-                }
-
-                if (control.HasChildren)
-                {
-                    SetControlEvents(control, subscribe, unsubscribe, enable);
-                }
-            }
-        }
-
-        public static string GenerateCode()
-        {
-            var random = new Random();
-            return random.Next(100000, 999999).ToString();
         }
     }
 }

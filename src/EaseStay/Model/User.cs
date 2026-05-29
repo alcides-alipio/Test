@@ -1,8 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace EaseStay.Features.Auth.Domain.Entities
+namespace EaseStay.Model
 {
-    public class User
+    internal class User
     {
         public Guid UUID { get; private set; }
         public string Email { get; set; }
@@ -11,11 +15,15 @@ namespace EaseStay.Features.Auth.Domain.Entities
         public string LastName { get; set; }
         public string PasswordHash { get; set; }
 
-        public User()
-            : this(Guid.NewGuid(), string.Empty, false, string.Empty, string.Empty, string.Empty) { }
-
-        public User(string email, bool emailVerified, string firstName, string lastName, string passwordHash)
-            : this(Guid.NewGuid(), email, emailVerified, firstName, lastName, passwordHash) { }
+        public User(string email, string firstName, string lastName, string passwordHash)
+        {
+            UUID = Guid.NewGuid();
+            Email = email;
+            EmailVerified = false;
+            FirstName = firstName;
+            LastName = lastName;
+            PasswordHash = passwordHash;
+        }
 
         public User(Guid uuid, string email, bool emailVerified, string firstName, string lastName, string passwordHash)
         {

@@ -6,12 +6,6 @@ namespace EaseStay.Core
 {
     internal class Settings
     {
-        public static Guid UserUUID;
-        public static string UserEmail;
-        public static string UserFirstName;
-        public static string UserLastName;
-
-
         public static string SMTP_HOST;
         public static int SMTP_PORT;
         public static string SMTP_USER;

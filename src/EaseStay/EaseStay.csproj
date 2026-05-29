@@ -38,6 +38,10 @@
     <ApplicationIcon>
     </ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup />
   <ItemGroup>
     <Reference Include="BCrypt-Net-Next, Version=4.2.0.0, Culture=neutral, PublicKeyToken=1e11be04b6288443, processorArchitecture=MSIL">
       <HintPath>packages\BCrypt.Net-Next.4.2.0\lib\net472\BCrypt-Net-Next.dll</HintPath>
@@ -62,8 +66,8 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
-    <Reference Include="StylizedComponents, Version=1.3.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\StylizedComponents.1.3.1\lib\net472\StylizedComponents.dll</HintPath>
+    <Reference Include="StylizedComponents, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\StylizedComponents.1.4.0\lib\net472\StylizedComponents.dll</HintPath>
     </Reference>
     <Reference Include="Superpower, Version=1.0.0.0, Culture=neutral, PublicKeyToken=aec39280ded1b3a7, processorArchitecture=MSIL">
       <HintPath>packages\Superpower.3.2.1\lib\netstandard2.0\Superpower.dll</HintPath>
@@ -221,86 +225,50 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\Auth\RegisterController.cs" />
+    <Compile Include="Controller\Auth\LoginController.cs" />
     <Compile Include="Core\Database\Database.cs" />
     <Compile Include="Core\Database\SqlInsertBuilder.cs" />
     <Compile Include="Core\Database\SqlSelectBuilder.cs" />
     <Compile Include="Core\Database\SqlUpdateBuilder.cs" />
+    <Compile Include="Core\INavigableController.cs" />
+    <Compile Include="Core\Managers\SessionManager.cs" />
+    <Compile Include="Core\Navigator.cs" />
+    <Compile Include="Core\Services\AuthService.cs" />
     <Compile Include="Core\Services\EmailService.cs" />
     <Compile Include="Core\Settings.cs" />
     <Compile Include="Core\Utils.cs" />
-    <Compile Include="Features\Auth\Data\Models\UserModel.cs" />
-    <Compile Include="Features\Auth\Data\Repositories\UserRepository.cs" />
-    <Compile Include="Features\Auth\Domain\Entities\User.cs" />
-    <Compile Include="Features\Auth\Domain\Repositories\IUserRepository.cs" />
-    <Compile Include="Features\Auth\Domain\UseCases\LoginUseCase.cs" />
-    <Compile Include="Features\Auth\Domain\UseCases\RecoverUseCase.cs" />
-    <Compile Include="Features\Auth\Domain\UseCases\RegisterUseCase.cs" />
-    <Compile Include="Features\Auth\Presentation\LoginControl.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="MainForm.cs" />
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Features\Auth\Presentation\LoginControl.Designer.cs">
-      <DependentUpon>LoginControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Features\Auth\Presentation\RecoverAccount_CheckAccount.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Features\Auth\Presentation\RecoverAccount_CheckAccount.Designer.cs">
-      <DependentUpon>RecoverAccount_CheckAccount.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Features\Auth\Presentation\RecoverAccount_FindAccount.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Features\Auth\Presentation\RecoverAccount_FindAccount.Designer.cs">
-      <DependentUpon>RecoverAccount_FindAccount.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Features\Auth\Presentation\RecoverAccount_RecoverAccount.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Features\Auth\Presentation\RecoverAccount_RecoverAccount.Designer.cs">
-      <DependentUpon>RecoverAccount_RecoverAccount.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Features\Auth\Presentation\RegisterControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Features\Auth\Presentation\RegisterControl.Designer.cs">
-      <DependentUpon>RegisterControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Features\Dashboard\Presentation\DashboardControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Features\Dashboard\Presentation\DashboardControl.Designer.cs">
-      <DependentUpon>DashboardControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MainForms.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainForms.Designer.cs">
-      <DependentUpon>MainForms.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Model\Repository\UserRepository.cs" />
+    <Compile Include="Model\Session.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\Auth\LoginView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Auth\LoginView.Designer.cs">
+      <DependentUpon>LoginView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Auth\RegisterView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Auth\RegisterView.Designer.cs">
+      <DependentUpon>RegisterView.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\Auth\LoginView.resx">
+      <DependentUpon>LoginView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Auth\RegisterView.resx">
+      <DependentUpon>RegisterView.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Resources\Logo_128px.ico" />
     <None Include="Resources\Logout.png" />
-    <EmbeddedResource Include="Features\Auth\Presentation\LoginControl.resx">
-      <DependentUpon>LoginControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Features\Auth\Presentation\RecoverAccount_CheckAccount.resx">
-      <DependentUpon>RecoverAccount_CheckAccount.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Features\Auth\Presentation\RecoverAccount_FindAccount.resx">
-      <DependentUpon>RecoverAccount_FindAccount.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Features\Auth\Presentation\RecoverAccount_RecoverAccount.resx">
-      <DependentUpon>RecoverAccount_RecoverAccount.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Features\Auth\Presentation\RegisterControl.resx">
-      <DependentUpon>RegisterControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Features\Dashboard\Presentation\DashboardControl.resx">
-      <DependentUpon>DashboardControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainForms.resx">
-      <DependentUpon>MainForms.cs</DependentUpon>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -3,7 +3,7 @@ using System.Net.Mail;
 
 namespace EaseStay.Core.Services
 {
-    internal class EmailService
+    internal static class EmailService
     {
         public static void Send(string subject, string body, string recipient)
         {
@@ -25,6 +25,22 @@ namespace EaseStay.Core.Services
             mail.To.Add(recipient);
 
             smtpClient.Send(mail);
+        }
+
+        public static bool CheckEmail(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+                return false;
+
+            try
+            {
+                var addr = new MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }
