@@ -228,21 +228,21 @@
     <Compile Include="Controller\Auth\RegisterController.cs" />
     <Compile Include="Controller\Auth\LoginController.cs" />
     <Compile Include="Core\Database\Database.cs" />
-    <Compile Include="Core\Database\SqlInsertBuilder.cs" />
-    <Compile Include="Core\Database\SqlSelectBuilder.cs" />
-    <Compile Include="Core\Database\SqlUpdateBuilder.cs" />
-    <Compile Include="Core\INavigableController.cs" />
+    <Compile Include="Core\Database\Builders\SqlInsertBuilder.cs" />
+    <Compile Include="Core\Database\Builders\SqlSelectBuilder.cs" />
+    <Compile Include="Core\Database\Builders\SqlUpdateBuilder.cs" />
+    <Compile Include="Core\Managers\Navigator\INavigableController.cs" />
     <Compile Include="Core\Managers\SessionManager.cs" />
-    <Compile Include="Core\Navigator.cs" />
+    <Compile Include="Core\Managers\Navigator\NavigatorManager.cs" />
     <Compile Include="Core\Services\AuthService.cs" />
     <Compile Include="Core\Services\EmailService.cs" />
     <Compile Include="Core\Settings.cs" />
-    <Compile Include="Core\Utils.cs" />
+    <Compile Include="Core\UI\Effects\BorderFlashEffect.cs" />
     <Compile Include="MainForm.cs" />
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Repository\UserRepository.cs" />
+    <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Model\Session.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />

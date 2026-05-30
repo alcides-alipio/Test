@@ -42,11 +42,6 @@ namespace EaseStay.Core
             }
 
             _currentController = (INavigableController)Activator.CreateInstance(controller);
-            if (_currentController == null)
-            {
-                MessageBox.Show("A minha vida n faz sentido :(");
-                return;
-            }
             _host.Controls.Add(_currentController.View);
             _currentController.OnCreate(this);
             

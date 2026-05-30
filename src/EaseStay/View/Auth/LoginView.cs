@@ -1,4 +1,5 @@
 ﻿using EaseStay.Core;
+using EaseStay.Core.UI.Effects;
 using StylizedComponents.Controls;
 using System;
 using System.Collections.Generic;
@@ -15,13 +16,13 @@ namespace EaseStay.View.Auth
         public string Email => TBoxEmail.Text;
         public string Password => TBoxPassword.Text;
 
-        private List<Control> _invalidControls;
+        private List<object> _invalidControls;
 
         public LoginView()
         {
             InitializeComponent();
 
-            _invalidControls = new List<Control>();
+            _invalidControls = new List<object>();
         }
 
         private void BtnLogin_Click(object sender, EventArgs e) =>
@@ -39,7 +40,7 @@ namespace EaseStay.View.Auth
             _invalidControls.Add(TBoxPassword);
 
         public void FlashInvalidControls() =>
-            Utils.FlashBorders(_invalidControls.ToArray());
+            new BorderFlashEffect(_invalidControls).Start();
 
         public void ClearInvalidControls() =>
             _invalidControls.Clear();
