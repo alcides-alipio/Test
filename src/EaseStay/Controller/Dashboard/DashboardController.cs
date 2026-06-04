@@ -1,6 +1,5 @@
 ﻿using EaseStay.Core;
 using EaseStay.Core.Managers;
-using EaseStay.Model;
 using EaseStay.View.Dashboard;
 using System;
 using System.Windows.Forms;
@@ -9,14 +8,15 @@ namespace EaseStay.Controller.Dashboard
 {
     internal class DashboardController : INavigableController
     {
-        public UserControl View { get; }
+        public UserControl View { get => _view; }
 
         private Navigator _navigator;
+        private readonly DashboardView _view;
         public Timer _timer;
 
         public DashboardController()
         {
-            View = new DashboardView
+            _view = new DashboardView
             {
                 Dock = DockStyle.Fill
             };
@@ -30,18 +30,15 @@ namespace EaseStay.Controller.Dashboard
 
             _navigator = navigator;
             _timer.Interval = 600;
-            _timer.Tick += _timer_Tick;
+            _timer.Tick += Timer_Tick;
             _timer.Start();
 
-            var view = (DashboardView)View;
-            view.Username = SessionManager.CurrentUser.FirstName + " " + SessionManager.CurrentUser.LastName;
+            _view.Username = SessionManager.CurrentUser.FirstName + " " + SessionManager.CurrentUser.LastName;
         }
 
-        private void _timer_Tick(object sender, EventArgs e)
+        private void Timer_Tick(object sender, EventArgs e)
         {
-            var view = (DashboardView)View;
-
-            view.TextTest = view.SidebarWidth.ToString("F2");
+            _view.TextTest = _view.SidebarWidth.ToString("F2");
         }
 
         public void OnDestroy()

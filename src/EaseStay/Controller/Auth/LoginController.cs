@@ -9,12 +9,14 @@ namespace EaseStay.Controller.Auth
 {
     internal class LoginController : INavigableController
     {
-        public UserControl View { get; }
+        public UserControl View { get => _view; }
+
         private Navigator _navigator;
+        private readonly LoginView _view;
 
         public LoginController()
         {
-            View = new LoginView
+            _view = new LoginView
             {
                 Dock = DockStyle.Fill
             };
@@ -22,50 +24,44 @@ namespace EaseStay.Controller.Auth
 
         public void OnCreate(Navigator navigator, object[] args)
         {
-            if (SessionManager.HavePresistentUser())
+            if (SessionManager.HasPresistentUser())
             {
                 SessionManager.LoadPresistentUser();
                 navigator.Navigate("dashboard");
                 return;
             }
 
-            var view = (LoginView)View;
-
-            view.LoginButtonClicked += LoginButtonClicked;
-            view.RegisterButtonClicked += RegisterButtonClicked;
-            view.RecoverButtonClicked += RecoverAccountButtonClicked;
+            _view.LoginButtonClicked += View_LoginButtonClicked;
+            _view.RegisterButtonClicked += View_RegisterButtonClicked;
+            _view.RecoverButtonClicked += View_RecoverAccountButtonClicked;
 
             _navigator = navigator;
         }
 
         public void OnDestroy()
         {
-            var view = (LoginView)View;
-
-            view.LoginButtonClicked -= LoginButtonClicked;
-            view.RegisterButtonClicked -= RegisterButtonClicked;
-            view.RecoverButtonClicked -= RecoverAccountButtonClicked;
+            _view.LoginButtonClicked -= View_LoginButtonClicked;
+            _view.RegisterButtonClicked -= View_RegisterButtonClicked;
+            _view.RecoverButtonClicked -= View_RecoverAccountButtonClicked;
 
             _navigator = null;
         }
 
         #region Event Funcs
 
-        private void LoginButtonClicked(object sender, System.EventArgs e)
+        private void View_LoginButtonClicked(object sender, System.EventArgs e)
         {
             if (!ValidateInputs())
                 return;
 
-            var view = (LoginView)View;
-
-            User user = AuthService.GetUserByEmail(view.Email);
+            User user = AuthService.GetUserByEmail(_view.Email);
             if (user == null)
             {
                 MessageBox.Show("Email ou password inválidos.");
                 return;
             }
 
-            if (!AuthService.CheckPassword(view.Password, user.PasswordHash))
+            if (!AuthService.VerifyPassword(_view.Password, user.PasswordHash))
             {
                 MessageBox.Show("Email ou password inválidos.");
                 return;
@@ -73,21 +69,17 @@ namespace EaseStay.Controller.Auth
 
             SessionManager.SetCurrentUser(user);
 
-            if (view.RememberMe)
+            if (_view.RememberMe)
                 SessionManager.SavePersistentUser();
 
             _navigator.Navigate("dashboard");
         }
 
-        private void RegisterButtonClicked(object sender, System.EventArgs e)
-        {
+        private void View_RegisterButtonClicked(object sender, System.EventArgs e) =>
             _navigator.Navigate("auth/register");
-        }
 
-        private void RecoverAccountButtonClicked(object sender, System.EventArgs e)
-        {
+        private void View_RecoverAccountButtonClicked(object sender, System.EventArgs e) =>
             _navigator.Navigate("auth/findAccount");
-        }
 
         #endregion
 
@@ -95,18 +87,16 @@ namespace EaseStay.Controller.Auth
 
         private bool ValidateInputs()
         {
-            var view = (LoginView)View;
+            if (!EmailService.IsValidEmail(_view.Email))
+                _view.MarkInvalidEmail();
 
-            if (!EmailService.IsValidEmail(view.Email))
-                view.MarkInvalidEmail();
+            if (!AuthService.IsValidPassword(_view.Password))
+                _view.MarkInvalidPassword();
 
-            if (!AuthService.IsValidPassword(view.Password))
-                view.MarkInvalidPassword();
-
-            if (view.HasInvalidControls())
+            if (_view.HasInvalidControls())
             {
-                view.FlashInvalidControls();
-                view.ClearInvalidControls();
+                _view.FlashInvalidControls();
+                _view.ClearInvalidControls();
                 return false;
             }
 

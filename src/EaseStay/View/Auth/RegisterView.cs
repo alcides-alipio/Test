@@ -1,17 +1,12 @@
-﻿using EaseStay.Core;
-using EaseStay.Core.UI.Effects;
+﻿using EaseStay.Core.UI.Effects;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace EaseStay.View.Auth
 {
+    [ToolboxItem(false)]
     public partial class RegisterView : UserControl
     {
         public event EventHandler RegisterButtonClicked;
@@ -23,7 +18,7 @@ namespace EaseStay.View.Auth
         public string Password => TBoxPassword.Text;
         public string ConfirmPassword => TBoxConfirmPassword.Text;
 
-        private List<object> _invalidControls;
+        private readonly List<object> _invalidControls;
 
         public RegisterView()
         {

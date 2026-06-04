@@ -25,7 +25,7 @@ namespace EaseStay.Core.Services
             return false;
         }
 
-        public static bool CheckPassword(string password, string passwordHash)
+        public static bool VerifyPassword(string password, string passwordHash)
         {
             return BCrypt.Net.BCrypt.Verify(password, passwordHash);
         }
@@ -36,11 +36,9 @@ namespace EaseStay.Core.Services
                 throw new ArgumentNullException(nameof(user));
 
             if (!IsValidPassword(newPassword))
-                throw new ArgumentException("Password não cumpre os requisitos de segurança.");
+                throw new ArgumentException("Password does not meet security requirements.", nameof(newPassword));
 
-            string hash = BCrypt.Net.BCrypt.HashPassword(newPassword);
-
-            user.PasswordHash = hash;
+            user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(newPassword);
 
             UserRepository repo = new UserRepository();
             repo.Update(user);

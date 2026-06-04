@@ -1,22 +1,22 @@
 ﻿using EaseStay.Core;
 using EaseStay.Core.Services;
 using EaseStay.Model;
-using EaseStay.Model.Repository;
 using EaseStay.View.Auth;
 using System;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace EaseStay.Controller.Auth
 {
     internal class RegisterController : INavigableController
     {
-        public UserControl View { get; }
+        public UserControl View { get => _view; }
+
         private Navigator _navigator;
+        private readonly RegisterView _view;
 
         public RegisterController()
         {
-            View = new RegisterView
+            _view = new RegisterView
             {
                 Dock = DockStyle.Fill
             };
@@ -24,34 +24,28 @@ namespace EaseStay.Controller.Auth
 
         public void OnCreate(Navigator navigator, object[] args)
         {
-            var view = (RegisterView)View;
-
-            view.RegisterButtonClicked += RegisterButtonClicked;
-            view.LoginButtonClicked += LoginButtonClicked;
+            _view.RegisterButtonClicked += View_RegisterButtonClicked;
+            _view.LoginButtonClicked += View_LoginButtonClicked;
 
             _navigator = navigator;
         }
 
         public void OnDestroy()
         {
-            var view = (RegisterView)View;
-
-            view.RegisterButtonClicked -= RegisterButtonClicked;
-            view.LoginButtonClicked -= LoginButtonClicked;
+            _view.RegisterButtonClicked -= View_RegisterButtonClicked;
+            _view.LoginButtonClicked -= View_LoginButtonClicked;
 
             _navigator = null;
         }
 
         #region Event Funcs
 
-        private void RegisterButtonClicked(object sender, EventArgs e)
+        private void View_RegisterButtonClicked(object sender, EventArgs e)
         {
             if (!ValidateInputs())
                 return;
 
-            var view = (RegisterView)View;
-
-            User user = AuthService.GetUserByEmail(view.Email);
+            User user = AuthService.GetUserByEmail(_view.Email);
 
             if (user != null)
             {
@@ -64,12 +58,12 @@ namespace EaseStay.Controller.Auth
                 return;
             }
 
-            string passwordHash = BCrypt.Net.BCrypt.HashPassword(view.Password);
+            string passwordHash = BCrypt.Net.BCrypt.HashPassword(_view.Password);
 
             user = new User(
-                view.Email,
-                view.FirstName,
-                view.LastName,
+                _view.Email,
+                _view.FirstName,
+                _view.LastName,
                 passwordHash
             );
 
@@ -78,7 +72,8 @@ namespace EaseStay.Controller.Auth
             _navigator.Navigate("auth/login");
         }
 
-        private void LoginButtonClicked(object sender, EventArgs e) => _navigator.Navigate("auth/login");
+        private void View_LoginButtonClicked(object sender, EventArgs e) =>
+            _navigator.Navigate("auth/login");
 
         #endregion
 
@@ -86,36 +81,34 @@ namespace EaseStay.Controller.Auth
 
         private bool ValidateInputs()
         {
-            var view = (RegisterView)View;
+            if (!EmailService.IsValidEmail(_view.Email))
+                _view.MarkInvalidEmail();
 
-            if (!EmailService.IsValidEmail(view.Email))
-                view.MarkInvalidEmail();
+            if (string.IsNullOrWhiteSpace(_view.FirstName))
+                _view.MarkInvalidFirstName();
 
-            if (string.IsNullOrWhiteSpace(view.FirstName))
-                view.MarkInvalidFirstName();
+            if (string.IsNullOrWhiteSpace(_view.LastName))
+                _view.MarkInvalidLastName();
 
-            if (string.IsNullOrWhiteSpace(view.LastName))
-                view.MarkInvalidLastName();
+            if (string.IsNullOrWhiteSpace(_view.Password))
+                _view.MarkInvalidPassword();
 
-            if (string.IsNullOrWhiteSpace(view.Password))
-                view.MarkInvalidPassword();
+            if (string.IsNullOrWhiteSpace(_view.ConfirmPassword))
+                _view.MarkInvalidConfirmPassword();
 
-            if (string.IsNullOrWhiteSpace(view.ConfirmPassword))
-                view.MarkInvalidConfirmPassword();
-
-            if (view.ConfirmPassword != view.Password)
+            if (_view.ConfirmPassword != _view.Password)
             {
-                view.MarkInvalidPassword();
-                view.MarkInvalidConfirmPassword();
+                _view.MarkInvalidPassword();
+                _view.MarkInvalidConfirmPassword();
             }
 
-            if (!AuthService.IsValidPassword(view.Password))
-                view.MarkInvalidPassword();
+            if (!AuthService.IsValidPassword(_view.Password))
+                _view.MarkInvalidPassword();
 
-            if (view.HasInvalidControls())
+            if (_view.HasInvalidControls())
             {
-                view.FlashInvalidControls();
-                view.ClearInvalidControls();
+                _view.FlashInvalidControls();
+                _view.ClearInvalidControls();
                 return false;
             }
 

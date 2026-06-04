@@ -9,14 +9,15 @@ namespace EaseStay.Controller.Auth
 {
     internal class ChangePasswordController : INavigableController
     {
-        public UserControl View { get; }
+        public UserControl View { get => _view; }
 
         private Navigator _navigator;
+        private readonly ChangePasswordView _view;
         private Guid _userUUID;
 
         public ChangePasswordController()
         {
-            View = new ChangePasswordView
+            _view = new ChangePasswordView
             {
                 Dock = DockStyle.Fill
             };
@@ -33,10 +34,8 @@ namespace EaseStay.Controller.Auth
             if (!(args[0] is Guid userUUID))
                 throw new ArgumentException("Expected a Guid as the first element", nameof(args));
 
-            var view = (ChangePasswordView)View;
-
-            view.ChangePasswordButtonClick += View_ChangePasswordButtonClick;
-            view.CancelButtonClick += View_CancelButtonClick;
+            _view.ChangePasswordButtonClick += View_ChangePasswordButtonClick;
+            _view.CancelButtonClick += View_CancelButtonClick;
 
             _userUUID = userUUID;
             _navigator = navigator;
@@ -44,10 +43,8 @@ namespace EaseStay.Controller.Auth
 
         public void OnDestroy()
         {
-            var view = (ChangePasswordView)View;
-
-            view.ChangePasswordButtonClick -= View_ChangePasswordButtonClick;
-            view.CancelButtonClick -= View_CancelButtonClick;
+            _view.ChangePasswordButtonClick -= View_ChangePasswordButtonClick;
+            _view.CancelButtonClick -= View_CancelButtonClick;
 
             _userUUID = Guid.Empty;
             _navigator = null;
@@ -60,8 +57,6 @@ namespace EaseStay.Controller.Auth
             if (!IsValidInputs())
                 return;
 
-            var view = (ChangePasswordView)View;
-
             var user = AuthService.GetUserByUUID(_userUUID);
             if (user == null)
             {
@@ -69,15 +64,13 @@ namespace EaseStay.Controller.Auth
                 return;
             }
 
-            AuthService.ChangePassword(user, view.NewPassword);
+            AuthService.ChangePassword(user, _view.NewPassword);
 
             _navigator.Navigate("auth/login");
         }
 
-        private void View_CancelButtonClick(object sender, EventArgs e)
-        {
+        private void View_CancelButtonClick(object sender, EventArgs e) =>
             _navigator.Navigate("auth/login");
-        }
 
         #endregion
 
@@ -85,24 +78,22 @@ namespace EaseStay.Controller.Auth
 
         private bool IsValidInputs()
         {
-            var view = (ChangePasswordView)View;
-
-            if (view.NewPassword != view.ConfirmPassword)
+            if (_view.NewPassword != _view.ConfirmPassword)
             {
-                view.MarkInvalidNewPassword();
-                view.MarkInvalidConfirmPassword();
+                _view.MarkInvalidNewPassword();
+                _view.MarkInvalidConfirmPassword();
             }
 
-            if (!AuthService.IsValidPassword(view.NewPassword))
-                view.MarkInvalidNewPassword();
+            if (!AuthService.IsValidPassword(_view.NewPassword))
+                _view.MarkInvalidNewPassword();
 
-            if (!AuthService.IsValidPassword(view.ConfirmPassword))
-                view.MarkInvalidConfirmPassword();
+            if (!AuthService.IsValidPassword(_view.ConfirmPassword))
+                _view.MarkInvalidConfirmPassword();
 
-            if (view.HasInvalidControls())
+            if (_view.HasInvalidControls())
             {
-                view.FlashInvalidControls();
-                view.ClearInvalidControls();
+                _view.FlashInvalidControls();
+                _view.ClearInvalidControls();
             }
 
             return true;

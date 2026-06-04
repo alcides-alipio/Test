@@ -1,12 +1,12 @@
-﻿using EaseStay.Core;
-using EaseStay.Core.UI.Effects;
-using StylizedComponents.Controls;
+﻿using EaseStay.Core.UI.Effects;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace EaseStay.View.Auth
 {
+    [ToolboxItem(false)]
     public partial class LoginView : UserControl
     {
         public event EventHandler LoginButtonClicked;
@@ -17,7 +17,7 @@ namespace EaseStay.View.Auth
         public string Password => TBoxPassword.Text;
         public bool RememberMe => CBoxRememberMe.Checked;
 
-        private List<object> _invalidControls;
+        private readonly List<object> _invalidControls;
 
         public LoginView()
         {

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace EaseStay.Core.UI.Effects
 {

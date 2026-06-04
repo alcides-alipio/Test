@@ -1,11 +1,6 @@
-﻿using System;
-using System.Drawing;
-using System.Net;
+﻿using System.Net;
 using System.Net.Mail;
 using System.Text;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
-
 namespace EaseStay.Core.Services
 {
     internal static class EmailService

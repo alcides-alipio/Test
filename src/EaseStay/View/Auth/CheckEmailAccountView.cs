@@ -2,15 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace EaseStay.View.Auth
 {
+    [ToolboxItem(false)]
     public partial class CheckEmailAccountView : UserControl
     {
         public event EventHandler FindButtonClicked;
@@ -18,7 +14,7 @@ namespace EaseStay.View.Auth
 
         public string Code { get => TBoxCode.Text; }
 
-        private List<object> _invalidControls;
+        private readonly List<object> _invalidControls;
 
         public CheckEmailAccountView()
         {

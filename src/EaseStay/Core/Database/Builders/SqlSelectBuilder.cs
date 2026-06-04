@@ -5,8 +5,8 @@ namespace EaseStay.Core.Database
 {
     internal class SqlSelectBuilder
     {
-        private string _connectionString;
-        private string _table;
+        private readonly string _connectionString;
+        private readonly string _table;
 
         private string[] _columns;
         private string _whereColumn;

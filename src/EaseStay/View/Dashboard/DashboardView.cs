@@ -1,8 +1,10 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace EaseStay.View.Dashboard
 {
+    [ToolboxItem(false)]
     public partial class DashboardView : UserControl
     {
         public string TextTest

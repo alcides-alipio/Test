@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace EaseStay.Core
 {
     internal class Navigator
     {
-        private Panel _host;
+        private readonly Panel _host;
         private INavigableController _currentController;
-        private Dictionary<string, Type> _routes;
+        private readonly Dictionary<string, Type> _routes;
 
         public Navigator(Panel host)
         {

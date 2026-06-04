@@ -1,10 +1,12 @@
 ﻿using EaseStay.Core.UI.Effects;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace EaseStay.View.Auth
 {
+    [ToolboxItem(false)]
     public partial class FindAccountView : UserControl
     {
         public event EventHandler FindButtonClicked;
@@ -12,7 +14,7 @@ namespace EaseStay.View.Auth
 
         public string Email { get => TBoxEmail.Text; }
 
-        private List<object> _invalidControls;
+        private readonly List<object> _invalidControls;
 
         public FindAccountView()
         {

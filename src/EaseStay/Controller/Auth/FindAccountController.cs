@@ -2,20 +2,20 @@
 using EaseStay.Core.Services;
 using EaseStay.View.Auth;
 using System;
-using System.Diagnostics;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
 namespace EaseStay.Controller.Auth
 {
     internal class FindAccountController : INavigableController
     {
-        public UserControl View { get; }
+        public UserControl View { get => _view; }
+        
         private Navigator _navigator;
+        private readonly FindAccountView _view;
 
         public FindAccountController()
         {
-            View = new FindAccountView
+            _view = new FindAccountView
             {
                 Dock = DockStyle.Fill
             };
@@ -23,37 +23,30 @@ namespace EaseStay.Controller.Auth
 
         public void OnCreate(Navigator navigator, object[] args)
         {
-            var view = (FindAccountView)View;
-
-            view.FindButtonClicked += FindButtonClicked;
-            view.CancelButtonClicked += CancelButtonClicked;
+            _view.FindButtonClicked += View_FindButtonClicked;
+            _view.CancelButtonClicked += View_CancelButtonClicked;
 
             _navigator = navigator;
         }
 
         public void OnDestroy()
         {
-            var view = (FindAccountView)View;
-
-            view.FindButtonClicked -= FindButtonClicked;
-            view.CancelButtonClicked -= CancelButtonClicked;
+            _view.FindButtonClicked -= View_FindButtonClicked;
+            _view.CancelButtonClicked -= View_CancelButtonClicked;
         }
 
         #region Event Funcs
 
-        private void CancelButtonClicked(object sender, EventArgs e)
-        {
+        private void View_CancelButtonClicked(object sender, EventArgs e) =>
             _navigator.Navigate("auth/login");
-        }
+        
 
-        private void FindButtonClicked(object sender, EventArgs e)
+        private void View_FindButtonClicked(object sender, EventArgs e)
         {
             if (!IsValidInputs())
                 return;
 
-            var view = (FindAccountView)View;
-
-            var user = AuthService.GetUserByEmail(view.Email);
+            var user = AuthService.GetUserByEmail(_view.Email);
             if (user == null)
             {
                 MessageBox.Show("Utilizador não existe!");
@@ -62,7 +55,7 @@ namespace EaseStay.Controller.Auth
 
             string code = new Random().Next(100000, 999999).ToString();
 
-            EmailService.SendRecoveryEmail(code, view.Email);
+            EmailService.SendRecoveryEmail(code, _view.Email);
 
             _navigator.Navigate("auth/checkAccount", code, user.UUID);
         }
@@ -73,15 +66,13 @@ namespace EaseStay.Controller.Auth
 
         private bool IsValidInputs()
         {
-            var view = (FindAccountView)View;
+            if (!EmailService.IsValidEmail(_view.Email))
+                _view.MarkInvalidEmail();
 
-            if (!EmailService.IsValidEmail(view.Email))
-                view.MarkInvalidEmail();
-
-            if (view.HasInvalidControls())
+            if (_view.HasInvalidControls())
             {
-                view.FlashInvalidControls();
-                view.ClearInvalidControls();
+                _view.FlashInvalidControls();
+                _view.ClearInvalidControls();
                 return false;
             }
 

@@ -2,15 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace EaseStay.View.Auth
 {
+    [ToolboxItem(false)]
     public partial class ChangePasswordView : UserControl
     {
         public event EventHandler ChangePasswordButtonClick;
@@ -19,7 +15,7 @@ namespace EaseStay.View.Auth
         public string NewPassword { get => TBoxPassword.Text; }
         public string ConfirmPassword { get => TBoxConfirmPassword.Text; }
 
-        private List<object> _invalidControls;
+        private readonly List<object> _invalidControls;
 
         public ChangePasswordView()
         {

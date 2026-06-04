@@ -1,6 +1,5 @@
 ﻿using EaseStay.Core;
 using EaseStay.Core.UI.Dialogs;
-using EaseStay.Model;
 using EaseStay.View.Auth;
 using System;
 using System.Windows.Forms;
@@ -9,15 +8,16 @@ namespace EaseStay.Controller.Auth
 {
     internal class CheckEmailAccountController : INavigableController
     {
-        public UserControl View { get; }
+        public UserControl View { get => _view; }
 
         private Navigator _navigator;
+        private readonly CheckEmailAccountView _view;
         private Guid _userUUID;
         private string _code;
 
         public CheckEmailAccountController()
         {
-            View = new CheckEmailAccountView
+            _view = new CheckEmailAccountView
             {
                 Dock = DockStyle.Fill,
             };
@@ -37,10 +37,8 @@ namespace EaseStay.Controller.Auth
             if (!(args[1] is Guid userUUID))
                 throw new ArgumentException("Expected a Guid as the secound element", nameof(args));
 
-            var view = (CheckEmailAccountView)View;
-
-            view.FindButtonClicked += View_FindButtonClicked;
-            view.CancelButtonClicked += View_CancelButtonClicked;
+            _view.FindButtonClicked += View_FindButtonClicked;
+            _view.CancelButtonClicked += View_CancelButtonClicked;
 
             _code = code;
             _userUUID = userUUID;
@@ -49,10 +47,8 @@ namespace EaseStay.Controller.Auth
 
         public void OnDestroy()
         {
-            var view = (CheckEmailAccountView)View;
-
-            view.FindButtonClicked -= View_FindButtonClicked;
-            view.CancelButtonClicked -= View_CancelButtonClicked;
+            _view.FindButtonClicked -= View_FindButtonClicked;
+            _view.CancelButtonClicked -= View_CancelButtonClicked;
 
             _code = null;
             _userUUID = Guid.Empty;
@@ -63,26 +59,21 @@ namespace EaseStay.Controller.Auth
 
         private void View_FindButtonClicked(object sender, EventArgs e)
         {
-            var view = (CheckEmailAccountView)View;
-
-            if (_code != view.Code)
+            if (_code != _view.Code)
             {
                 MessageDialog.Error("O código que inseriu esta incorrecto. Por favor verifique o seu email e tente de novo.", "Codigo Invalido");
 
-                view.MarkInvalidCode();
-                view.FlashInvalidControls();
-                view.ClearInvalidControls();
+                _view.MarkInvalidCode();
+                _view.FlashInvalidControls();
+                _view.ClearInvalidControls();
                 return;
             }
 
             _navigator.Navigate("auth/changePassword", _userUUID);
         }
 
-        private void View_CancelButtonClicked(object sender, EventArgs e)
-        {
+        private void View_CancelButtonClicked(object sender, EventArgs e) =>
             _navigator.Navigate("auth/login");
-        }
-
 
         #endregion
     }
