@@ -20,8 +20,15 @@ namespace EaseStay.Controller.Auth
             };
         }
 
-        public void OnCreate(Navigator navigator)
+        public void OnCreate(Navigator navigator, object[] args)
         {
+            if (SessionManager.HavePresistentUser())
+            {
+                SessionManager.LoadPresistentUser();
+                navigator.Navigate("dashboard");
+                return;
+            }
+
             var view = (LoginView)View;
 
             view.LoginButtonClicked += LoginButtonClicked;
@@ -64,16 +71,12 @@ namespace EaseStay.Controller.Auth
                 return;
             }
 
+            SessionManager.SetCurrentUser(user);
 
-            try
-            {
-                Session session = SessionManager.CreateSession(user);
-                MessageBox.Show($"Bem-vindo/a, {session.FirstName}!");
-            }
-            catch
-            {
-                MessageBox.Show("Este utilizador já possui uma sessão ativa.");
-            }
+            if (view.RememberMe)
+                SessionManager.SavePersistentUser();
+
+            _navigator.Navigate("dashboard");
         }
 
         private void RegisterButtonClicked(object sender, System.EventArgs e)
@@ -83,7 +86,7 @@ namespace EaseStay.Controller.Auth
 
         private void RecoverAccountButtonClicked(object sender, System.EventArgs e)
         {
-            MessageBox.Show("Account recovery functionality temporarily removed.");
+            _navigator.Navigate("auth/findAccount");
         }
 
         #endregion
@@ -94,7 +97,7 @@ namespace EaseStay.Controller.Auth
         {
             var view = (LoginView)View;
 
-            if (!EmailService.CheckEmail(view.Email))
+            if (!EmailService.IsValidEmail(view.Email))
                 view.MarkInvalidEmail();
 
             if (!AuthService.IsValidPassword(view.Password))

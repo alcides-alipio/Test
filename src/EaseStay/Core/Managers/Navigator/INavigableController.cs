@@ -6,7 +6,7 @@ namespace EaseStay.Core
     {
         UserControl View { get; }
 
-        void OnCreate(Navigator navigator);
+        void OnCreate(Navigator navigator, object[] args);
         void OnDestroy();
     }
 }

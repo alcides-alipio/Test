@@ -118,7 +118,7 @@
             this.TblLogoLayout.Controls.Add(this.LbTitleLogo, 1, 1);
             this.TblLogoLayout.Controls.Add(this.LbSubtitleLogo, 1, 2);
             this.TblLogoLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TblLogoLayout.Location = new System.Drawing.Point(3, 5);
+            this.TblLogoLayout.Location = new System.Drawing.Point(3, 4);
             this.TblLogoLayout.Name = "TblLogoLayout";
             this.TblLogoLayout.RowCount = 3;
             this.TblLogoLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -179,7 +179,7 @@
             this.TblRegisterLayout.Controls.Add(this.tableLayoutPanel1, 1, 3);
             this.TblRegisterLayout.Controls.Add(this.TBoxConfirmPassword, 1, 5);
             this.TblRegisterLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TblRegisterLayout.Location = new System.Drawing.Point(3, 174);
+            this.TblRegisterLayout.Location = new System.Drawing.Point(3, 172);
             this.TblRegisterLayout.Name = "TblRegisterLayout";
             this.TblRegisterLayout.RowCount = 8;
             this.TblRegisterLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -190,7 +190,7 @@
             this.TblRegisterLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.TblRegisterLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.TblRegisterLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.TblRegisterLayout.Size = new System.Drawing.Size(372, 285);
+            this.TblRegisterLayout.Size = new System.Drawing.Size(372, 290);
             this.TblRegisterLayout.TabIndex = 1;
             // 
             // LbTitleDescription
@@ -250,7 +250,7 @@
             this.BtnRegister.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnRegister.Location = new System.Drawing.Point(56, 252);
             this.BtnRegister.Name = "BtnRegister";
-            this.BtnRegister.Size = new System.Drawing.Size(259, 30);
+            this.BtnRegister.Size = new System.Drawing.Size(259, 35);
             this.BtnRegister.TabIndex = 6;
             this.BtnRegister.Text = "Registrar";
             this.BtnRegister.Click += new System.EventHandler(this.BtnRegister_Click);

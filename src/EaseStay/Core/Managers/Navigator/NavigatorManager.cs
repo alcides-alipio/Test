@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace EaseStay.Core
@@ -18,6 +19,7 @@ namespace EaseStay.Core
         }
 
         public void Register<T>(string route)
+            where T : INavigableController
         {
             if (_routes.ContainsKey(route))
                 return;
@@ -25,7 +27,10 @@ namespace EaseStay.Core
             _routes.Add(route, typeof(T));
         }
 
-        public void Navigate(string route)
+        public void Navigate(string route) => 
+            Navigate(route, null);
+
+        public void Navigate(string route, params object[] args)
         {
             if (!_routes.TryGetValue(route, out Type controller))
                 throw new Exception($"Route '{route}' not found.");
@@ -35,7 +40,7 @@ namespace EaseStay.Core
                 _currentController.OnDestroy();
                 _host.Controls.Remove(_currentController.View);
                 _currentController.View.Dispose();
-                
+
                 GC.Collect();
                 GC.WaitForPendingFinalizers();
                 GC.Collect();
@@ -43,8 +48,8 @@ namespace EaseStay.Core
 
             _currentController = (INavigableController)Activator.CreateInstance(controller);
             _host.Controls.Add(_currentController.View);
-            _currentController.OnCreate(this);
-            
+            Application.DoEvents();
+            _currentController.OnCreate(this, args);
 
             GC.Collect();
             GC.WaitForPendingFinalizers();

@@ -1,38 +1,89 @@
-﻿using EaseStay.Model;
+﻿using CredentialManagement;
+using EaseStay.Core.Services;
+using EaseStay.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using static System.Collections.Specialized.BitVector32;
 
 namespace EaseStay.Core.Managers
 {
     internal static class SessionManager
     {
-        private static Dictionary<Guid, Session> _sessions = new Dictionary<Guid, Session>();
+        private static User _currentUser = null;
 
-        public static Session CurrentSession { get; private set; }
-        public static IReadOnlyCollection<Session> ActiveSessions => _sessions.Values;
+        public static User CurrentUser { get => _currentUser; }
 
-        public static Session CreateSession(User user)
+        public static void SetCurrentUser(User user)
         {
-            var existing = _sessions.Values
-                .FirstOrDefault(s => s.UserUUID == user.UUID);
+            if (user == null)
+                throw new ArgumentNullException(nameof(user));
 
-            if (existing != null)
-                throw new ArgumentException($"Session for user '{user.UUID}' already exists.", nameof(user));
+            if (_currentUser != null)
+                throw new InvalidOperationException($"A session is already active for user '{_currentUser.Email}'.");
 
-            var session = new Session
+            _currentUser = user;
+        }
+
+        public static void ClearCurrentUser()
+        {
+            if (_currentUser == null)
+                throw new InvalidOperationException("No active session to clear.");
+
+            _currentUser = null;
+        }
+
+        public static bool HavePresistentUser()
+        {
+            var credential = new Credential { Target = "EaseStay.Session" };
+
+            if (!credential.Exists())
+                return false;
+
+            credential.Load();
+
+            if (string.IsNullOrWhiteSpace(credential.Username))
+                return false;
+
+            return true;
+        }
+
+        public static void SavePersistentUser()
+        {
+            var credential = new Credential
             {
-                Id = Guid.NewGuid(),
-
-                UserUUID = user.UUID,
-                FirstName = user.FirstName,
-                LastName = user.LastName,
-                Email = user.Email,
+                Target = "EaseStay.Session",
+                Username = _currentUser.UUID.ToString(),
+                PersistanceType = PersistanceType.LocalComputer
             };
 
-            _sessions[session.Id] = session;
+            credential.Save();
+        }
 
-            return session;
+        public static void DeletePersistentUser()
+        {
+            var credential = new Credential { Target = "EaseStay.Session" };
+            credential.Delete();
+        }
+
+        public static void LoadPresistentUser()
+        {
+            var credential = new Credential { Target = "EaseStay.Session" };
+
+            if (!credential.Exists())
+                throw new InvalidOperationException("No persisted session was found.");
+
+            credential.Load();
+
+            if (string.IsNullOrWhiteSpace(credential.Username))
+                throw new InvalidOperationException("No persisted session was found.");
+
+            var user = AuthService.GetUserByUUID(Guid.Parse(credential.Username));
+
+            if (user == null)
+                throw new InvalidOperationException($"No user was found with the stored UUID '{credential.Username}'.");
+
+            SetCurrentUser(user);
         }
     }
 }

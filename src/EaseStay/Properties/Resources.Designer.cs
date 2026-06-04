@@ -61,6 +61,33 @@ namespace EaseStay.Properties {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;pt&quot;&gt;
+        ///&lt;head&gt;
+        ///    &lt;meta http-serif=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
+        ///    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+        ///    &lt;title&gt;E-mail EaseStay&lt;/title&gt;
+        ///    &lt;style&gt;
+        ///        body, table, td, p, h1, h3 {
+        ///            font-family: &apos;Segoe UI&apos;, Arial, sans-serif !important;
+        ///        }
+        ///
+        ///        p, h1, h3 {
+        ///            margin: 0;
+        ///        }
+        ///    &lt;/style&gt;
+        ///&lt;/head&gt;
+        ///&lt;body style=&quot;margin: 0; padding: 30px; background-color: #FAFAFA;&quot;&gt;
+        ///
+        ///    &lt;table width=&quot;10 [o restante da cadeia de caracteres foi truncado]&quot;;.
+        /// </summary>
+        internal static string accountRecoveryEmailTemplate {
+            get {
+                return ResourceManager.GetString("accountRecoveryEmailTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Auth_Image {

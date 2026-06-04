@@ -22,7 +22,7 @@ namespace EaseStay.Controller.Auth
             };
         }
 
-        public void OnCreate(Navigator navigator)
+        public void OnCreate(Navigator navigator, object[] args)
         {
             var view = (RegisterView)View;
 
@@ -88,7 +88,7 @@ namespace EaseStay.Controller.Auth
         {
             var view = (RegisterView)View;
 
-            if (!EmailService.CheckEmail(view.Email))
+            if (!EmailService.IsValidEmail(view.Email))
                 view.MarkInvalidEmail();
 
             if (string.IsNullOrWhiteSpace(view.FirstName))

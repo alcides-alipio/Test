@@ -14,6 +14,21 @@
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -225,8 +240,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\Auth\ChangePasswordController.cs" />
+    <Compile Include="Controller\Auth\CheckEmailAccountController.cs" />
+    <Compile Include="Controller\Auth\FindAccountController.cs" />
     <Compile Include="Controller\Auth\RegisterController.cs" />
     <Compile Include="Controller\Auth\LoginController.cs" />
+    <Compile Include="Controller\Dashboard\DashboardController.cs" />
     <Compile Include="Core\Database\Database.cs" />
     <Compile Include="Core\Database\Builders\SqlInsertBuilder.cs" />
     <Compile Include="Core\Database\Builders\SqlSelectBuilder.cs" />
@@ -237,6 +256,7 @@
     <Compile Include="Core\Services\AuthService.cs" />
     <Compile Include="Core\Services\EmailService.cs" />
     <Compile Include="Core\Settings.cs" />
+    <Compile Include="Core\UI\Dialogs\MessageDialog.cs" />
     <Compile Include="Core\UI\Effects\BorderFlashEffect.cs" />
     <Compile Include="MainForm.cs" />
     <Compile Include="MainForm.Designer.cs">
@@ -247,6 +267,24 @@
     <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\Auth\ChangePasswordView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Auth\ChangePasswordView.Designer.cs">
+      <DependentUpon>ChangePasswordView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Auth\CheckEmailAccountView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Auth\CheckEmailAccountView.Designer.cs">
+      <DependentUpon>CheckEmailAccountView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Auth\FindAccountView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Auth\FindAccountView.Designer.cs">
+      <DependentUpon>FindAccountView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Auth\LoginView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -259,11 +297,29 @@
     <Compile Include="View\Auth\RegisterView.Designer.cs">
       <DependentUpon>RegisterView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Dashboard\DashboardView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Dashboard\DashboardView.Designer.cs">
+      <DependentUpon>DashboardView.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\Auth\ChangePasswordView.resx">
+      <DependentUpon>ChangePasswordView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Auth\CheckEmailAccountView.resx">
+      <DependentUpon>CheckEmailAccountView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Auth\FindAccountView.resx">
+      <DependentUpon>FindAccountView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Auth\LoginView.resx">
       <DependentUpon>LoginView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Auth\RegisterView.resx">
       <DependentUpon>RegisterView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Dashboard\DashboardView.resx">
+      <DependentUpon>DashboardView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Resources\Logo_128px.ico" />
     <None Include="Resources\Logout.png" />
@@ -299,6 +355,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Logo_128px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\accountRecoveryEmailTemplate.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 e x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

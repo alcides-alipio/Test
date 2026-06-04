@@ -15,6 +15,7 @@ namespace EaseStay.View.Auth
 
         public string Email => TBoxEmail.Text;
         public string Password => TBoxPassword.Text;
+        public bool RememberMe => CBoxRememberMe.Checked;
 
         private List<object> _invalidControls;
 
