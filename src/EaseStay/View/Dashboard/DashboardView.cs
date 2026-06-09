@@ -7,6 +7,8 @@ namespace EaseStay.View.Dashboard
     [ToolboxItem(false)]
     public partial class DashboardView : UserControl
     {
+        public event EventHandler ButtonExitClick;
+
         public string TextTest
         {
             get => LbTest.Text;
@@ -23,12 +25,6 @@ namespace EaseStay.View.Dashboard
                 newWidth = Math.Max(_sidebarMinWidth, newWidth);
                 TblColumnsLayout.ColumnStyles[0].Width = newWidth;
             }
-        }
-
-        public string Username
-        {
-            get => LbUsername.Text;
-            set => LbUsername.Text = value;
         }
 
         private float _sidebarMaxWidth = 900f;
@@ -71,5 +67,8 @@ namespace EaseStay.View.Dashboard
 
             TblColumnsLayout.ColumnStyles[0].Width = newWidth;
         }
+
+        private void BtnExit_Click(object sender, EventArgs e) =>
+            ButtonExitClick?.Invoke(this, EventArgs.Empty);
     }
 }

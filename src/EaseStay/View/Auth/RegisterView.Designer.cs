@@ -218,7 +218,7 @@
             // TBoxEmail
             // 
             this.TBoxEmail.BackColor = System.Drawing.SystemColors.Control;
-            this.TBoxEmail.BorderRadius = 6;
+            this.TBoxEmail.CornerRadius = 6;
             this.TBoxEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TBoxEmail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -232,7 +232,7 @@
             // TBoxPassword
             // 
             this.TBoxPassword.BackColor = System.Drawing.SystemColors.Control;
-            this.TBoxPassword.BorderRadius = 6;
+            this.TBoxPassword.CornerRadius = 6;
             this.TBoxPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TBoxPassword.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -246,7 +246,7 @@
             // 
             // BtnRegister
             // 
-            this.BtnRegister.BorderRadius = 4;
+            this.BtnRegister.CornerRadius = 4;
             this.BtnRegister.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnRegister.Location = new System.Drawing.Point(56, 252);
             this.BtnRegister.Name = "BtnRegister";
@@ -274,7 +274,7 @@
             // TBoxFirstName
             // 
             this.TBoxFirstName.BackColor = System.Drawing.SystemColors.Control;
-            this.TBoxFirstName.BorderRadius = 8;
+            this.TBoxFirstName.CornerRadius = 8;
             this.TBoxFirstName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TBoxFirstName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TBoxFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -288,7 +288,7 @@
             // TBoxLastName
             // 
             this.TBoxLastName.BackColor = System.Drawing.SystemColors.Control;
-            this.TBoxLastName.BorderRadius = 8;
+            this.TBoxLastName.CornerRadius = 8;
             this.TBoxLastName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TBoxLastName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TBoxLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -302,7 +302,7 @@
             // TBoxConfirmPassword
             // 
             this.TBoxConfirmPassword.BackColor = System.Drawing.SystemColors.Control;
-            this.TBoxConfirmPassword.BorderRadius = 8;
+            this.TBoxConfirmPassword.CornerRadius = 8;
             this.TBoxConfirmPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TBoxConfirmPassword.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TBoxConfirmPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -344,8 +344,6 @@
             // 
             // LkLbLogin
             // 
-            this.LkLbLogin.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.LkLbLogin.BorderThickness = 1;
             this.LkLbLogin.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.LkLbLogin.Location = new System.Drawing.Point(201, 3);
             this.LkLbLogin.Name = "LkLbLogin";

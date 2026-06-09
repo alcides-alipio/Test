@@ -81,8 +81,8 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
-    <Reference Include="StylizedComponents, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\StylizedComponents.1.4.0\lib\net472\StylizedComponents.dll</HintPath>
+    <Reference Include="StylizedComponents, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\StylizedComponents.2.0.0\lib\net472\StylizedComponents.dll</HintPath>
     </Reference>
     <Reference Include="Superpower, Version=1.0.0.0, Culture=neutral, PublicKeyToken=aec39280ded1b3a7, processorArchitecture=MSIL">
       <HintPath>packages\Superpower.3.2.1\lib\netstandard2.0\Superpower.dll</HintPath>

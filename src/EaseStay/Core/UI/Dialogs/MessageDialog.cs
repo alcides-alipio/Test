@@ -9,7 +9,15 @@ namespace EaseStay.Core.UI.Dialogs
             MessageBox.Show(
                 message, title,
                 MessageBoxButtons.OK,
-                MessageBoxIcon.Error );
+                MessageBoxIcon.Error);
+        }
+
+        public static void Warning(string message, string title)
+        {
+            MessageBox.Show(
+                message, title,
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Warning);
         }
 
         internal static void Success(string message, string title)

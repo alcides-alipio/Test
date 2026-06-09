@@ -12,7 +12,6 @@ namespace EaseStay.Controller.Dashboard
 
         private Navigator _navigator;
         private readonly DashboardView _view;
-        public Timer _timer;
 
         public DashboardController()
         {
@@ -20,7 +19,6 @@ namespace EaseStay.Controller.Dashboard
             {
                 Dock = DockStyle.Fill
             };
-            _timer = new Timer();
         }
 
         public void OnCreate(Navigator navigator, object[] args)
@@ -28,26 +26,28 @@ namespace EaseStay.Controller.Dashboard
             if (args != null)
                 throw new ArgumentException("DashboardController does not accept any arguments.");
 
+            _view.ButtonExitClick += View_ButtonExitClick;
+
             _navigator = navigator;
-            _timer.Interval = 600;
-            _timer.Tick += Timer_Tick;
-            _timer.Start();
-
-            _view.Username = SessionManager.CurrentUser.FirstName + " " + SessionManager.CurrentUser.LastName;
-        }
-
-        private void Timer_Tick(object sender, EventArgs e)
-        {
-            _view.TextTest = _view.SidebarWidth.ToString("F2");
         }
 
         public void OnDestroy()
         {
-            _timer.Stop();
-            _timer.Dispose();
+            _view.ButtonExitClick -= View_ButtonExitClick;
 
             _navigator = null;
-            _timer = null;
         }
+
+        #region Event Funcs
+        
+        private void View_ButtonExitClick(object sender, EventArgs e)
+        {
+            SessionManager.ClearCurrentUser();
+            SessionManager.DeletePersistentUser();
+
+            _navigator.Navigate("auth/login");
+        }
+
+        #endregion
     }
 }

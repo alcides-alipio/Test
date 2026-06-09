@@ -213,7 +213,7 @@
             // TBoxEmail
             // 
             this.TBoxEmail.BackColor = System.Drawing.SystemColors.Control;
-            this.TBoxEmail.BorderRadius = 6;
+            this.TBoxEmail.CornerRadius = 6;
             this.TBoxEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TBoxEmail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -227,7 +227,7 @@
             // TBoxPassword
             // 
             this.TBoxPassword.BackColor = System.Drawing.SystemColors.Control;
-            this.TBoxPassword.BorderRadius = 6;
+            this.TBoxPassword.CornerRadius = 6;
             this.TBoxPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TBoxPassword.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -269,8 +269,6 @@
             // 
             // LkLbRecoverAccount
             // 
-            this.LkLbRecoverAccount.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.LkLbRecoverAccount.BorderThickness = 1;
             this.LkLbRecoverAccount.HoverFilterStrength = 0.25F;
             this.LkLbRecoverAccount.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.LkLbRecoverAccount.Location = new System.Drawing.Point(144, 3);
@@ -282,7 +280,7 @@
             // 
             // BtnLogin
             // 
-            this.BtnLogin.BorderRadius = 4;
+            this.BtnLogin.CornerRadius = 4;
             this.BtnLogin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnLogin.HoverFilterStrength = 0.2F;
             this.BtnLogin.Location = new System.Drawing.Point(56, 195);
@@ -322,8 +320,6 @@
             // 
             // LkLbRegister
             // 
-            this.LkLbRegister.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.LkLbRegister.BorderThickness = 1;
             this.LkLbRegister.HoverFilterStrength = 0.25F;
             this.LkLbRegister.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.LkLbRegister.Location = new System.Drawing.Point(198, 3);

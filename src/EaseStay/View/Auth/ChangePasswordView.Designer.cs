@@ -142,7 +142,7 @@
             // TBoxConfirmPassword
             // 
             this.TBoxConfirmPassword.BackColor = System.Drawing.SystemColors.Control;
-            this.TBoxConfirmPassword.BorderRadius = 8;
+            this.TBoxConfirmPassword.CornerRadius = 8;
             this.TBoxConfirmPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TBoxConfirmPassword.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TBoxConfirmPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -173,7 +173,7 @@
             // 
             // BtnChangePassword
             // 
-            this.BtnChangePassword.BorderRadius = 4;
+            this.BtnChangePassword.CornerRadius = 4;
             this.BtnChangePassword.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnChangePassword.Location = new System.Drawing.Point(135, 3);
             this.BtnChangePassword.Name = "BtnChangePassword";
@@ -185,9 +185,10 @@
             // BtnCancel
             // 
             this.BtnCancel.BackColor = System.Drawing.Color.White;
-            this.BtnCancel.BorderRadius = 4;
             this.BtnCancel.BorderThickness = 1;
+            this.BtnCancel.CornerRadius = 4;
             this.BtnCancel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnCancel.FillColor = System.Drawing.Color.White;
             this.BtnCancel.ForeColor = System.Drawing.Color.Black;
             this.BtnCancel.Location = new System.Drawing.Point(3, 3);
             this.BtnCancel.Name = "BtnCancel";
@@ -199,7 +200,7 @@
             // TBoxPassword
             // 
             this.TBoxPassword.BackColor = System.Drawing.SystemColors.Control;
-            this.TBoxPassword.BorderRadius = 8;
+            this.TBoxPassword.CornerRadius = 8;
             this.TBoxPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TBoxPassword.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);

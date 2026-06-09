@@ -134,7 +134,7 @@
             // 
             // TBoxEmail
             // 
-            this.TBoxEmail.BorderRadius = 4;
+            this.TBoxEmail.CornerRadius = 4;
             this.TBoxEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TBoxEmail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -164,7 +164,7 @@
             // 
             // BtnFind
             // 
-            this.BtnFind.BorderRadius = 4;
+            this.BtnFind.CornerRadius = 4;
             this.BtnFind.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnFind.Location = new System.Drawing.Point(135, 3);
             this.BtnFind.Name = "BtnFind";
@@ -176,9 +176,10 @@
             // BtnCancel
             // 
             this.BtnCancel.BackColor = System.Drawing.Color.White;
-            this.BtnCancel.BorderRadius = 4;
             this.BtnCancel.BorderThickness = 1;
+            this.BtnCancel.CornerRadius = 4;
             this.BtnCancel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnCancel.FillColor = System.Drawing.Color.White;
             this.BtnCancel.ForeColor = System.Drawing.Color.Black;
             this.BtnCancel.Location = new System.Drawing.Point(3, 3);
             this.BtnCancel.Name = "BtnCancel";

@@ -34,12 +34,16 @@
             this.TblLogoLayout = new System.Windows.Forms.TableLayoutPanel();
             this.LbAppName = new System.Windows.Forms.Label();
             this.PBoxAppLogo = new System.Windows.Forms.PictureBox();
+            this.TblBtnExitLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.PBoxBtnExit = new System.Windows.Forms.PictureBox();
+            this.LbBtnExit = new System.Windows.Forms.Label();
             this.LbTest = new System.Windows.Forms.Label();
-            this.LbUsername = new System.Windows.Forms.Label();
             this.TblColumnsLayout.SuspendLayout();
             this.TblNavLayout.SuspendLayout();
             this.TblLogoLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBoxAppLogo)).BeginInit();
+            this.TblBtnExitLayout.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PBoxBtnExit)).BeginInit();
             this.SuspendLayout();
             // 
             // TblColumnsLayout
@@ -58,7 +62,7 @@
             this.TblColumnsLayout.Name = "TblColumnsLayout";
             this.TblColumnsLayout.RowCount = 1;
             this.TblColumnsLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.TblColumnsLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.TblColumnsLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 512F));
             this.TblColumnsLayout.Size = new System.Drawing.Size(768, 512);
             this.TblColumnsLayout.TabIndex = 0;
             // 
@@ -81,14 +85,15 @@
             this.TblNavLayout.ColumnCount = 1;
             this.TblNavLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.TblNavLayout.Controls.Add(this.TblLogoLayout, 0, 0);
-            this.TblNavLayout.Controls.Add(this.LbUsername, 0, 1);
+            this.TblNavLayout.Controls.Add(this.TblBtnExitLayout, 0, 2);
             this.TblNavLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TblNavLayout.Location = new System.Drawing.Point(0, 0);
             this.TblNavLayout.Margin = new System.Windows.Forms.Padding(0);
             this.TblNavLayout.Name = "TblNavLayout";
-            this.TblNavLayout.RowCount = 2;
+            this.TblNavLayout.RowCount = 3;
             this.TblNavLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.TblNavLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.TblNavLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.TblNavLayout.Size = new System.Drawing.Size(150, 512);
             this.TblNavLayout.TabIndex = 2;
             // 
@@ -133,6 +138,49 @@
             this.PBoxAppLogo.TabIndex = 1;
             this.PBoxAppLogo.TabStop = false;
             // 
+            // TblBtnExitLayout
+            // 
+            this.TblBtnExitLayout.AutoSize = true;
+            this.TblBtnExitLayout.ColumnCount = 3;
+            this.TblBtnExitLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.TblBtnExitLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.TblBtnExitLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.TblBtnExitLayout.Controls.Add(this.PBoxBtnExit, 0, 0);
+            this.TblBtnExitLayout.Controls.Add(this.LbBtnExit, 1, 0);
+            this.TblBtnExitLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TblBtnExitLayout.Location = new System.Drawing.Point(3, 479);
+            this.TblBtnExitLayout.Name = "TblBtnExitLayout";
+            this.TblBtnExitLayout.RowCount = 1;
+            this.TblBtnExitLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.TblBtnExitLayout.Size = new System.Drawing.Size(144, 30);
+            this.TblBtnExitLayout.TabIndex = 3;
+            this.TblBtnExitLayout.Click += new System.EventHandler(this.BtnExit_Click);
+            // 
+            // PBoxBtnExit
+            // 
+            this.PBoxBtnExit.Image = global::EaseStay.Properties.Resources.Logout;
+            this.PBoxBtnExit.Location = new System.Drawing.Point(3, 3);
+            this.PBoxBtnExit.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
+            this.PBoxBtnExit.Name = "PBoxBtnExit";
+            this.PBoxBtnExit.Size = new System.Drawing.Size(24, 24);
+            this.PBoxBtnExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.PBoxBtnExit.TabIndex = 0;
+            this.PBoxBtnExit.TabStop = false;
+            this.PBoxBtnExit.Click += new System.EventHandler(this.BtnExit_Click);
+            // 
+            // LbBtnExit
+            // 
+            this.LbBtnExit.AutoSize = true;
+            this.LbBtnExit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LbBtnExit.Location = new System.Drawing.Point(27, 3);
+            this.LbBtnExit.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.LbBtnExit.Name = "LbBtnExit";
+            this.LbBtnExit.Size = new System.Drawing.Size(37, 24);
+            this.LbBtnExit.TabIndex = 1;
+            this.LbBtnExit.Text = "Sair";
+            this.LbBtnExit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.LbBtnExit.Click += new System.EventHandler(this.BtnExit_Click);
+            // 
             // LbTest
             // 
             this.LbTest.AutoSize = true;
@@ -141,15 +189,6 @@
             this.LbTest.Size = new System.Drawing.Size(51, 20);
             this.LbTest.TabIndex = 4;
             this.LbTest.Text = "label1";
-            // 
-            // LbUsername
-            // 
-            this.LbUsername.AutoSize = true;
-            this.LbUsername.Location = new System.Drawing.Point(3, 42);
-            this.LbUsername.Name = "LbUsername";
-            this.LbUsername.Size = new System.Drawing.Size(51, 20);
-            this.LbUsername.TabIndex = 1;
-            this.LbUsername.Text = "label1";
             // 
             // DashboardView
             // 
@@ -165,6 +204,9 @@
             this.TblLogoLayout.ResumeLayout(false);
             this.TblLogoLayout.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBoxAppLogo)).EndInit();
+            this.TblBtnExitLayout.ResumeLayout(false);
+            this.TblBtnExitLayout.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PBoxBtnExit)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -178,6 +220,8 @@
         private System.Windows.Forms.Label LbAppName;
         private System.Windows.Forms.PictureBox PBoxAppLogo;
         private System.Windows.Forms.Label LbTest;
-        private System.Windows.Forms.Label LbUsername;
+        private System.Windows.Forms.TableLayoutPanel TblBtnExitLayout;
+        private System.Windows.Forms.PictureBox PBoxBtnExit;
+        private System.Windows.Forms.Label LbBtnExit;
     }
 }

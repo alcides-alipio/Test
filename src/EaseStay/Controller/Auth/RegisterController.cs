@@ -1,5 +1,6 @@
 ﻿using EaseStay.Core;
 using EaseStay.Core.Services;
+using EaseStay.Core.UI.Dialogs;
 using EaseStay.Model;
 using EaseStay.View.Auth;
 using System;
@@ -100,6 +101,8 @@ namespace EaseStay.Controller.Auth
             {
                 _view.MarkInvalidPassword();
                 _view.MarkInvalidConfirmPassword();
+
+                MessageDialog.Warning("As passwords não correspondem!", "Aviso");
             }
 
             if (!AuthService.IsValidPassword(_view.Password))
