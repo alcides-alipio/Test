@@ -17,6 +17,7 @@ namespace EaseStay
         static void Main()
         {
             Settings.LoadSettings();
+            Settings.ConfigDatabase();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

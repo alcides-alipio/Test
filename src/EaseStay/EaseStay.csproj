@@ -50,8 +50,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>Resources\Logo_128px.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup />
@@ -81,8 +80,8 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
-    <Reference Include="StylizedComponents, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\StylizedComponents.2.0.0\lib\net472\StylizedComponents.dll</HintPath>
+    <Reference Include="StylizedComponents, Version=1.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\StylizedComponents.1.5.1\lib\net472\StylizedComponents.dll</HintPath>
     </Reference>
     <Reference Include="Superpower, Version=1.0.0.0, Culture=neutral, PublicKeyToken=aec39280ded1b3a7, processorArchitecture=MSIL">
       <HintPath>packages\Superpower.3.2.1\lib\netstandard2.0\Superpower.dll</HintPath>
@@ -246,6 +245,7 @@
     <Compile Include="Controller\Auth\RegisterController.cs" />
     <Compile Include="Controller\Auth\LoginController.cs" />
     <Compile Include="Controller\Dashboard\DashboardController.cs" />
+    <Compile Include="Core\Database\Builders\SqlCreateBuilder.cs" />
     <Compile Include="Core\Database\Database.cs" />
     <Compile Include="Core\Database\Builders\SqlInsertBuilder.cs" />
     <Compile Include="Core\Database\Builders\SqlSelectBuilder.cs" />

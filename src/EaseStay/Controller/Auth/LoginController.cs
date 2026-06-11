@@ -26,9 +26,11 @@ namespace EaseStay.Controller.Auth
         {
             if (SessionManager.HasPresistentUser())
             {
-                SessionManager.LoadPresistentUser();
-                navigator.Navigate("dashboard");
-                return;
+                if (SessionManager.LoadPresistentUser())
+                {
+                    navigator.Navigate("dashboard");
+                    return;
+                }
             }
 
             _view.LoginButtonClicked += View_LoginButtonClicked;

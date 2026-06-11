@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 
-namespace EaseStay.Core.Database
+namespace EaseStay.Core.Database.Builders
 {
     internal class SqlUpdateBuilder
     {

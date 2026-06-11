@@ -1,7 +1,9 @@
 ﻿using CredentialManagement;
 using EaseStay.Core.Services;
+using EaseStay.Core.UI.Dialogs;
 using EaseStay.Model;
 using System;
+using System.Windows.Forms;
 
 namespace EaseStay.Core.Managers
 {
@@ -72,7 +74,7 @@ namespace EaseStay.Core.Managers
             credential.Delete();
         }
 
-        public static void LoadPresistentUser()
+        public static bool LoadPresistentUser()
         {
             if (!HasPresistentUser())
                 throw new InvalidOperationException("No persisted session to load.");
@@ -82,9 +84,16 @@ namespace EaseStay.Core.Managers
 
             var user = AuthService.GetUserByUUID(Guid.Parse(credential.Username));
             if (user == null)
-                throw new InvalidOperationException($"No user was found with the stored UUID '{credential.Username}'.");
+            {
+
+                MessageDialog.Warning("Foi encontrada uma sessão persistente inválida que será apagada.\nSerá necessário fazer login novamente.", "Sessão Invalida");
+                DeletePersistentUser();
+                return false;
+
+            }
 
             SetCurrentUser(user);
+            return true;
         }
     }
 }

@@ -12,6 +12,14 @@ namespace EaseStay.Core.UI.Dialogs
                 MessageBoxIcon.Error);
         }
 
+        public static DialogResult ErrorQuestion(string message, string title)
+        {
+            return MessageBox.Show(
+                message, title,
+                MessageBoxButtons.YesNoCancel,
+                MessageBoxIcon.Error);
+        }
+
         public static void Warning(string message, string title)
         {
             MessageBox.Show(

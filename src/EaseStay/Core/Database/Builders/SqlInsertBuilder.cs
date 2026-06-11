@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Data.SqlClient;
 
-namespace EaseStay.Core.Database
+namespace EaseStay.Core.Database.Builders
 {
     internal class SqlInsertBuilder
     {
