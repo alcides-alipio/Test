@@ -16,9 +16,29 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.301"
+
+      - name: Restore project
+        run: dotnet restore ./src/EaseStay/EaseStay.sln
+
+      - name: Build project
+        run: dotnet build ./src/EaseStay/EaseStay.sln --configuration Release --no-restore
+
+      - name: Publish project
+        run: dotnet publish ./src/EaseStay/EaseStay.sln -c Release -o ./publish
+
+      - name: Zip publish folder
+        run: |
+          cd publish
+          zip -r ../app.zip .
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ github.ref_name }}
           name: Release ${{ github.ref_name }}
           generate_release_notes: true
+          files: app.zip
