@@ -32,7 +32,7 @@ jobs:
 
       - name: Zip publish folder
         run: |
-          cd publish
+          cd dist
           zip -r ../app.zip .
 
       - name: Create GitHub Release
