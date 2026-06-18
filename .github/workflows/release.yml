@@ -22,13 +22,13 @@ jobs:
           dotnet-version: "8.0.x"
 
       - name: Restore project
-        run: dotnet restore ./src/EaseStay/EaseStay.sln
+        run: dotnet restore ./src/EaseStay/EaseStay.csproj
 
       - name: Build project
-        run: dotnet build ./src/EaseStay/EaseStay.sln --configuration Release --no-restore
+        run: dotnet build ./src/EaseStay/EaseStay.csproj --configuration Release --no-restore
 
       - name: Publish project
-        run: dotnet publish ./src/EaseStay/EaseStay.sln -c Release -o ./publish
+        run: dotnet publish ./src/EaseStay/EaseStay.csproj -c Release -o ./dist
 
       - name: Zip publish folder
         run: |
