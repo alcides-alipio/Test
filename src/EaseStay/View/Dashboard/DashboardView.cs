@@ -1,11 +1,15 @@
-﻿using System;
+﻿using EaseStay.Core.Domain.Enums;
+using EaseStay.Core.UI.Extensions;
+using StylizedComponents.Controls;
+using System;
 using System.ComponentModel;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace EaseStay.View.Dashboard
 {
     [ToolboxItem(false)]
-    public partial class DashboardView : UserControl
+    internal partial class DashboardView : UserControl
     {
         public event EventHandler ButtonExitClick;
 
@@ -28,9 +32,26 @@ namespace EaseStay.View.Dashboard
         private int _startMouseX;
         private float _startNavWidth;
 
-        public DashboardView()
+        public DashboardView(DashboardNavButtons selectedButton)
         {
             InitializeComponent();
+
+            static void SelectButton(StylizedButton control)
+            {
+                control.ForeColor = Color.MediumBlue;
+                control.FillColor = Color.FromArgb(216, 216, 237);
+                control.HoverFilterStrength = 0;
+
+                string iconName = control.GetTagValue("IconName");
+                control.Icon = (Image)Properties.Resources.ResourceManager.GetObject($"{iconName}_MediumBlue");
+            }
+
+            SelectButton(selectedButton switch
+            {
+                DashboardNavButtons.HOME => BtnHome,
+                DashboardNavButtons.PROFILE => BtnProfile,
+                _ => throw new NotImplementedException()
+            });
         }
 
         private void PnDragResize_MouseDown(object sender, MouseEventArgs e)

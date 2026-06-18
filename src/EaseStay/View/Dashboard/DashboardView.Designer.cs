@@ -36,9 +36,9 @@
             this.PBoxAppLogo = new System.Windows.Forms.PictureBox();
             this.BtnExit = new StylizedComponents.Controls.StylizedButton();
             this.FwPnNavButtonsLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.BtnHome = new StylizedComponents.Controls.StylizedButton();
             this.label2 = new System.Windows.Forms.Label();
             this.BtnProfile = new StylizedComponents.Controls.StylizedButton();
-            this.BtnHome = new StylizedComponents.Controls.StylizedButton();
             this.TblColumnsLayout.SuspendLayout();
             this.TblNavLayout.SuspendLayout();
             this.TblLogoLayout.SuspendLayout();
@@ -140,6 +140,7 @@
             // 
             // BtnExit
             // 
+            this.BtnExit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnExit.FillColor = System.Drawing.SystemColors.Control;
             this.BtnExit.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.BtnExit.ForeColor = System.Drawing.Color.Black;
@@ -175,6 +176,25 @@
             this.FwPnNavButtonsLayout.TabIndex = 4;
             this.FwPnNavButtonsLayout.Paint += new System.Windows.Forms.PaintEventHandler(this.FwPnNavButtonsLayout_Paint);
             // 
+            // BtnHome
+            // 
+            this.BtnHome.CornerRadius = 4;
+            this.BtnHome.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnHome.FillColor = System.Drawing.SystemColors.Control;
+            this.BtnHome.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.BtnHome.ForeColor = System.Drawing.Color.Black;
+            this.BtnHome.HoverFilterStrength = 0.1F;
+            this.BtnHome.Icon = global::EaseStay.Properties.Resources.Home_Black;
+            this.BtnHome.IconAlign = StylizedComponents.Core.models.IconAlignment.Left;
+            this.BtnHome.IconSize = new System.Drawing.Size(25, 25);
+            this.BtnHome.Location = new System.Drawing.Point(3, 3);
+            this.BtnHome.Name = "BtnHome";
+            this.BtnHome.Size = new System.Drawing.Size(132, 35);
+            this.BtnHome.TabIndex = 3;
+            this.BtnHome.Tag = "IconName=Home;";
+            this.BtnHome.Text = "Inicio";
+            this.BtnHome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -203,25 +223,6 @@
             this.BtnProfile.Tag = "IconName=Person;";
             this.BtnProfile.Text = "Perfil";
             this.BtnProfile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // BtnHome
-            // 
-            this.BtnHome.CornerRadius = 4;
-            this.BtnHome.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnHome.FillColor = System.Drawing.SystemColors.Control;
-            this.BtnHome.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.BtnHome.ForeColor = System.Drawing.Color.Black;
-            this.BtnHome.HoverFilterStrength = 0.1F;
-            this.BtnHome.Icon = global::EaseStay.Properties.Resources.Home_Black;
-            this.BtnHome.IconAlign = StylizedComponents.Core.models.IconAlignment.Left;
-            this.BtnHome.IconSize = new System.Drawing.Size(25, 25);
-            this.BtnHome.Location = new System.Drawing.Point(3, 3);
-            this.BtnHome.Name = "BtnHome";
-            this.BtnHome.Size = new System.Drawing.Size(132, 35);
-            this.BtnHome.TabIndex = 3;
-            this.BtnHome.Tag = "IconName=Home;";
-            this.BtnHome.Text = "Inicio";
-            this.BtnHome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // DashboardView
             // 
