@@ -65,7 +65,7 @@
             // PBoxAuth
             // 
             this.PBoxAuth.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PBoxAuth.Image = global::EaseStay.Properties.Resources.Auth_Image;
+            this.PBoxAuth.Image = global::EaseStay.Properties.Resources.Auth;
             this.PBoxAuth.Location = new System.Drawing.Point(384, 0);
             this.PBoxAuth.Margin = new System.Windows.Forms.Padding(0);
             this.PBoxAuth.Name = "PBoxAuth";

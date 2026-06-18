@@ -1,7 +1,7 @@
-﻿using EaseStay.Core;
+﻿using EaseStay.Core.Managers;
 using EaseStay.Core.Services;
 using EaseStay.Core.UI.Dialogs;
-using EaseStay.Model;
+using EaseStay.Core.Database.Models;
 using EaseStay.View.Auth;
 using System;
 using System.Windows.Forms;
@@ -46,22 +46,17 @@ namespace EaseStay.Controller.Auth
             if (!ValidateInputs())
                 return;
 
-            User user = AuthService.GetUserByEmail(_view.Email);
+            UserModel user = AuthService.GetUserByEmail(_view.Email);
 
             if (user != null)
             {
-                MessageBox.Show(
-                    "Email já cadastrado.",
-                    "Erro",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                );
+                MessageDialog.ShowWarning("Email já cadastrado.");
                 return;
             }
 
             string passwordHash = BCrypt.Net.BCrypt.HashPassword(_view.Password);
 
-            user = new User(
+            user = new UserModel(
                 _view.Email,
                 _view.FirstName,
                 _view.LastName,
@@ -102,7 +97,7 @@ namespace EaseStay.Controller.Auth
                 _view.MarkInvalidPassword();
                 _view.MarkInvalidConfirmPassword();
 
-                MessageDialog.Warning("As passwords não correspondem!", "Aviso");
+                MessageDialog.ShowWarning("As passwords não correspondem!", "Aviso");
             }
 
             if (!AuthService.IsValidPassword(_view.Password))

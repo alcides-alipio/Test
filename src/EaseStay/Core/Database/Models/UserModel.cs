@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace EaseStay.Model
+namespace EaseStay.Core.Database.Models
 {
-    internal class User
+    internal class UserModel
     {
         public Guid UUID { get; private set; }
         public string Email { get; set; }
@@ -11,7 +11,7 @@ namespace EaseStay.Model
         public string LastName { get; set; }
         public string PasswordHash { get; set; }
 
-        public User(string email, string firstName, string lastName, string passwordHash)
+        public UserModel(string email, string firstName, string lastName, string passwordHash)
         {
             UUID = Guid.NewGuid();
             Email = email;
@@ -21,7 +21,7 @@ namespace EaseStay.Model
             PasswordHash = passwordHash;
         }
 
-        public User(Guid uuid, string email, bool emailVerified, string firstName, string lastName, string passwordHash)
+        public UserModel(Guid uuid, string email, bool emailVerified, string firstName, string lastName, string passwordHash)
         {
             UUID = uuid;
             Email = email;

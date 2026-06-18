@@ -9,12 +9,6 @@ namespace EaseStay.View.Dashboard
     {
         public event EventHandler ButtonExitClick;
 
-        public string TextTest
-        {
-            get => LbTest.Text;
-            set => LbTest.Text = value;
-        }
-
         public float SidebarWidth
         {
             get => TblColumnsLayout.ColumnStyles[0].Width;
@@ -70,5 +64,10 @@ namespace EaseStay.View.Dashboard
 
         private void BtnExit_Click(object sender, EventArgs e) =>
             ButtonExitClick?.Invoke(this, EventArgs.Empty);
+
+        private void FwPnNavButtonsLayout_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

@@ -20,7 +20,7 @@ namespace EaseStay.Core.UI.Dialogs
                 MessageBoxIcon.Error);
         }
 
-        public static void Warning(string message, string title)
+        public static void ShowWarning(string message, string title = "Aviso")
         {
             MessageBox.Show(
                 message, title,

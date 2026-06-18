@@ -76,7 +76,7 @@
             // PBoxLogin
             // 
             this.PBoxLogin.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PBoxLogin.Image = global::EaseStay.Properties.Resources.Auth_Image;
+            this.PBoxLogin.Image = global::EaseStay.Properties.Resources.Auth;
             this.PBoxLogin.Location = new System.Drawing.Point(0, 0);
             this.PBoxLogin.Margin = new System.Windows.Forms.Padding(0);
             this.PBoxLogin.Name = "PBoxLogin";
@@ -129,7 +129,7 @@
             // PBoxImageLogo
             // 
             this.PBoxImageLogo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PBoxImageLogo.Image = global::EaseStay.Properties.Resources.Logo_128px;
+            this.PBoxImageLogo.Image = global::EaseStay.Properties.Resources.AppLogo;
             this.PBoxImageLogo.Location = new System.Drawing.Point(96, 3);
             this.PBoxImageLogo.Name = "PBoxImageLogo";
             this.PBoxImageLogo.Size = new System.Drawing.Size(180, 64);

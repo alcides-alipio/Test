@@ -79,7 +79,7 @@ namespace EaseStay.Properties {
         ///&lt;/head&gt;
         ///&lt;body style=&quot;margin: 0; padding: 30px; background-color: #FAFAFA;&quot;&gt;
         ///
-        ///    &lt;table width=&quot;10 [o restante da cadeia de caracteres foi truncado]&quot;;.
+        ///   [o restante da cadeia de caracteres foi truncado]&quot;;.
         /// </summary>
         internal static string accountRecoveryEmailTemplate {
             get {
@@ -90,9 +90,9 @@ namespace EaseStay.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Auth_Image {
+        internal static System.Drawing.Bitmap AppLogo {
             get {
-                object obj = ResourceManager.GetObject("Auth_Image", resourceCulture);
+                object obj = ResourceManager.GetObject("AppLogo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -100,29 +100,59 @@ namespace EaseStay.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Logo_128px {
+        internal static System.Drawing.Bitmap Auth {
             get {
-                object obj = ResourceManager.GetObject("Logo_128px", resourceCulture);
+                object obj = ResourceManager.GetObject("Auth", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Icon semelhante a (Ícone).
-        /// </summary>
-        internal static System.Drawing.Icon Logo_128px1 {
-            get {
-                object obj = ResourceManager.GetObject("Logo_128px1", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
             }
         }
         
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Logout {
+        internal static System.Drawing.Bitmap Home_Black {
             get {
-                object obj = ResourceManager.GetObject("Logout", resourceCulture);
+                object obj = ResourceManager.GetObject("Home_Black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Home_MediumBlue {
+            get {
+                object obj = ResourceManager.GetObject("Home_MediumBlue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Logout_Black {
+            get {
+                object obj = ResourceManager.GetObject("Logout_Black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Person_Black {
+            get {
+                object obj = ResourceManager.GetObject("Person_Black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Person_MediumBlue {
+            get {
+                object obj = ResourceManager.GetObject("Person_MediumBlue", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

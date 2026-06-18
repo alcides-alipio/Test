@@ -1,4 +1,4 @@
-﻿using EaseStay.Core;
+﻿using EaseStay.Core.Managers;
 using EaseStay.Core.UI.Dialogs;
 using EaseStay.View.Auth;
 using System;

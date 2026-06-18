@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace EaseStay.Core
+namespace EaseStay.Core.Managers
 {
     internal class Navigator
     {

@@ -1,12 +1,11 @@
-﻿using EaseStay.Core;
-using EaseStay.Core.Database;
+﻿using EaseStay.Core.Database.Models;
 using System;
 
-namespace EaseStay.Model.Repository
+namespace EaseStay.Core.Database.Repositories
 {
     internal class UserRepository
     {
-        public User GetByEmail(string email)
+        public UserModel GetByEmail(string email)
         {
             Database db = new Database(Settings.DB_CONN);
 
@@ -18,7 +17,7 @@ namespace EaseStay.Model.Repository
             if (data.Count <= 0)
                 return null;
 
-            return new User
+            return new UserModel
             (
                 Guid.Parse(data[0]["UUID"].ToString()),
                 data[0]["Email"].ToString(),
@@ -29,7 +28,7 @@ namespace EaseStay.Model.Repository
             );
         }
 
-        public User GetByUUID(Guid userUUID)
+        public UserModel GetByUUID(Guid userUUID)
         {
             Database db = new Database(Settings.DB_CONN);
 
@@ -41,7 +40,7 @@ namespace EaseStay.Model.Repository
             if (data.Count <= 0)
                 return null;
 
-            return new User
+            return new UserModel
             (
                 Guid.Parse(data[0]["UUID"].ToString()),
                 data[0]["Email"].ToString(),
@@ -52,7 +51,7 @@ namespace EaseStay.Model.Repository
             );
         }
 
-        public void Add(User user)
+        public void Add(UserModel user)
         {
             Database db = new Database(Settings.DB_CONN);
 
@@ -62,7 +61,7 @@ namespace EaseStay.Model.Repository
                 .Execute();
         }
 
-        public void Update(User user)
+        public void Update(UserModel user)
         {
             if (user == null)
                 throw new ArgumentNullException(nameof(user));

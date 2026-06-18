@@ -1,5 +1,6 @@
-﻿using EaseStay.Core;
+﻿using EaseStay.Core.Managers;
 using EaseStay.Core.Services;
+using EaseStay.Core.UI.Dialogs;
 using EaseStay.View.Auth;
 using System;
 using System.Windows.Forms;
@@ -44,12 +45,15 @@ namespace EaseStay.Controller.Auth
         private void View_FindButtonClicked(object sender, EventArgs e)
         {
             if (!IsValidInputs())
+            {
+                MessageDialog.ShowWarning("Inputs invalidos!");
                 return;
+            }
 
             var user = AuthService.GetUserByEmail(_view.Email);
             if (user == null)
             {
-                MessageBox.Show("Utilizador não existe!");
+                MessageDialog.ShowWarning("Utilizador não existe!");
                 return;
             }
 

@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace EaseStay.Core
+namespace EaseStay.Core.Managers
 {
     internal interface INavigableController
     {

@@ -1,19 +1,18 @@
 ﻿using CredentialManagement;
 using EaseStay.Core.Services;
 using EaseStay.Core.UI.Dialogs;
-using EaseStay.Model;
+using EaseStay.Core.Database.Models;
 using System;
-using System.Windows.Forms;
 
 namespace EaseStay.Core.Managers
 {
     internal static class SessionManager
     {
-        private static User _currentUser = null;
+        private static UserModel _currentUser = null;
 
-        public static User CurrentUser { get => _currentUser; }
+        public static UserModel CurrentUser { get => _currentUser; }
 
-        public static void SetCurrentUser(User user)
+        public static void SetCurrentUser(UserModel user)
         {
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
@@ -86,7 +85,7 @@ namespace EaseStay.Core.Managers
             if (user == null)
             {
 
-                MessageDialog.Warning("Foi encontrada uma sessão persistente inválida que será apagada.\nSerá necessário fazer login novamente.", "Sessão Invalida");
+                MessageDialog.ShowWarning("Foi encontrada uma sessão persistente inválida que será apagada.\nSerá necessário fazer login novamente.", "Sessão Invalida");
                 DeletePersistentUser();
                 return false;
 

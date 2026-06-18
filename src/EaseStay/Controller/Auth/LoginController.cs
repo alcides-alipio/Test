@@ -1,9 +1,10 @@
 ﻿using EaseStay.Core;
 using EaseStay.Core.Managers;
 using EaseStay.Core.Services;
-using EaseStay.Model;
+using EaseStay.Core.Database.Models;
 using EaseStay.View.Auth;
 using System.Windows.Forms;
+using EaseStay.Core.UI.Dialogs;
 
 namespace EaseStay.Controller.Auth
 {
@@ -56,16 +57,16 @@ namespace EaseStay.Controller.Auth
             if (!ValidateInputs())
                 return;
 
-            User user = AuthService.GetUserByEmail(_view.Email);
+            UserModel user = AuthService.GetUserByEmail(_view.Email);
             if (user == null)
             {
-                MessageBox.Show("Email ou password inválidos.");
+                MessageDialog.ShowWarning("Email ou password inválidos.");
                 return;
             }
 
             if (!AuthService.VerifyPassword(_view.Password, user.PasswordHash))
             {
-                MessageBox.Show("Email ou password inválidos.");
+                MessageDialog.ShowWarning("Email ou password inválidos.");
                 return;
             }
 

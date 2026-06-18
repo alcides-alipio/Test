@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.PnRoot = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
@@ -36,6 +35,7 @@
             // 
             this.PnRoot.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PnRoot.Location = new System.Drawing.Point(0, 0);
+            this.PnRoot.Margin = new System.Windows.Forms.Padding(0);
             this.PnRoot.Name = "PnRoot";
             this.PnRoot.Size = new System.Drawing.Size(800, 450);
             this.PnRoot.TabIndex = 0;
@@ -46,7 +46,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.PnRoot);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "Form1";
             this.ResumeLayout(false);

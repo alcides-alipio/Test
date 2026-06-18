@@ -1,5 +1,5 @@
-﻿using EaseStay.Model.Repository;
-using EaseStay.Model;
+﻿using EaseStay.Core.Database.Repositories;
+using EaseStay.Core.Database.Models;
 using System;
 
 namespace EaseStay.Core.Services
@@ -30,7 +30,7 @@ namespace EaseStay.Core.Services
             return BCrypt.Net.BCrypt.Verify(password, passwordHash);
         }
 
-        public static void ChangePassword(User user, string newPassword)
+        public static void ChangePassword(UserModel user, string newPassword)
         {
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
@@ -44,19 +44,19 @@ namespace EaseStay.Core.Services
             repo.Update(user);
         }
 
-        public static User GetUserByEmail(string email)
+        public static UserModel GetUserByEmail(string email)
         {
             UserRepository repo = new UserRepository();
             return repo.GetByEmail(email);
         }
 
-        public static User GetUserByUUID(Guid userUUID)
+        public static UserModel GetUserByUUID(Guid userUUID)
         {
             UserRepository repo = new UserRepository();
             return repo.GetByUUID(userUUID);
         }
 
-        public static void RegisterUser(User user)
+        public static void RegisterUser(UserModel user)
         {
             UserRepository repo = new UserRepository();
             repo.Add(user);
